@@ -72,7 +72,33 @@
   </info>
   <notepads>
   </notepads>
+  <connection>
+    <name>prevdb_localhost</name>
+    <server>localhost</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>prevdb</database>
+    <port>5432</port>
+    <username>prevdb_user</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10ce80aacc</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
   <order>
+  <hop> <from>CSV file input</from><to>Select values</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select values</from><to>Table output</to><enabled>N</enabled> </hop>
   </order>
   <step>
     <name>CSV file input</name>
@@ -85,7 +111,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <filename/>
+    <filename>&#x2f;home&#x2f;andre&#x2f;tmp&#x2f;phd&#x2f;dataset_prev&#x2f;dataset&#x2f;PENSAO.CSV</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -100,12 +126,2300 @@
     <encoding/>
     <fields>
       <field>
-        <name>field</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <name>QTE_PENSOES_GERADAS</name>
+        <type>Integer</type>
+        <format>&#x23;</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>IDADE_SEGURADO1</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>IDADE_SEGURADO2</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>IDADE_SEGURADO3</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>IDADE_SEGURADO4</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>IDADE_SEGURADO5</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>IDADE_SEGURADO6</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>IDADE_SEGURADO7</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>IDADE_SEGURADO8</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>IDADE_SEGURADO9</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>IDADE_SEGURADO10</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>IDADE_SEGURADO11</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>IDADE_SEGURADO12</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>IDADE_SEGURADO13</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>DT_DCB_D1</name>
+        <type>Date</type>
+        <format>dd&#x2f;MM&#x2f;yyyy</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>DT_DCB_D2</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>DT_DCB_D3</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>DT_DCB_D4</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>DT_DCB_D5</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>DT_DCB_D6</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>DT_DCB_D7</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>DT_DCB_D8</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>DT_DCB_D9</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>DT_DCB_D10</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>DT_DCB_D11</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>DT_DCB_D12</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>DT_DCB_D13</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>MOTIVO1</name>
+        <type>Integer</type>
+        <format>&#x23;</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>MOTIVO2</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>MOTIVO3</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>MOTIVO4</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>MOTIVO5</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>MOTIVO6</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>MOTIVO7</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>MOTIVO8</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>MOTIVO9</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>MOTIVO10</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>MOTIVO11</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>MOTIVO12</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>MOTIVO13</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>PRECEDIDO1</name>
+        <type>Integer</type>
+        <format>&#x23;</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>PRECEDIDO2</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>PRECEDIDO3</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>PRECEDIDO4</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>PRECEDIDO5</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>PRECEDIDO6</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>PRECEDIDO7</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>PRECEDIDO8</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>PRECEDIDO9</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>PRECEDIDO10</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>PRECEDIDO11</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>PRECEDIDO12</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>PRECEDIDO13</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>QTE_TEMPO_SERV_ANO_V1</name>
+        <type>Integer</type>
+        <format>&#x23;</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>QTE_TEMPO_SERV_ANO_V2</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>QTE_TEMPO_SERV_ANO_V3</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>QTE_TEMPO_SERV_ANO_V4</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>QTE_TEMPO_SERV_ANO_V5</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>QTE_TEMPO_SERV_ANO_V6</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>QTE_TEMPO_SERV_ANO_V7</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>QTE_TEMPO_SERV_ANO_V8</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>QTE_TEMPO_SERV_ANO_V9</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>QTE_TEMPO_SERV_ANO_V10</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>QTE_TEMPO_SERV_ANO_V11</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>QTE_TEMPO_SERV_ANO_V12</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>QTE_TEMPO_SERV_ANO_V13</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>QTE_TEMPO_SERV_MES_V1</name>
+        <type>Integer</type>
+        <format>&#x23;</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>QTE_TEMPO_SERV_MES_V2</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>QTE_TEMPO_SERV_MES_V3</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>QTE_TEMPO_SERV_MES_V4</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>QTE_TEMPO_SERV_MES_V5</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>QTE_TEMPO_SERV_MES_V6</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>QTE_TEMPO_SERV_MES_V7</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>QTE_TEMPO_SERV_MES_V8</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>QTE_TEMPO_SERV_MES_V9</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>QTE_TEMPO_SERV_MES_V10</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>QTE_TEMPO_SERV_MES_V11</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>QTE_TEMPO_SERV_MES_V12</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>QTE_TEMPO_SERV_MES_V13</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>QTE_TEMPO_SERV_DIA_V1</name>
+        <type>Integer</type>
+        <format>&#x23;</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>QTE_TEMPO_SERV_DIA_V2</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>QTE_TEMPO_SERV_DIA_V3</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>QTE_TEMPO_SERV_DIA_V4</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>QTE_TEMPO_SERV_DIA_V5</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>QTE_TEMPO_SERV_DIA_V6</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>QTE_TEMPO_SERV_DIA_V7</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>QTE_TEMPO_SERV_DIA_V8</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>QTE_TEMPO_SERV_DIA_V9</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>QTE_TEMPO_SERV_DIA_V10</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>QTE_TEMPO_SERV_DIA_V11</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>QTE_TEMPO_SERV_DIA_V12</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>QTE_TEMPO_SERV_DIA_V13</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>SEXO_SEGURADO1</name>
+        <type>Integer</type>
+        <format>&#x23;</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>SEXO_SEGURADO2</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>SEXO_SEGURADO3</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>SEXO_SEGURADO4</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>SEXO_SEGURADO5</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>SEXO_SEGURADO6</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>SEXO_SEGURADO7</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>SEXO_SEGURADO8</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>SEXO_SEGURADO9</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>SEXO_SEGURADO10</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>SEXO_SEGURADO11</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>SEXO_SEGURADO12</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>SEXO_SEGURADO13</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>IDADE_PENSIONISTA1</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>IDADE_PENSIONISTA2</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>IDADE_PENSIONISTA3</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>IDADE_PENSIONISTA4</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>IDADE_PENSIONISTA5</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>IDADE_PENSIONISTA6</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>IDADE_PENSIONISTA7</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>IDADE_PENSIONISTA8</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>IDADE_PENSIONISTA9</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>IDADE_PENSIONISTA10</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>IDADE_PENSIONISTA11</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>IDADE_PENSIONISTA12</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>IDADE_PENSIONISTA13</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>SEXO_PENSIONISTA1</name>
+        <type>Integer</type>
+        <format>&#x23;</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>SEXO_PENSIONISTA2</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>SEXO_PENSIONISTA3</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>SEXO_PENSIONISTA4</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>SEXO_PENSIONISTA5</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>SEXO_PENSIONISTA6</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>SEXO_PENSIONISTA7</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>SEXO_PENSIONISTA8</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>SEXO_PENSIONISTA9</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>SEXO_PENSIONISTA10</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>SEXO_PENSIONISTA11</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>SEXO_PENSIONISTA12</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>SEXO_PENSIONISTA13</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>RMI_V1</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>RMI_V2</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>RMI_V3</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>RMI_V4</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>RMI_V5</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>RMI_V6</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>RMI_V7</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>RMI_V8</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>RMI_V9</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>RMI_V10</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>RMI_V11</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>RMI_V12</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>RMI_V13</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>VL_MR_V1</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>VL_MR_V2</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>VL_MR_V3</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>VL_MR_V4</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>VL_MR_V5</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>VL_MR_V6</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>VL_MR_V7</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>VL_MR_V8</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>VL_MR_V9</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>VL_MR_V10</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>VL_MR_V11</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>VL_MR_V12</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>VL_MR_V13</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>DT_DIB_D1</name>
+        <type>Date</type>
+        <format>dd&#x2f;MM&#x2f;yyyy</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>DT_DIB_D2</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>DT_DIB_D3</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>DT_DIB_D4</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>DT_DIB_D5</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>DT_DIB_D6</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>DT_DIB_D7</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>DT_DIB_D8</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>DT_DIB_D9</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>DT_DIB_D10</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>DT_DIB_D11</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>DT_DIB_D12</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>DT_DIB_D13</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>COMPET_CALCULO1</name>
+        <type>Integer</type>
+        <format>&#x23;</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>COMPET_CALCULO2</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>COMPET_CALCULO3</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>COMPET_CALCULO4</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>COMPET_CALCULO5</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>COMPET_CALCULO6</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>COMPET_CALCULO7</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>COMPET_CALCULO8</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>COMPET_CALCULO9</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>COMPET_CALCULO10</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>COMPET_CALCULO11</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>COMPET_CALCULO12</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>COMPET_CALCULO13</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>SITUACAO_BENEF1</name>
+        <type>Integer</type>
+        <format>&#x23;</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>SITUACAO_BENEF2</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>SITUACAO_BENEF3</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>SITUACAO_BENEF4</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>SITUACAO_BENEF5</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>SITUACAO_BENEF6</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>SITUACAO_BENEF7</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>SITUACAO_BENEF8</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>SITUACAO_BENEF9</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>SITUACAO_BENEF10</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>SITUACAO_BENEF11</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>SITUACAO_BENEF12</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>SITUACAO_BENEF13</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>CLIENTELA1</name>
+        <type>Integer</type>
+        <format>&#x23;</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>CLIENTELA2</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>CLIENTELA3</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>CLIENTELA4</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>CLIENTELA5</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>CLIENTELA6</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>CLIENTELA7</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>CLIENTELA8</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>CLIENTELA9</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>CLIENTELA10</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>CLIENTELA11</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>CLIENTELA12</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>CLIENTELA13</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd HH&#x3a;mm&#x3a;ss.SSS</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -113,8 +2427,902 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>130</xloc>
-      <yloc>60</yloc>
+      <xloc>131</xloc>
+      <yloc>59</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Table output</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>prevdb_localhost</connection>
+    <schema/>
+    <table>fato_aposentadoria2</table>
+    <commit>1000</commit>
+    <truncate>Y</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>N</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>435</xloc>
+      <yloc>52</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Select values</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>      <field>        <name>QTE_PENSOES_GERADAS</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>IDADE_SEGURADO1</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>IDADE_SEGURADO2</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>IDADE_SEGURADO3</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>IDADE_SEGURADO4</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>IDADE_SEGURADO5</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>IDADE_SEGURADO6</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>IDADE_SEGURADO7</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>IDADE_SEGURADO8</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>IDADE_SEGURADO9</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>IDADE_SEGURADO10</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>IDADE_SEGURADO11</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>IDADE_SEGURADO12</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>IDADE_SEGURADO13</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>DT_DCB_D1</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>DT_DCB_D2</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>DT_DCB_D3</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>DT_DCB_D4</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>DT_DCB_D5</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>DT_DCB_D6</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>DT_DCB_D7</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>DT_DCB_D8</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>DT_DCB_D9</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>DT_DCB_D10</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>DT_DCB_D11</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>DT_DCB_D12</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>DT_DCB_D13</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>MOTIVO1</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>MOTIVO2</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>MOTIVO3</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>MOTIVO4</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>MOTIVO5</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>MOTIVO6</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>MOTIVO7</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>MOTIVO8</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>MOTIVO9</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>MOTIVO10</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>MOTIVO11</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>MOTIVO12</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>MOTIVO13</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>PRECEDIDO1</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>PRECEDIDO2</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>PRECEDIDO3</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>PRECEDIDO4</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>PRECEDIDO5</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>PRECEDIDO6</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>PRECEDIDO7</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>PRECEDIDO8</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>PRECEDIDO9</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>PRECEDIDO10</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>PRECEDIDO11</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>PRECEDIDO12</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>PRECEDIDO13</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>QTE_TEMPO_SERV_ANO_V1</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>QTE_TEMPO_SERV_ANO_V2</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>QTE_TEMPO_SERV_ANO_V3</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>QTE_TEMPO_SERV_ANO_V4</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>QTE_TEMPO_SERV_ANO_V5</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>QTE_TEMPO_SERV_ANO_V6</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>QTE_TEMPO_SERV_ANO_V7</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>QTE_TEMPO_SERV_ANO_V8</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>QTE_TEMPO_SERV_ANO_V9</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>QTE_TEMPO_SERV_ANO_V10</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>QTE_TEMPO_SERV_ANO_V11</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>QTE_TEMPO_SERV_ANO_V12</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>QTE_TEMPO_SERV_ANO_V13</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>QTE_TEMPO_SERV_MES_V1</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>QTE_TEMPO_SERV_MES_V2</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>QTE_TEMPO_SERV_MES_V3</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>QTE_TEMPO_SERV_MES_V4</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>QTE_TEMPO_SERV_MES_V5</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>QTE_TEMPO_SERV_MES_V6</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>QTE_TEMPO_SERV_MES_V7</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>QTE_TEMPO_SERV_MES_V8</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>QTE_TEMPO_SERV_MES_V9</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>QTE_TEMPO_SERV_MES_V10</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>QTE_TEMPO_SERV_MES_V11</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>QTE_TEMPO_SERV_MES_V12</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>QTE_TEMPO_SERV_MES_V13</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>QTE_TEMPO_SERV_DIA_V1</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>QTE_TEMPO_SERV_DIA_V2</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>QTE_TEMPO_SERV_DIA_V3</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>QTE_TEMPO_SERV_DIA_V4</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>QTE_TEMPO_SERV_DIA_V5</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>QTE_TEMPO_SERV_DIA_V6</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>QTE_TEMPO_SERV_DIA_V7</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>QTE_TEMPO_SERV_DIA_V8</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>QTE_TEMPO_SERV_DIA_V9</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>QTE_TEMPO_SERV_DIA_V10</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>QTE_TEMPO_SERV_DIA_V11</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>QTE_TEMPO_SERV_DIA_V12</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>QTE_TEMPO_SERV_DIA_V13</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>SEXO_SEGURADO1</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>SEXO_SEGURADO2</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>SEXO_SEGURADO3</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>SEXO_SEGURADO4</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>SEXO_SEGURADO5</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>SEXO_SEGURADO6</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>SEXO_SEGURADO7</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>SEXO_SEGURADO8</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>SEXO_SEGURADO9</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>SEXO_SEGURADO10</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>SEXO_SEGURADO11</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>SEXO_SEGURADO12</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>SEXO_SEGURADO13</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>IDADE_PENSIONISTA1</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>IDADE_PENSIONISTA2</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>IDADE_PENSIONISTA3</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>IDADE_PENSIONISTA4</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>IDADE_PENSIONISTA5</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>IDADE_PENSIONISTA6</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>IDADE_PENSIONISTA7</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>IDADE_PENSIONISTA8</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>IDADE_PENSIONISTA9</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>IDADE_PENSIONISTA10</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>IDADE_PENSIONISTA11</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>IDADE_PENSIONISTA12</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>IDADE_PENSIONISTA13</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>SEXO_PENSIONISTA1</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>SEXO_PENSIONISTA2</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>SEXO_PENSIONISTA3</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>SEXO_PENSIONISTA4</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>SEXO_PENSIONISTA5</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>SEXO_PENSIONISTA6</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>SEXO_PENSIONISTA7</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>SEXO_PENSIONISTA8</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>SEXO_PENSIONISTA9</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>SEXO_PENSIONISTA10</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>SEXO_PENSIONISTA11</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>SEXO_PENSIONISTA12</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>SEXO_PENSIONISTA13</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>RMI_V1</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>RMI_V2</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>RMI_V3</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>RMI_V4</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>RMI_V5</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>RMI_V6</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>RMI_V7</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>RMI_V8</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>RMI_V9</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>RMI_V10</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>RMI_V11</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>RMI_V12</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>RMI_V13</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>VL_MR_V1</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>VL_MR_V2</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>VL_MR_V3</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>VL_MR_V4</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>VL_MR_V5</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>VL_MR_V6</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>VL_MR_V7</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>VL_MR_V8</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>VL_MR_V9</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>VL_MR_V10</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>VL_MR_V11</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>VL_MR_V12</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>VL_MR_V13</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>DT_DIB_D1</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>DT_DIB_D2</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>DT_DIB_D3</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>DT_DIB_D4</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>DT_DIB_D5</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>DT_DIB_D6</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>DT_DIB_D7</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>DT_DIB_D8</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>DT_DIB_D9</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>DT_DIB_D10</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>DT_DIB_D11</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>DT_DIB_D12</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>DT_DIB_D13</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>COMPET_CALCULO1</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>COMPET_CALCULO2</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>COMPET_CALCULO3</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>COMPET_CALCULO4</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>COMPET_CALCULO5</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>COMPET_CALCULO6</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>COMPET_CALCULO7</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>COMPET_CALCULO8</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>COMPET_CALCULO9</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>COMPET_CALCULO10</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>COMPET_CALCULO11</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>COMPET_CALCULO12</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>COMPET_CALCULO13</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>SITUACAO_BENEF1</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>SITUACAO_BENEF2</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>SITUACAO_BENEF3</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>SITUACAO_BENEF4</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>SITUACAO_BENEF5</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>SITUACAO_BENEF6</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>SITUACAO_BENEF7</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>SITUACAO_BENEF8</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>SITUACAO_BENEF9</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>SITUACAO_BENEF10</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>SITUACAO_BENEF11</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>SITUACAO_BENEF12</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>SITUACAO_BENEF13</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>CLIENTELA1</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>CLIENTELA2</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>CLIENTELA3</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>CLIENTELA4</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>CLIENTELA5</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>CLIENTELA6</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>CLIENTELA7</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>CLIENTELA8</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>CLIENTELA9</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>CLIENTELA10</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>CLIENTELA11</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>CLIENTELA12</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>CLIENTELA13</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>        <select_unspecified>N</select_unspecified>
+    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>280</xloc>
+      <yloc>54</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

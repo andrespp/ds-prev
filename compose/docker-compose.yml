@@ -1,0 +1,20 @@
+##
+# Andre Pereira
+# 2018-04-13
+#
+
+version: '3.1'
+
+services:
+  prevdb:
+    container_name: prevdb
+    image: postgres:10
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+     - ./data/pgdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: prevdb
+      POSTGRES_USER: prevdb_user
+      POSTGRES_PASSWORD: prev
