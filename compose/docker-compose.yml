@@ -17,4 +17,15 @@ services:
     environment:
       POSTGRES_DB: prevdb
       POSTGRES_USER: prevdb_user
-      POSTGRES_PASSWORD: prev
+      POSTGRES_PASSWORD: pr3v
+
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    ports:
+      - "80:80"
+    volumes:
+      - ./data/pgadmin:/var/lib/pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: prevdb_user
+      PGADMIN_DEFAULT_PASSWORD: pr3v
