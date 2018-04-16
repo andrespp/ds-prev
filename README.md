@@ -12,6 +12,14 @@ This dataset contains...
 
 ## How to
 
+1. Download database and extract csv files to `ds-prevbr/dataset`
+
+2. Convert files that contains special characters to UTF-8 to avoid encoding errors:
+```bash
+ds-prevbr/dataset$ iconv -f ISO-8859-1 -t UTF-8 APOSENTADORIA.CSV > APOSENTADORIA.csv
+ds-prevbr/dataset$ rm APOSENTADORIA.CSV
+```
+
 ## Using the dataset
 
 ## References
