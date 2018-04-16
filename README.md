@@ -20,6 +20,8 @@ ds-prevbr/dataset$ iconv -f ISO-8859-1 -t UTF-8 APOSENTADORIA.CSV > APOSENTADORI
 ds-prevbr/dataset$ rm APOSENTADORIA.CSV
 ```
 
+3. Run the job
+
 ## Using the dataset
 
 ## References
