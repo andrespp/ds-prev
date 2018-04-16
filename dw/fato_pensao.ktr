@@ -6437,7 +6437,7 @@
            </partitioning>
     <connection>prevdb_localhost</connection>
     <schema/>
-    <table>fato_aposentadoria</table>
+    <table>fato_pensao</table>
     <commit>1000</commit>
     <truncate>Y</truncate>
     <ignore_errors>N</ignore_errors>
