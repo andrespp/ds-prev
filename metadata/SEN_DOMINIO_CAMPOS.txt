@@ -1,0 +1,265 @@
+
+DEFININDO ETIQUETAS dOS DOMÍNIOS DOS CAMPOS:
+
+
+
+==> ESPÉCIE DE BENEFÍCIO (ESPECIE)
+
+'01' = 'B01 Pensão por morte do trab. rural'
+'02' = 'B02 Pensão por morte acid. do trab. rural'
+'03' = 'B03 Pensão por morte do emp. rural'
+'04' = 'B04 Aposentadoria por invalidez do trab. rural'
+'05' = 'B05 Aposentadoria por invalidez acid. do trab. rural'
+'06' = 'B06 Aposentadoria por invalidez do emp. rural'
+'07' = 'B07 Aposentadoria por idade do trab. rural'
+'08' = 'B08 Aposentadoria por idade do emp. rural'
+'09' = 'B09 Complemento por acidente do trabalho do trab. rural'
+'10' = 'B10 Auxílio-doença acid. do trab. rural'
+'11' = 'B11 Renda mensal vitalícia por invalidez do trab. rural'
+'12' = 'B12 Renda mensal vitalícia por idade do trab. rural'
+'13' = 'B13 Auxílio-doença do trab. rural'
+'15' = 'B15 Auxílio-reclusão do trab. rural'
+'19' = 'B19 Pensão de estudante'
+'20' = 'B20 Pensão por morte de ex-diplomata (Ex-IPASE)'
+'21' = 'B21 Pensão por morte previdenciária'
+'22' = 'B22 Pensão por morte estatutária'
+'23' = 'B23 Pensão por morte de ex-combatente'
+'24' = 'B24 Pensão por morte - Ato Institucional'
+'25' = 'B25 Auxílio-reclusão (LOPS)'
+'26' = 'B26 Pensão Especial'
+'27' = 'B27 Pensão por morte de serv.públ.fed. c/dupla apos.'
+'28' = 'B28 Pensão por morte do Regime Geral'
+'29' = 'B29 Pensão por morte de ex-combatente marítimo'
+'30' = 'B30 Renda mensal vitalícia por invalidez'
+'31' = 'B31 Auxílio-doença previdenciário'
+'32' = 'B32 Aposentadoria por invalidez previdenciária'
+'33' = 'B33 Aposentadoria por invalidez de aeronauta'
+'34' = 'B34 Aposentadoria por invalidez de ex-combatente marítimo'
+'36' = 'B36 Auxílio-acidente'
+'37' = 'B37 Aposentadoria de extranumerário da União'
+'38' = 'B38 Aposentadoria da extinta CAPIN'
+'40' = 'B40 Renda mensal vitalícia por idade'
+'41' = 'B41 Aposentadoria por idade'
+'42' = 'B42 Aposentadoria por tempo de serviço previdenciária'
+'43' = 'B43 Aposentadoria por tempo de serviço de ex-combatente'
+'44' = 'B44 Aposentadoria por tempo de serviço de aeronauta'
+'45' = 'B45 Aposentadoria por tempo de serviço de jornalista'
+'46' = 'B46 Aposentadoria por tempo de serviço especial'
+'47' = 'B47 Abono de permanência em serviço 25%'
+'48' = 'B48 Abono de permanência em serviço 20%'
+'49' = 'B49 Aposentadoria por tempo de serviço ordinária'
+'50' = 'B50 Auxílio-doença (Extinto Plano Básico)'
+'51' = 'B51 Aposentadoria por invalidez (Extinto Plano Básico)'
+'52' = 'B52 Aposentadoria por idade (Extinto Plano Básico)'
+'53' = 'B53 Auxílio-reclusão (Extinto Plano Básico)'
+'54' = 'B54 Pensão Especial Vitalícia (Lei no. 9793/99)'
+'55' = 'B55 Pensão por morte (Extinto Plano Básico)'
+'56' = 'B56 Pensão mensal vitalícia por síndrome de talidomida'
+'57' = 'B57 Aposentadoria por tempo de serviço de professor'
+'58' = 'B58 Aposentadoria excepcional do anistiado'
+'59' = 'B59 Pensão por morte excepcional do anistiado'
+'60' = 'B60 Pensão especial mensal vitalícia lei 10.923 24/7/2004'
+'68' = 'B68 Pecúlio Especial de Aposentados'
+'71' = 'B71 Salário-família previdenciário'
+'72' = 'B72 Aposentadoria por tempo serviço ex-combatente marítimo'
+'73' = 'B73 Salário-família estatutário'
+'76' = 'B76 Salário-família estatutário da RFFSA'
+'77' = 'B77 Salário-família estatutário de servidor do SINPAS'
+'78' = 'B78 Aposentadoria por idade de ex-combatente marítimo'
+'79' = 'B79 Abono de servidor aposentado pela autarquia empreg.'
+'80' = 'B80 Salário-maternidade'
+'81' = 'B81 Aposentadoria por idade compulsória (Ex-SASSE)'
+'82' = 'B82 Aposentadoria por tempo de serviço (Ex-SASSE)'
+'83' = 'B83 Aposentadoria por invalidez (Ex-SASSE)'
+'84' = 'B84 Pensão por morte (Ex-SASSE)'
+'85' = 'B85 Pensão mensal vitalícia do seringueiro'
+'86' = 'B86 Pensão mensal vitalícia do dependente do seringueiro'
+'87' = 'B87 Amparo assistencial ao portador de deficiência'
+'88' = 'B88 Amparo Assistencial ao idoso'
+'89' = 'B89 Pensão especial aos dependentes de Caruaru -PE'
+'91' = 'B91 Auxílio-doença por acidente do trabalho'
+'92' = 'B92 Aposentadoria por invalidez por acidente do trabalho'
+'93' = 'B93 Pensão por morte por acidente do trabalho'
+'94' = 'B94 Auxílio-acidente por acidente do trabalho'
+'95' = 'B95 Auxílio-suplementar por acidente do trabalho'
+'96' = 'B96 Pensão especias às pessoas atingidas pela hanseníase'
+
+
+
+==> VÍNCULO DE DEPENDENTE (VINC_DEP)
+	1 = "Cônjuge" 
+	2 = "Filho(a)" 
+	3 = "Pai/Mãe" 
+	4 = "Irmão/Irmã" 
+	5 = "Designado" 
+	6 = "Companheiro(a)" 
+	7 = "Ex-cônjuge/Ex-companheiro(a)" 
+	8 = "Filho adotivo" 
+	9 = "Dependente judicial"
+	99 = "Ignorado" 
+
+
+
+==> IDADE NA DIB (IDADE_DIB)
+
+	999 = "Ignorada"
+
+
+
+==> TEMPO DE CONTRIBUIÇÃO EM ANOS (TEMPO_CONTRIB)
+
+	999 = "Ignorado"
+
+
+
+
+==> CLIENTELA
+
+	1 = "Urbana"
+	2 = "Rural"
+
+
+
+==> SEXO
+
+	1 = "Masculino"
+	3 = "Feminino"
+	9 = "Ignorado"
+
+
+
+==> MOTIVO DE CESSAÇÃO (MOT_CESSACAO)
+
+
+'2' = 'NAO COMPROVACAO DE FE DE VIDA'
+'3' = 'CESSACAO POR SUSPEITA DE OBITO/SIM'
+'4' = 'REVBPC NAO LOCALIZ. DO BENEFICIARIO'
+'5' = 'NAO APRES. DE DOCS. OBRIGATORIA'
+'6' = 'NAO ATENDIMENTO A CONVOC.POSTO'
+'7' = 'BPC>2 ANOS - APRENDIZ C/ DEFIC.'
+'8' = 'BENEFICIO CONCEDIDO COM CESSACAO DA DIB'
+'9' = 'DCA ACP2005.33.00.020219-8'
+'10' = 'CESSACAO POR SUSPEITA DE OBITO'
+'11' = 'CESSACAO POR NAO COMPARECIMENTO AO CENSO'
+'12' = 'LIMITE MEDICO'
+'13' = 'OBITO DO TITULAR DO BENEFICIO'
+'14' = 'CESSACAO P/ACAO REVISIONAL COMPARTILHADA'
+'15' = 'OPCAO CONCESSAO BENEFICIO PREVIDENCIARIO'
+'16' = 'CASAMENTO'
+'17' = 'REAPARECIMENTO DO INSTITUIDOR'
+'18' = 'DESISTENCIA BPC-LOAS PELO TITULAR'
+'19' = 'CESS. PA DEVIDO CESS. BENEF. INST.'
+'20' = 'DESISTENCIA ESCRITA TITULAR DO BENEFICIO'
+'21' = 'TRANSFORMACAO B87 EM B88'
+'22' = 'PRORROGACAO DE BENEFICIO ANTERIOR'
+'23' = 'CONCES. APOSENT. P/RECLUSO'
+'24' = 'SUSPENSAO 64 P/MAIS 6MESES'
+'25' = 'NB TRANSITADO JULG/REV.ADM'
+'26' = 'RENDA PER CAPITA - REVBPC'
+'27' = 'PM DENEGATORIA - REVBPC'
+'28' = 'TRANSFORMACAO PARA OUTRA ESPECIE'
+'29' = 'CONCESSAO DE OUTRO BENEFICIO'
+'30' = 'CONSTATACAO DE FRAUDE'
+'31' = 'CONSTATACAO IRREGULAR./ERRO ADM.'
+'32' = 'DECISAO DE CESSACAO POR RECURSO'
+'33' = 'DECISAO JUDICIAL'
+'34' = 'VOLTA AO TRABALHO'
+'35' = 'BENEFICIO SEM DEPENDENTE VALIDO'
+'36' = 'ACUMULACAO INDEVIDA DE BENEFICIOS'
+'37' = 'SUSP SISOBI MAIS 6 MESES'
+'38' = 'CESSACAO ABONO P/ CONCES. APOSENT.'
+'39' = 'NAO ATENDIMENTO CONVOCACAO INSPET.'
+'40' = 'CESS.P/ RECUP.TOTAL DENTRO 5 ANOS'
+'41' = 'CESS.P/ RECUP. PARCIAL APOS 5 ANOS'
+'42' = 'CESSADO P/ SIST. DE OBITOS(SISOBI)'
+'43' = 'AUX.RECL.-CUMPR.PENA,CONDIC.,ALBERG.'
+'44' = 'AUX.DOENCA NAO COMPAREC. A PERICIA'
+'45' = 'CESS. BENEFICIO - RECIPROCA'
+'46' = 'ESTATUTARIO TRANSF. P/ORGAO ORIGEM'
+'47' = 'CESS. DEVIDO PERDA QUALID. DEPEND.'
+'48' = 'BENEF. CESSADO NO SISTEMA ANTIGO'
+'49' = 'OBITO INFORMADO PELA AUDITORIA'
+'50' = 'CONCESSAO DE AUXILIO FUNERAL (PAB)'
+'51' = 'CESSACAO POR REVISAO RURAL/95'
+'52' = 'ERRO ADM. INFORMADO PELA AUDITORIA'
+'53' = 'FRAUDE INFORMADA PELA AUDITORIA'
+'54' = 'LIMITE MEDICO INFORMADO P/ PERICIA'
+'55' = 'IRREGULARID./ERRO MEDICO-PERICIAL'
+'56' = 'RECUP.LESAO C/ DESCARAC. DO BENEF.'
+'57' = 'CESS. DE AUXILIO RECLUSAO POR FUGA'
+'58' = 'BENEFICIO C/DCI C/ MAIS DE 60 DIAS'
+'59' = 'CESSADO, DIVERGENCIA DADOS CNIS'
+'60' = 'CESS.DE BENEFICIO FORA DE CADASTRO'
+'61' = 'RECUSA AO PROGR. REABILIT. PROFIS.'
+'62' = 'REVBPC N+DEF LON PZ/R>1/4S'
+'63' = 'CESSACAO P/ FALTA DE DIGITALIZACAO'
+'64' = 'OBITO SEGURADO INSTIT.AUX.RECLUSAO'
+'65' = 'BENEF. SUSPENSO POR MAIS DE 6 MESES'
+'66' = 'VOLTA TRABALHO-ATIV.INSALUBRE(B46)'
+'67' = 'CESSACAO POR CONCESSAO DE B80'
+'68' = 'REMUNERACAO APOS A DIB'
+'69' = 'ALTA MEDICA'
+'70' = 'RETORNO VOLUNTARIO AO TRABALHO'
+'71' = 'ERRO TECNICO'
+'72' = 'NAO COMPARECIMENTO'
+'73' = 'RET./PERMANENC.NA ATIV.COND.ESPEC.'
+'74' = 'CANCELAMENTO POR FRAUDE/AUDITORIA'
+'75' = 'CANCELAMENTO P/IRREGULARIDADE/AUDITORIA'
+'76' = 'CANCELAMENTO P/ERRO ADM.MEDICO/AUDITORIA'
+'77' = 'IRREGULARIDADE DETECTADA PELA AUDITORIA'
+'78' = 'CESS. DE B80 C/CONTRATO TEMPORARIO'
+'79' = 'CESSACAO DE B80 (120/134 DIAS)'
+'80' = 'ABORTO NAO CRIMINOSO'
+'81' = 'OBITO INFORMADO PELA REVBPC'
+'82' = 'CESSACAO DE B80 (60 DIAS)'
+'83' = 'CESSACAO DE B80 (30 DIAS)'
+'84' = 'CESSACAO - OPCAO RECEB. PELO M. EXERCITO'
+'85' = 'BENEFICIO COM NIT ERRADO'
+'86' = 'CESSACAO B94/95 PARECER MEDICO CONTRARIO'
+'87' = 'CESSACAO ACUMULACAO INDEVIDA REV. 2003'
+'88' = 'REVBPC N HA+DEF LONG PZ'
+'89' = 'CESSACAO AMPARO LEI 10559/02.'
+'90' = 'CESSACAO DE PA DEVIDO DATA LIMITE'
+'91' = 'REVISAO DE ACORDAO'
+'92' = 'LIMITE INDEFINIDO S/CONCESSAO DE B32/92'
+'93' = 'CESSACAO BATIMENTO FUNASA'
+'94' = 'ALTA VOLUNTARIA'
+'95' = 'NAO COMPARECIMENTO A REABILITACAO PROF.'
+'96' = 'TRANSFERENCIA P/ORGAO ORIGEM LEI 8878/94'
+'97' = 'COMPROVADA MA FE DO BENEFICIARIO'
+'98' = 'CESSACAO POR LEI'
+'99' = 'OBITO DEPENDENTE INFORM. P/CENSO(HIPNET)'
+
+
+
+==> SITUAÇÃO DO BENEFÍCIO (SITUACAO)
+
+
+0	ATIVO
+1	EXCLUIDO
+2	CESSADO
+3	SUSPENSO
+4	SUSPENSO POR MARCA DE ERRO
+5	CESSADO POR CESS DO ORIGEM
+6	SUSPENSO P/ SUSP DO ORIGEM
+7	SUSPENSO PELO CONPAG
+8	CESSADO PELO SISOBI
+9	ESTAT TRANSF. ORGAO ORIGEM
+10	RECEBENDO MENSALID DE RECUPER 6 MESES
+11	RECEBENDO MENSALID DE RECUPER 18 MESES
+12	SUSPENSO REVISAO RUR/URB
+13	SUSPENSO POR ERRO DE NOME (POVOAMENTO)
+14	SUSPENSO - ORGAO PAGADOR DESCREDENCIADO
+15	SUSPENSO PELA INSPETORIA
+16	SUSPENSO PELA AUDITORIA
+17	CESSADO PELA INSPETORIA
+18	CESSADO PELA AUDITORIA
+19	RECEB MENSALID RECUP 6 MESES-INSPETORIA
+20	RECEB MENSALID RECUP 18 MESES-INSPETORIA
+21	SUSPENSO REVISAO RURAL/95
+22	CESSADO REVISAO RURAL/95
+23	SUSPENSO PELO SISOBI
+24	CANCELADO PELA AUDITORIA
+
+
+
