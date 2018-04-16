@@ -3314,7 +3314,7 @@
       </meta>      <meta>        <name>IDADE_SEGURADO2</name>
         <rename>IDADE_SEGURADO2</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -3329,7 +3329,7 @@
       </meta>      <meta>        <name>IDADE_SEGURADO3</name>
         <rename>IDADE_SEGURADO3</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -3344,7 +3344,7 @@
       </meta>      <meta>        <name>IDADE_SEGURADO4</name>
         <rename>IDADE_SEGURADO4</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -3359,7 +3359,7 @@
       </meta>      <meta>        <name>IDADE_SEGURADO5</name>
         <rename>IDADE_SEGURADO5</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -3374,7 +3374,7 @@
       </meta>      <meta>        <name>IDADE_SEGURADO6</name>
         <rename>IDADE_SEGURADO6</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -3389,7 +3389,7 @@
       </meta>      <meta>        <name>IDADE_SEGURADO7</name>
         <rename>IDADE_SEGURADO7</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -3404,7 +3404,7 @@
       </meta>      <meta>        <name>IDADE_SEGURADO8</name>
         <rename>IDADE_SEGURADO8</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -3419,7 +3419,7 @@
       </meta>      <meta>        <name>IDADE_SEGURADO9</name>
         <rename>IDADE_SEGURADO9</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -3434,7 +3434,7 @@
       </meta>      <meta>        <name>IDADE_SEGURADO10</name>
         <rename>IDADE_SEGURADO10</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -3449,7 +3449,7 @@
       </meta>      <meta>        <name>IDADE_SEGURADO11</name>
         <rename>IDADE_SEGURADO11</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -3464,7 +3464,7 @@
       </meta>      <meta>        <name>IDADE_SEGURADO12</name>
         <rename>IDADE_SEGURADO12</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -3479,7 +3479,7 @@
       </meta>      <meta>        <name>IDADE_SEGURADO13</name>
         <rename>IDADE_SEGURADO13</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -3704,7 +3704,7 @@
       </meta>      <meta>        <name>MOTIVO2</name>
         <rename>MOTIVO2</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -3719,7 +3719,7 @@
       </meta>      <meta>        <name>MOTIVO3</name>
         <rename>MOTIVO3</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -3734,7 +3734,7 @@
       </meta>      <meta>        <name>MOTIVO4</name>
         <rename>MOTIVO4</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -3749,7 +3749,7 @@
       </meta>      <meta>        <name>MOTIVO5</name>
         <rename>MOTIVO5</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -3764,7 +3764,7 @@
       </meta>      <meta>        <name>MOTIVO6</name>
         <rename>MOTIVO6</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -3779,7 +3779,7 @@
       </meta>      <meta>        <name>MOTIVO7</name>
         <rename>MOTIVO7</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -3794,7 +3794,7 @@
       </meta>      <meta>        <name>MOTIVO8</name>
         <rename>MOTIVO8</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -3809,7 +3809,7 @@
       </meta>      <meta>        <name>MOTIVO9</name>
         <rename>MOTIVO9</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -3824,7 +3824,7 @@
       </meta>      <meta>        <name>MOTIVO10</name>
         <rename>MOTIVO10</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -3839,7 +3839,7 @@
       </meta>      <meta>        <name>MOTIVO11</name>
         <rename>MOTIVO11</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -3854,7 +3854,7 @@
       </meta>      <meta>        <name>MOTIVO12</name>
         <rename>MOTIVO12</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -3869,7 +3869,7 @@
       </meta>      <meta>        <name>MOTIVO13</name>
         <rename>MOTIVO13</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -3899,7 +3899,7 @@
       </meta>      <meta>        <name>PRECEDIDO2</name>
         <rename>PRECEDIDO2</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -3914,7 +3914,7 @@
       </meta>      <meta>        <name>PRECEDIDO3</name>
         <rename>PRECEDIDO3</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -3929,7 +3929,7 @@
       </meta>      <meta>        <name>PRECEDIDO4</name>
         <rename>PRECEDIDO4</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -3944,7 +3944,7 @@
       </meta>      <meta>        <name>PRECEDIDO5</name>
         <rename>PRECEDIDO5</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -3959,7 +3959,7 @@
       </meta>      <meta>        <name>PRECEDIDO6</name>
         <rename>PRECEDIDO6</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -3974,7 +3974,7 @@
       </meta>      <meta>        <name>PRECEDIDO7</name>
         <rename>PRECEDIDO7</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -3989,7 +3989,7 @@
       </meta>      <meta>        <name>PRECEDIDO8</name>
         <rename>PRECEDIDO8</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4004,7 +4004,7 @@
       </meta>      <meta>        <name>PRECEDIDO9</name>
         <rename>PRECEDIDO9</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4019,7 +4019,7 @@
       </meta>      <meta>        <name>PRECEDIDO10</name>
         <rename>PRECEDIDO10</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4034,7 +4034,7 @@
       </meta>      <meta>        <name>PRECEDIDO11</name>
         <rename>PRECEDIDO11</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4049,7 +4049,7 @@
       </meta>      <meta>        <name>PRECEDIDO12</name>
         <rename>PRECEDIDO12</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4064,7 +4064,7 @@
       </meta>      <meta>        <name>PRECEDIDO13</name>
         <rename>PRECEDIDO13</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4094,7 +4094,7 @@
       </meta>      <meta>        <name>QTE_TEMPO_SERV_ANO_V2</name>
         <rename>QTE_TEMPO_SERV_ANO_V2</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4109,7 +4109,7 @@
       </meta>      <meta>        <name>QTE_TEMPO_SERV_ANO_V3</name>
         <rename>QTE_TEMPO_SERV_ANO_V3</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4124,7 +4124,7 @@
       </meta>      <meta>        <name>QTE_TEMPO_SERV_ANO_V4</name>
         <rename>QTE_TEMPO_SERV_ANO_V4</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4139,7 +4139,7 @@
       </meta>      <meta>        <name>QTE_TEMPO_SERV_ANO_V5</name>
         <rename>QTE_TEMPO_SERV_ANO_V5</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4154,7 +4154,7 @@
       </meta>      <meta>        <name>QTE_TEMPO_SERV_ANO_V6</name>
         <rename>QTE_TEMPO_SERV_ANO_V6</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4169,7 +4169,7 @@
       </meta>      <meta>        <name>QTE_TEMPO_SERV_ANO_V7</name>
         <rename>QTE_TEMPO_SERV_ANO_V7</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4184,7 +4184,7 @@
       </meta>      <meta>        <name>QTE_TEMPO_SERV_ANO_V8</name>
         <rename>QTE_TEMPO_SERV_ANO_V8</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4199,7 +4199,7 @@
       </meta>      <meta>        <name>QTE_TEMPO_SERV_ANO_V9</name>
         <rename>QTE_TEMPO_SERV_ANO_V9</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4214,7 +4214,7 @@
       </meta>      <meta>        <name>QTE_TEMPO_SERV_ANO_V10</name>
         <rename>QTE_TEMPO_SERV_ANO_V10</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4229,7 +4229,7 @@
       </meta>      <meta>        <name>QTE_TEMPO_SERV_ANO_V11</name>
         <rename>QTE_TEMPO_SERV_ANO_V11</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4244,7 +4244,7 @@
       </meta>      <meta>        <name>QTE_TEMPO_SERV_ANO_V12</name>
         <rename>QTE_TEMPO_SERV_ANO_V12</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4259,7 +4259,7 @@
       </meta>      <meta>        <name>QTE_TEMPO_SERV_ANO_V13</name>
         <rename>QTE_TEMPO_SERV_ANO_V13</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4289,7 +4289,7 @@
       </meta>      <meta>        <name>QTE_TEMPO_SERV_MES_V2</name>
         <rename>QTE_TEMPO_SERV_MES_V2</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4304,7 +4304,7 @@
       </meta>      <meta>        <name>QTE_TEMPO_SERV_MES_V3</name>
         <rename>QTE_TEMPO_SERV_MES_V3</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4319,7 +4319,7 @@
       </meta>      <meta>        <name>QTE_TEMPO_SERV_MES_V4</name>
         <rename>QTE_TEMPO_SERV_MES_V4</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4334,7 +4334,7 @@
       </meta>      <meta>        <name>QTE_TEMPO_SERV_MES_V5</name>
         <rename>QTE_TEMPO_SERV_MES_V5</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4349,7 +4349,7 @@
       </meta>      <meta>        <name>QTE_TEMPO_SERV_MES_V6</name>
         <rename>QTE_TEMPO_SERV_MES_V6</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4364,7 +4364,7 @@
       </meta>      <meta>        <name>QTE_TEMPO_SERV_MES_V7</name>
         <rename>QTE_TEMPO_SERV_MES_V7</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4379,7 +4379,7 @@
       </meta>      <meta>        <name>QTE_TEMPO_SERV_MES_V8</name>
         <rename>QTE_TEMPO_SERV_MES_V8</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4394,7 +4394,7 @@
       </meta>      <meta>        <name>QTE_TEMPO_SERV_MES_V9</name>
         <rename>QTE_TEMPO_SERV_MES_V9</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4409,7 +4409,7 @@
       </meta>      <meta>        <name>QTE_TEMPO_SERV_MES_V10</name>
         <rename>QTE_TEMPO_SERV_MES_V10</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4424,7 +4424,7 @@
       </meta>      <meta>        <name>QTE_TEMPO_SERV_MES_V11</name>
         <rename>QTE_TEMPO_SERV_MES_V11</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4439,7 +4439,7 @@
       </meta>      <meta>        <name>QTE_TEMPO_SERV_MES_V12</name>
         <rename>QTE_TEMPO_SERV_MES_V12</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4454,7 +4454,7 @@
       </meta>      <meta>        <name>QTE_TEMPO_SERV_MES_V13</name>
         <rename>QTE_TEMPO_SERV_MES_V13</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4484,7 +4484,7 @@
       </meta>      <meta>        <name>QTE_TEMPO_SERV_DIA_V2</name>
         <rename>QTE_TEMPO_SERV_DIA_V2</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4499,7 +4499,7 @@
       </meta>      <meta>        <name>QTE_TEMPO_SERV_DIA_V3</name>
         <rename>QTE_TEMPO_SERV_DIA_V3</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4514,7 +4514,7 @@
       </meta>      <meta>        <name>QTE_TEMPO_SERV_DIA_V4</name>
         <rename>QTE_TEMPO_SERV_DIA_V4</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4529,7 +4529,7 @@
       </meta>      <meta>        <name>QTE_TEMPO_SERV_DIA_V5</name>
         <rename>QTE_TEMPO_SERV_DIA_V5</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4544,7 +4544,7 @@
       </meta>      <meta>        <name>QTE_TEMPO_SERV_DIA_V6</name>
         <rename>QTE_TEMPO_SERV_DIA_V6</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4559,7 +4559,7 @@
       </meta>      <meta>        <name>QTE_TEMPO_SERV_DIA_V7</name>
         <rename>QTE_TEMPO_SERV_DIA_V7</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4574,7 +4574,7 @@
       </meta>      <meta>        <name>QTE_TEMPO_SERV_DIA_V8</name>
         <rename>QTE_TEMPO_SERV_DIA_V8</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4589,7 +4589,7 @@
       </meta>      <meta>        <name>QTE_TEMPO_SERV_DIA_V9</name>
         <rename>QTE_TEMPO_SERV_DIA_V9</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4604,7 +4604,7 @@
       </meta>      <meta>        <name>QTE_TEMPO_SERV_DIA_V10</name>
         <rename>QTE_TEMPO_SERV_DIA_V10</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4619,7 +4619,7 @@
       </meta>      <meta>        <name>QTE_TEMPO_SERV_DIA_V11</name>
         <rename>QTE_TEMPO_SERV_DIA_V11</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4634,7 +4634,7 @@
       </meta>      <meta>        <name>QTE_TEMPO_SERV_DIA_V12</name>
         <rename>QTE_TEMPO_SERV_DIA_V12</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4649,7 +4649,7 @@
       </meta>      <meta>        <name>QTE_TEMPO_SERV_DIA_V13</name>
         <rename>QTE_TEMPO_SERV_DIA_V13</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4679,7 +4679,7 @@
       </meta>      <meta>        <name>SEXO_SEGURADO2</name>
         <rename>SEXO_SEGURADO2</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4694,7 +4694,7 @@
       </meta>      <meta>        <name>SEXO_SEGURADO3</name>
         <rename>SEXO_SEGURADO3</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4709,7 +4709,7 @@
       </meta>      <meta>        <name>SEXO_SEGURADO4</name>
         <rename>SEXO_SEGURADO4</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4724,7 +4724,7 @@
       </meta>      <meta>        <name>SEXO_SEGURADO5</name>
         <rename>SEXO_SEGURADO5</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4739,7 +4739,7 @@
       </meta>      <meta>        <name>SEXO_SEGURADO6</name>
         <rename>SEXO_SEGURADO6</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4754,7 +4754,7 @@
       </meta>      <meta>        <name>SEXO_SEGURADO7</name>
         <rename>SEXO_SEGURADO7</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4769,7 +4769,7 @@
       </meta>      <meta>        <name>SEXO_SEGURADO8</name>
         <rename>SEXO_SEGURADO8</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4784,7 +4784,7 @@
       </meta>      <meta>        <name>SEXO_SEGURADO9</name>
         <rename>SEXO_SEGURADO9</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4799,7 +4799,7 @@
       </meta>      <meta>        <name>SEXO_SEGURADO10</name>
         <rename>SEXO_SEGURADO10</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4814,7 +4814,7 @@
       </meta>      <meta>        <name>SEXO_SEGURADO11</name>
         <rename>SEXO_SEGURADO11</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4829,7 +4829,7 @@
       </meta>      <meta>        <name>SEXO_SEGURADO12</name>
         <rename>SEXO_SEGURADO12</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4844,7 +4844,7 @@
       </meta>      <meta>        <name>SEXO_SEGURADO13</name>
         <rename>SEXO_SEGURADO13</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4874,7 +4874,7 @@
       </meta>      <meta>        <name>IDADE_PENSIONISTA2</name>
         <rename>IDADE_PENSIONISTA2</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4889,7 +4889,7 @@
       </meta>      <meta>        <name>IDADE_PENSIONISTA3</name>
         <rename>IDADE_PENSIONISTA3</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4904,7 +4904,7 @@
       </meta>      <meta>        <name>IDADE_PENSIONISTA4</name>
         <rename>IDADE_PENSIONISTA4</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4919,7 +4919,7 @@
       </meta>      <meta>        <name>IDADE_PENSIONISTA5</name>
         <rename>IDADE_PENSIONISTA5</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4934,7 +4934,7 @@
       </meta>      <meta>        <name>IDADE_PENSIONISTA6</name>
         <rename>IDADE_PENSIONISTA6</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4949,7 +4949,7 @@
       </meta>      <meta>        <name>IDADE_PENSIONISTA7</name>
         <rename>IDADE_PENSIONISTA7</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4964,7 +4964,7 @@
       </meta>      <meta>        <name>IDADE_PENSIONISTA8</name>
         <rename>IDADE_PENSIONISTA8</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4979,7 +4979,7 @@
       </meta>      <meta>        <name>IDADE_PENSIONISTA9</name>
         <rename>IDADE_PENSIONISTA9</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -4994,7 +4994,7 @@
       </meta>      <meta>        <name>IDADE_PENSIONISTA10</name>
         <rename>IDADE_PENSIONISTA10</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5009,7 +5009,7 @@
       </meta>      <meta>        <name>IDADE_PENSIONISTA11</name>
         <rename>IDADE_PENSIONISTA11</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5024,7 +5024,7 @@
       </meta>      <meta>        <name>IDADE_PENSIONISTA12</name>
         <rename>IDADE_PENSIONISTA12</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5039,7 +5039,7 @@
       </meta>      <meta>        <name>IDADE_PENSIONISTA13</name>
         <rename>IDADE_PENSIONISTA13</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5069,7 +5069,7 @@
       </meta>      <meta>        <name>SEXO_PENSIONISTA2</name>
         <rename>SEXO_PENSIONISTA2</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5084,7 +5084,7 @@
       </meta>      <meta>        <name>SEXO_PENSIONISTA3</name>
         <rename>SEXO_PENSIONISTA3</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5099,7 +5099,7 @@
       </meta>      <meta>        <name>SEXO_PENSIONISTA4</name>
         <rename>SEXO_PENSIONISTA4</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5114,7 +5114,7 @@
       </meta>      <meta>        <name>SEXO_PENSIONISTA5</name>
         <rename>SEXO_PENSIONISTA5</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5129,7 +5129,7 @@
       </meta>      <meta>        <name>SEXO_PENSIONISTA6</name>
         <rename>SEXO_PENSIONISTA6</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5144,7 +5144,7 @@
       </meta>      <meta>        <name>SEXO_PENSIONISTA7</name>
         <rename>SEXO_PENSIONISTA7</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5159,7 +5159,7 @@
       </meta>      <meta>        <name>SEXO_PENSIONISTA8</name>
         <rename>SEXO_PENSIONISTA8</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5174,7 +5174,7 @@
       </meta>      <meta>        <name>SEXO_PENSIONISTA9</name>
         <rename>SEXO_PENSIONISTA9</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5189,7 +5189,7 @@
       </meta>      <meta>        <name>SEXO_PENSIONISTA10</name>
         <rename>SEXO_PENSIONISTA10</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5204,7 +5204,7 @@
       </meta>      <meta>        <name>SEXO_PENSIONISTA11</name>
         <rename>SEXO_PENSIONISTA11</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5219,7 +5219,7 @@
       </meta>      <meta>        <name>SEXO_PENSIONISTA12</name>
         <rename>SEXO_PENSIONISTA12</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5234,7 +5234,7 @@
       </meta>      <meta>        <name>SEXO_PENSIONISTA13</name>
         <rename>SEXO_PENSIONISTA13</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5264,7 +5264,7 @@
       </meta>      <meta>        <name>RMI_V2</name>
         <rename>RMI_V2</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5279,7 +5279,7 @@
       </meta>      <meta>        <name>RMI_V3</name>
         <rename>RMI_V3</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5294,7 +5294,7 @@
       </meta>      <meta>        <name>RMI_V4</name>
         <rename>RMI_V4</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5309,7 +5309,7 @@
       </meta>      <meta>        <name>RMI_V5</name>
         <rename>RMI_V5</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5324,7 +5324,7 @@
       </meta>      <meta>        <name>RMI_V6</name>
         <rename>RMI_V6</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5339,7 +5339,7 @@
       </meta>      <meta>        <name>RMI_V7</name>
         <rename>RMI_V7</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5354,7 +5354,7 @@
       </meta>      <meta>        <name>RMI_V8</name>
         <rename>RMI_V8</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5369,7 +5369,7 @@
       </meta>      <meta>        <name>RMI_V9</name>
         <rename>RMI_V9</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5384,7 +5384,7 @@
       </meta>      <meta>        <name>RMI_V10</name>
         <rename>RMI_V10</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5399,7 +5399,7 @@
       </meta>      <meta>        <name>RMI_V11</name>
         <rename>RMI_V11</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5414,7 +5414,7 @@
       </meta>      <meta>        <name>RMI_V12</name>
         <rename>RMI_V12</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5429,7 +5429,7 @@
       </meta>      <meta>        <name>RMI_V13</name>
         <rename>RMI_V13</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5459,7 +5459,7 @@
       </meta>      <meta>        <name>VL_MR_V2</name>
         <rename>VL_MR_V2</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5474,7 +5474,7 @@
       </meta>      <meta>        <name>VL_MR_V3</name>
         <rename>VL_MR_V3</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5489,7 +5489,7 @@
       </meta>      <meta>        <name>VL_MR_V4</name>
         <rename>VL_MR_V4</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5504,7 +5504,7 @@
       </meta>      <meta>        <name>VL_MR_V5</name>
         <rename>VL_MR_V5</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5519,7 +5519,7 @@
       </meta>      <meta>        <name>VL_MR_V6</name>
         <rename>VL_MR_V6</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5534,7 +5534,7 @@
       </meta>      <meta>        <name>VL_MR_V7</name>
         <rename>VL_MR_V7</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5549,7 +5549,7 @@
       </meta>      <meta>        <name>VL_MR_V8</name>
         <rename>VL_MR_V8</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5564,7 +5564,7 @@
       </meta>      <meta>        <name>VL_MR_V9</name>
         <rename>VL_MR_V9</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5579,7 +5579,7 @@
       </meta>      <meta>        <name>VL_MR_V10</name>
         <rename>VL_MR_V10</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5594,7 +5594,7 @@
       </meta>      <meta>        <name>VL_MR_V11</name>
         <rename>VL_MR_V11</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5609,7 +5609,7 @@
       </meta>      <meta>        <name>VL_MR_V12</name>
         <rename>VL_MR_V12</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5624,7 +5624,7 @@
       </meta>      <meta>        <name>VL_MR_V13</name>
         <rename>VL_MR_V13</rename>
         <type>Number</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>-2</precision>
         <conversion_mask>&#x23;.&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5849,7 +5849,7 @@
       </meta>      <meta>        <name>COMPET_CALCULO2</name>
         <rename>COMPET_CALCULO2</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5864,7 +5864,7 @@
       </meta>      <meta>        <name>COMPET_CALCULO3</name>
         <rename>COMPET_CALCULO3</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5879,7 +5879,7 @@
       </meta>      <meta>        <name>COMPET_CALCULO4</name>
         <rename>COMPET_CALCULO4</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5894,7 +5894,7 @@
       </meta>      <meta>        <name>COMPET_CALCULO5</name>
         <rename>COMPET_CALCULO5</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5909,7 +5909,7 @@
       </meta>      <meta>        <name>COMPET_CALCULO6</name>
         <rename>COMPET_CALCULO6</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5924,7 +5924,7 @@
       </meta>      <meta>        <name>COMPET_CALCULO7</name>
         <rename>COMPET_CALCULO7</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5939,7 +5939,7 @@
       </meta>      <meta>        <name>COMPET_CALCULO8</name>
         <rename>COMPET_CALCULO8</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5954,7 +5954,7 @@
       </meta>      <meta>        <name>COMPET_CALCULO9</name>
         <rename>COMPET_CALCULO9</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5969,7 +5969,7 @@
       </meta>      <meta>        <name>COMPET_CALCULO10</name>
         <rename>COMPET_CALCULO10</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5984,7 +5984,7 @@
       </meta>      <meta>        <name>COMPET_CALCULO11</name>
         <rename>COMPET_CALCULO11</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -5999,7 +5999,7 @@
       </meta>      <meta>        <name>COMPET_CALCULO12</name>
         <rename>COMPET_CALCULO12</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -6014,7 +6014,7 @@
       </meta>      <meta>        <name>COMPET_CALCULO13</name>
         <rename>COMPET_CALCULO13</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -6044,7 +6044,7 @@
       </meta>      <meta>        <name>SITUACAO_BENEF2</name>
         <rename>SITUACAO_BENEF2</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -6059,7 +6059,7 @@
       </meta>      <meta>        <name>SITUACAO_BENEF3</name>
         <rename>SITUACAO_BENEF3</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -6074,7 +6074,7 @@
       </meta>      <meta>        <name>SITUACAO_BENEF4</name>
         <rename>SITUACAO_BENEF4</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -6089,7 +6089,7 @@
       </meta>      <meta>        <name>SITUACAO_BENEF5</name>
         <rename>SITUACAO_BENEF5</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -6104,7 +6104,7 @@
       </meta>      <meta>        <name>SITUACAO_BENEF6</name>
         <rename>SITUACAO_BENEF6</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -6119,7 +6119,7 @@
       </meta>      <meta>        <name>SITUACAO_BENEF7</name>
         <rename>SITUACAO_BENEF7</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -6134,7 +6134,7 @@
       </meta>      <meta>        <name>SITUACAO_BENEF8</name>
         <rename>SITUACAO_BENEF8</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -6149,7 +6149,7 @@
       </meta>      <meta>        <name>SITUACAO_BENEF9</name>
         <rename>SITUACAO_BENEF9</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -6164,7 +6164,7 @@
       </meta>      <meta>        <name>SITUACAO_BENEF10</name>
         <rename>SITUACAO_BENEF10</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -6179,7 +6179,7 @@
       </meta>      <meta>        <name>SITUACAO_BENEF11</name>
         <rename>SITUACAO_BENEF11</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -6194,7 +6194,7 @@
       </meta>      <meta>        <name>SITUACAO_BENEF12</name>
         <rename>SITUACAO_BENEF12</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -6209,7 +6209,7 @@
       </meta>      <meta>        <name>SITUACAO_BENEF13</name>
         <rename>SITUACAO_BENEF13</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -6239,7 +6239,7 @@
       </meta>      <meta>        <name>CLIENTELA2</name>
         <rename>CLIENTELA2</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -6254,7 +6254,7 @@
       </meta>      <meta>        <name>CLIENTELA3</name>
         <rename>CLIENTELA3</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -6269,7 +6269,7 @@
       </meta>      <meta>        <name>CLIENTELA4</name>
         <rename>CLIENTELA4</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -6284,7 +6284,7 @@
       </meta>      <meta>        <name>CLIENTELA5</name>
         <rename>CLIENTELA5</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -6299,7 +6299,7 @@
       </meta>      <meta>        <name>CLIENTELA6</name>
         <rename>CLIENTELA6</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -6314,7 +6314,7 @@
       </meta>      <meta>        <name>CLIENTELA7</name>
         <rename>CLIENTELA7</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -6329,7 +6329,7 @@
       </meta>      <meta>        <name>CLIENTELA8</name>
         <rename>CLIENTELA8</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -6344,7 +6344,7 @@
       </meta>      <meta>        <name>CLIENTELA9</name>
         <rename>CLIENTELA9</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -6359,7 +6359,7 @@
       </meta>      <meta>        <name>CLIENTELA10</name>
         <rename>CLIENTELA10</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -6374,7 +6374,7 @@
       </meta>      <meta>        <name>CLIENTELA11</name>
         <rename>CLIENTELA11</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -6389,7 +6389,7 @@
       </meta>      <meta>        <name>CLIENTELA12</name>
         <rename>CLIENTELA12</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
@@ -6404,7 +6404,7 @@
       </meta>      <meta>        <name>CLIENTELA13</name>
         <rename>CLIENTELA13</rename>
         <type>Integer</type>
-        <length>-2</length>
+        <length>15</length>
         <precision>0</precision>
         <conversion_mask>&#x23;</conversion_mask>
         <date_format_lenient>false</date_format_lenient>
