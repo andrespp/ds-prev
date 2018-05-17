@@ -95,11 +95,11 @@
   </notepads>
   <connection>
     <name>prevdb_localhost</name>
-    <server>prevdb</server>
+    <server>localhost</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
     <database>prevdb</database>
-    <port>2035</port>
+    <port>5432</port>
     <username>prevdb_user</username>
     <password>Encrypted 2be98afc86aa7f2e4cb79ce10ce80fccc</password>
     <servername/>
@@ -109,7 +109,7 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>2035</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
       <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
@@ -131,7 +131,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <filename>&#x24;&#x7b;Internal.Transformation.Filename.Directory&#x7d;&#x2f;..&#x2f;dataset&#x2f;SEN_MICRODADOS01.APO.AUX.csv</filename>
+    <filename>&#x24;&#x7b;Internal.Transformation.Filename.Directory&#x7d;&#x2f;..&#x2f;dataset&#x2f;SEN_MICRODADOS02_PENS.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -245,6 +245,17 @@
         <trim_type>none</trim_type>
       </field>
       <field>
+        <name>IDADE_DIB</name>
+        <type>Integer</type>
+        <format>&#x23;</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>15</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
         <name>SEXO</name>
         <type>Integer</type>
         <format>&#x23;</format>
@@ -278,7 +289,18 @@
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>IDADE_DIB</name>
+        <name>DT_OBITO_INS</name>
+        <type>Date</type>
+        <format>dd&#x2f;MM&#x2f;yyyy</format>
+        <currency>&#x24;</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>DEP_VINCULO</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x24;</currency>
@@ -289,7 +311,7 @@
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>TEMPO_CONTRIB</name>
+        <name>TEMPO_CONTRIB_INS</name>
         <type>Integer</type>
         <format>&#x23;</format>
         <currency>&#x24;</currency>
