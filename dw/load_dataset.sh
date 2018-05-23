@@ -10,8 +10,11 @@ PDI_PAN="/home/andre/Downloads/pentaho/data-integration-ce-5.0.1.A-stable/pan.sh
 PDI_TRF=""
 
 ## Dimension Tables
-#PDI_TRF="$PDI_TRF ./dim_situacao_beneficio.ktr"
-PDI_TRF="$PDI_TRF ./dim_especie.ktr"
+PDI_TRF="$PDI_TRF ./dim_situacao_beneficio.ktr"
+#PDI_TRF="$PDI_TRF ./dim_mot_cessacao.ktr"
+#PDI_TRF="$PDI_TRF ./dim_clientela.ktr"
+#PDI_TRF="$PDI_TRF ./dim_especie.ktr"
+#PDI_TRF="$PDI_TRF ./dim_sexo.ktr"
 
 ## Fact Tables (core)
 #PDI_TRF="$PDI_TRF ./fato_aposentadoria.ktr"
