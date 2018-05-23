@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>fato_pensao2</name>
+    <name>dim_situacao_beneficio</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -66,32 +66,11 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2018&#x2f;04&#x2f;13 10&#x3a;00&#x3a;39.670</created_date>
+  <created_date>2018&#x2f;05&#x2f;17 20&#x3a;57&#x3a;02.865</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2018&#x2f;04&#x2f;13 10&#x3a;00&#x3a;39.670</modified_date>
+  <modified_date>2018&#x2f;05&#x2f;17 20&#x3a;57&#x3a;02.865</modified_date>
   </info>
   <notepads>
-    <notepad>
-      <note>SEN_MICRODADOS02_PENS.csv&#xa;7.964.186 registros&#xa;&#xa;</note>
-      <xloc>171</xloc>
-      <yloc>154</yloc>
-      <width>230</width>
-      <heigth>78</heigth>
-      <fontname>Ubuntu</fontname>
-      <fontsize>11</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
   </notepads>
   <connection>
     <name>prevdb_localhost</name>
@@ -118,11 +97,11 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>CSV file input</from><to>Table output</to><enabled>Y</enabled> </hop>
+  <hop> <from>Data Grid</from><to>Table output</to><enabled>Y</enabled> </hop>
   </order>
   <step>
-    <name>CSV file input</name>
-    <type>CsvInput</type>
+    <name>Data Grid</name>
+    <type>DataGrid</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -131,201 +110,52 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <filename>&#x24;&#x7b;Internal.Transformation.Filename.Directory&#x7d;&#x2f;..&#x2f;dataset&#x2f;SEN_MICRODADOS02_PENS.csv</filename>
-    <filename_field/>
-    <rownum_field/>
-    <include_filename>N</include_filename>
-    <separator>&#x3b;</separator>
-    <enclosure/>
-    <header>Y</header>
-    <buffer_size>50000</buffer_size>
-    <lazy_conversion>Y</lazy_conversion>
-    <add_filename_result>N</add_filename_result>
-    <parallel>N</parallel>
-    <newline_possible>N</newline_possible>
-    <encoding/>
     <fields>
       <field>
-        <name>ESPECIE</name>
+        <name>cod</name>
         <type>Integer</type>
-        <format>&#x23;</format>
-        <currency>&#x24;</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>DIB</name>
-        <type>Date</type>
-        <format>dd&#x2f;MM&#x2f;yyyy</format>
-        <currency>&#x24;</currency>
-        <decimal>.</decimal>
-        <group>,</group>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <set_empty_string>N</set_empty_string>
       </field>
       <field>
-        <name>DDB</name>
-        <type>Date</type>
-        <format>dd&#x2f;MM&#x2f;yyyy</format>
-        <currency>&#x24;</currency>
-        <decimal>.</decimal>
-        <group>,</group>
+        <name>descricao</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>MOT_CESSACAO</name>
-        <type>Integer</type>
-        <format>&#x23;</format>
-        <currency>&#x24;</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>ULT_COMPET_MR</name>
-        <type>Integer</type>
-        <format>&#x23;</format>
-        <currency>&#x24;</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>VL_MR</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;</format>
-        <currency>&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>15</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>DT_NASC</name>
-        <type>Date</type>
-        <format>dd&#x2f;MM&#x2f;yyyy</format>
-        <currency>&#x24;</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>VL_RMI</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;</format>
-        <currency>&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>15</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>CLIENTELA</name>
-        <type>Integer</type>
-        <format>&#x23;</format>
-        <currency>&#x24;</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>IDADE_DIB</name>
-        <type>Integer</type>
-        <format>&#x23;</format>
-        <currency>&#x24;</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>SEXO</name>
-        <type>Integer</type>
-        <format>&#x23;</format>
-        <currency>&#x24;</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>SITUACAO</name>
-        <type>Integer</type>
-        <format>&#x23;</format>
-        <currency>&#x24;</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>DT_OBITO</name>
-        <type>Date</type>
-        <format>dd&#x2f;MM&#x2f;yyyy</format>
-        <currency>&#x24;</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>DT_OBITO_INS</name>
-        <type>Date</type>
-        <format>dd&#x2f;MM&#x2f;yyyy</format>
-        <currency>&#x24;</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>DEP_VINCULO</name>
-        <type>Integer</type>
-        <format>&#x23;</format>
-        <currency>&#x24;</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>TEMPO_CONTRIB_INS</name>
-        <type>Integer</type>
-        <format>&#x23;</format>
-        <currency>&#x24;</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <set_empty_string>N</set_empty_string>
       </field>
     </fields>
+    <data>
+      <line> <item>0</item><item>Ativo</item> </line>
+      <line> <item>2</item><item>Cessado</item> </line>
+      <line> <item>3</item><item>Suspenso</item> </line>
+      <line> <item>4</item><item>Suspenso por Marca de Erro</item> </line>
+      <line> <item>5</item><item>Cessado por Cess do Titular Proprio &#x28;Pa&#x29;</item> </line>
+      <line> <item>7</item><item>Bloqueado Pelo Controle de Pagamento</item> </line>
+      <line> <item>8</item><item>Cessado Pelo Sistema de Obitos da Dtp</item> </line>
+      <line> <item>10</item><item>Recebendo Mensalid de Recuper 6 Meses</item> </line>
+      <line> <item>11</item><item>Recebendo Mensalid de Recuper 18 Meses</item> </line>
+      <line> <item>12</item><item>Suspenso Pelo Sistema de Revisao Rur&#x2f;Urb</item> </line>
+      <line> <item>16</item><item>Beneficio Suspenso Pela Auditoria</item> </line>
+      <line> <item>17</item><item>Beneficio Cessado Pela Inspetoria</item> </line>
+      <line> <item>18</item><item>Beneficio Cessado Pela Auditoria</item> </line>
+      <line> <item>22</item><item>Cessado Pela Revisao Rural&#x2f;95</item> </line>
+      <line> <item>23</item><item>Susp. Pelo Sistema de Obitos da Dataprev</item> </line>
+      <line> <item>24</item><item>Cancelado Pela Auditoria</item> </line>
+    </data>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>131</xloc>
-      <yloc>50</yloc>
+      <xloc>197</xloc>
+      <yloc>62</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -343,7 +173,7 @@
            </partitioning>
     <connection>prevdb_localhost</connection>
     <schema/>
-    <table>fato_pensao2</table>
+    <table>dim_situacao</table>
     <commit>1000</commit>
     <truncate>Y</truncate>
     <ignore_errors>N</ignore_errors>
@@ -362,8 +192,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>434</xloc>
-      <yloc>50</yloc>
+      <xloc>354</xloc>
+      <yloc>62</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
