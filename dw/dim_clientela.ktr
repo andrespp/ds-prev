@@ -137,7 +137,7 @@
     </fields>
     <data>
       <line> <item>1</item><item>Urbana</item> </line>
-      <line> <item>3</item><item>Rural</item> </line>
+      <line> <item>2</item><item>Rural</item> </line>
       <line> <item>9</item><item>Ignorada</item> </line>
     </data>
      <cluster_schema/>
