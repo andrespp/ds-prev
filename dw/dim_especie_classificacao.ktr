@@ -594,6 +594,28 @@
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
       </field>
+      <field>
+        <name>cod</name>
+        <type>Integer</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>descricao</name>
+        <type>String</type>
+        <format />
+        <currency />
+        <decimal />
+        <group />
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
     </fields>
     <data>
       <line>
@@ -605,6 +627,32 @@
         <item>APOSENTADORIAS</item>
         <item>1.1.1.1</item>
         <item>TEMPO DE CONTRIBUIÇÃO</item>
+        <item>42</item>
+        <item>Aposentadoria por tempo de serviço previdenciária </item>
+      </line>
+      <line>
+        <item>1</item>
+        <item>RGPS</item>
+        <item>1.1</item>
+        <item>PREVIDENCIÁRIOS</item>
+        <item>1.1.1</item>
+        <item>APOSENTADORIAS</item>
+        <item>1.1.1.1</item>
+        <item>TEMPO DE CONTRIBUIÇÃO</item>
+        <item>46</item>
+        <item>Aposentadoria por tempo de serviço especial </item>
+      </line>
+      <line>
+        <item>1</item>
+        <item>RGPS</item>
+        <item>1.1</item>
+        <item>PREVIDENCIÁRIOS</item>
+        <item>1.1.1</item>
+        <item>APOSENTADORIAS</item>
+        <item>1.1.1.1</item>
+        <item>TEMPO DE CONTRIBUIÇÃO</item>
+        <item>57</item>
+        <item>Aposentadoria por tempo de serviço de professor</item>
       </line>
       <line>
         <item>1</item>
@@ -615,6 +663,8 @@
         <item>APOSENTADORIAS</item>
         <item>1.1.1.2</item>
         <item>IDADE</item>
+        <item>41</item>
+        <item>Aposentadoria por idade </item>
       </line>
       <line>
         <item>1</item>
@@ -625,6 +675,8 @@
         <item>APOSENTADORIAS</item>
         <item>1.1.1.3</item>
         <item>INVALIDEZ</item>
+        <item>32</item>
+        <item>Aposentadoria por invalidez previdenciária </item>
       </line>
       <line>
         <item>1</item>
@@ -635,6 +687,8 @@
         <item>PENSÃO POR MORTE</item>
         <item>1.1.2.1</item>
         <item>PENSÃO POR MORTE</item>
+        <item>21</item>
+        <item>Pensão por morte previdenciária </item>
       </line>
       <line>
         <item>1</item>
@@ -645,6 +699,8 @@
         <item>AUXILIOS</item>
         <item>1.1.3.1</item>
         <item>DOENÇA</item>
+        <item>31</item>
+        <item>Auxilio doença previdenciário </item>
       </line>
       <line>
         <item>1</item>
@@ -655,6 +711,8 @@
         <item>AUXILIOS</item>
         <item>1.1.3.2</item>
         <item>RECLUSÃO</item>
+        <item />
+        <item />
       </line>
       <line>
         <item>1</item>
@@ -665,6 +723,8 @@
         <item>AUXILIOS</item>
         <item>1.1.3.3</item>
         <item>ACIDENTE</item>
+        <item />
+        <item />
       </line>
       <line>
         <item>1</item>
@@ -675,6 +735,8 @@
         <item>SALÁRIO MATERNIDADE</item>
         <item>1.1.4.1</item>
         <item>SALÁRIO MATERNIDADE</item>
+        <item />
+        <item />
       </line>
       <line>
         <item>1</item>
@@ -685,6 +747,8 @@
         <item>OUTROS</item>
         <item>1.1.5.1</item>
         <item>SALÁRIO FAMÍLIA</item>
+        <item />
+        <item />
       </line>
       <line>
         <item>1</item>
@@ -695,6 +759,8 @@
         <item>OUTROS</item>
         <item>1.1.5.2</item>
         <item>ABONO DE PERMANÊNCIA</item>
+        <item />
+        <item />
       </line>
       <line>
         <item>1</item>
@@ -705,6 +771,8 @@
         <item>OUTROS</item>
         <item>1.1.5.3</item>
         <item>VANTAGEM DE SERVIDOR</item>
+        <item />
+        <item />
       </line>
       <line>
         <item>1</item>
@@ -715,6 +783,8 @@
         <item>APOSENTADORIA POR INVALIDEZ</item>
         <item>1.2.1.1</item>
         <item>APOSENTADORIA POR INVALIDEZ</item>
+        <item>92</item>
+        <item>Aposentadoria por invalidez por acidente do trabalho </item>
       </line>
       <line>
         <item>1</item>
@@ -725,6 +795,8 @@
         <item>PENSÃO POR MORTE</item>
         <item>1.2.2.1</item>
         <item>PENSÃO POR MORTE</item>
+        <item>93</item>
+        <item>Pensão por morte por acidente do trabalho </item>
       </line>
       <line>
         <item>1</item>
@@ -735,6 +807,8 @@
         <item>AUXILIOS</item>
         <item>1.2.3.1</item>
         <item>DOENÇA</item>
+        <item>91</item>
+        <item>Auxílio doença acidentário </item>
       </line>
       <line>
         <item>1</item>
@@ -745,6 +819,8 @@
         <item>AUXILIOS</item>
         <item>1.2.3.2</item>
         <item>ACIDENTE</item>
+        <item />
+        <item />
       </line>
       <line>
         <item>1</item>
@@ -755,6 +831,8 @@
         <item>AUXILIOS</item>
         <item>1.2.3.3</item>
         <item>SUPLEMENTAR</item>
+        <item />
+        <item />
       </line>
       <line>
         <item>2</item>
@@ -765,6 +843,8 @@
         <item>PORTADOR DE DEFICIÊNCIA</item>
         <item>2.1.1.1</item>
         <item>PORTADOR DE DEFICIÊNCIA</item>
+        <item />
+        <item />
       </line>
       <line>
         <item>2</item>
@@ -775,6 +855,8 @@
         <item>IDOSO</item>
         <item>2.1.2.1</item>
         <item>IDOSO</item>
+        <item />
+        <item />
       </line>
       <line>
         <item>2</item>
@@ -785,6 +867,8 @@
         <item>PENSÃO MENSAL VITALÍCIA</item>
         <item>2.2.1.1</item>
         <item>PENSÃO MENSAL VITALÍCIA</item>
+        <item />
+        <item />
       </line>
       <line>
         <item>2</item>
@@ -795,6 +879,8 @@
         <item>INVALIDEZ</item>
         <item>2.3.1.1</item>
         <item>INVALIDEZ</item>
+        <item />
+        <item />
       </line>
       <line>
         <item>2</item>
@@ -805,6 +891,8 @@
         <item>IDADE</item>
         <item>2.3.2.1</item>
         <item>IDADE</item>
+        <item />
+        <item />
       </line>
       <line>
         <item>3</item>
@@ -815,6 +903,8 @@
         <item>EPU</item>
         <item>3.1.1.1</item>
         <item>ENCARGOS PREV. UNIÃO</item>
+        <item />
+        <item />
       </line>
     </data>
     <cluster_schema />
