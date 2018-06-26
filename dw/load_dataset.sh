@@ -13,7 +13,11 @@ A=`date`
 ## Individual transformation files
 PDI_TRF=""
 
+## Auxiliary transformations
+PDI_TRF="$PDI_TRF ./aux_create_tables.ktr"
+
 ## Dimension Tables
+#PDI_TRF="$PDI_TRF ./dim_data.ktr"
 #PDI_TRF="$PDI_TRF ./dim_situacao_beneficio.ktr"
 #PDI_TRF="$PDI_TRF ./dim_mot_cessacao.ktr"
 #PDI_TRF="$PDI_TRF ./dim_clientela.ktr"
@@ -22,8 +26,8 @@ PDI_TRF=""
 #PDI_TRF="$PDI_TRF ./dim_sexo.ktr"
 
 ## Fact Tables (core)
-#PDI_TRF="$PDI_TRF ./fato_auxilio.ktr"
-PDI_TRF="$PDI_TRF ./fato_auxilio_raw.ktr"
+PDI_TRF="$PDI_TRF ./fato_auxilio.ktr"
+#PDI_TRF="$PDI_TRF ./fato_auxilio_raw.ktr"
 #PDI_TRF="$PDI_TRF ./fato_auxilio_sample.ktr"
 #PDI_TRF="$PDI_TRF ./fato_aposentadoria.ktr"
 #PDI_TRF="$PDI_TRF ./fato_pensao2.ktr"
