@@ -23,7 +23,8 @@ PDI_TRF=""
 
 ## Fact Tables (core)
 #PDI_TRF="$PDI_TRF ./fato_auxilio.ktr"
-PDI_TRF="$PDI_TRF ./fato_auxilio_sample.ktr"
+PDI_TRF="$PDI_TRF ./fato_auxilio_raw.ktr"
+#PDI_TRF="$PDI_TRF ./fato_auxilio_sample.ktr"
 #PDI_TRF="$PDI_TRF ./fato_aposentadoria.ktr"
 #PDI_TRF="$PDI_TRF ./fato_pensao2.ktr"
 #PDI_TRF="$PDI_TRF ./fato_pensao.ktr"
