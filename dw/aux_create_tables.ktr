@@ -430,7 +430,7 @@
     <created_date>2018/06/26 14:46:22.992</created_date>
     <modified_user>-</modified_user>
     <modified_date>2018/06/26 14:46:22.992</modified_date>
-    <key_for_session_key />
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -488,28 +488,285 @@
   </connection>
   <order>
     <hop>
-      <from>Generate Rows</from>
-      <to>Table exists</to>
+      <from>switch table</from>
+      <to>Dummy 3</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Table exists</from>
-      <to>Switch / Case</to>
+      <from>switch table</from>
+      <to>DIM_DATA</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Switch / Case</from>
-      <to>Dummy (do nothing)</to>
+      <from>Data Grid</from>
+      <to>Table existis</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Switch / Case</from>
+      <from>Table existis</from>
+      <to>switch exists</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>switch exists</from>
+      <to>switch table</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>switch exists</from>
+      <to>Do Nothing if table exists</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>switch table</from>
       <to>FATO_AUXILIO</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>switch table</from>
+      <to>DIM_CLIENTELA</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>switch table</from>
+      <to>DIM_ESPECIE</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>switch table</from>
+      <to>DIM_ESPECIE_CLASSIFICACAO</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>switch table</from>
+      <to>DIM_MOT_CESSACAO</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>switch table</from>
+      <to>DIM_SEXO</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>switch table</from>
+      <to>DIM_SITUACAO</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>switch table</from>
+      <to>FATO_AUXILIO_SAMPLE</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>switch table</from>
+      <to>FATO_AUXILIO_RAW</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>switch table</from>
+      <to>FATO_AUXILIO_2015</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>switch table</from>
+      <to>FATO_PENSAO</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>switch table</from>
+      <to>FATO_PENSAO2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>switch table</from>
+      <to>FATO_APOSENTADORIA</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Table exists</name>
+    <name>Dummy 3</name>
+    <type>Dummy</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>656</xloc>
+      <yloc>16</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>DIM_DATA</name>
+    <type>ExecSQL</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>prevdb</connection>
+    <execute_each_row>Y</execute_each_row>
+    <single_statement>N</single_statement>
+    <replace_variables>N</replace_variables>
+    <quoteString>N</quoteString>
+    <sql>CREATE TABLE dim_data
+(
+  DATE_SK INT
+, YEAR_NUMBER SMALLINT
+, MONTH_NUMBER SMALLINT
+, DAY_OF_YEAR_NUMBER SMALLINT
+, DAY_OF_MONTH_NUMBER SMALLINT
+, DAY_OF_WEEK_NUMBER SMALLINT
+, WEEK_OF_YEAR_NUMBER SMALLINT
+, DAY_NAME VARCHAR(30)
+, MONTH_NAME VARCHAR(30)
+, MONTH_SHORT_NAME VARCHAR(3)
+, QUARTER_NUMBER INT
+, QUARTER_NAME VARCHAR(2)
+, YEAR_QUARTER_NAME VARCHAR(32)
+, WEEKEND_IND VARCHAR(1)
+, DAYS_IN_MONTH_QTY SMALLINT
+, DAY_DESC TEXT
+, WEEK_SK INT
+, DAY_DATE TIMESTAMP
+, WEEK_NAME VARCHAR(32)
+, WEEK_OF_MONTH_NUMBER INT
+, WEEK_OF_MONTH_NAME TEXT
+, YEAR_SK INT
+, MONTH_SK INT
+, QUARTER_SK INT
+, DAY_OF_WEEK_SORT_NAME VARCHAR(60)
+, YEAR_SORT_NUMBER VARCHAR(4)
+, YEARMO_NUMBER INT
+)
+;CREATE INDEX idx_dim_data_lookup ON dim_data(DATE_SK)
+;
+</sql>
+    <set_params>N</set_params>
+    <insert_field />
+    <update_field />
+    <delete_field />
+    <read_field />
+    <arguments>
+    </arguments>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>656</xloc>
+      <yloc>80</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>switch table</name>
+    <type>SwitchCase</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fieldname>table_name</fieldname>
+    <use_contains>N</use_contains>
+    <case_value_type>String</case_value_type>
+    <case_value_format />
+    <case_value_decimal />
+    <case_value_group />
+    <default_target_step>Dummy (do nothing)</default_target_step>
+    <cases>
+      <case>
+        <value>dim_clientela</value>
+        <target_step>DIM_CLIENTELA</target_step>
+      </case>
+      <case>
+        <value>dim_data</value>
+        <target_step>DIM_DATA</target_step>
+      </case>
+      <case>
+        <value>dim_especie</value>
+        <target_step>DIM_ESPECIE</target_step>
+      </case>
+      <case>
+        <value>dim_especie_classificacao</value>
+        <target_step>DIM_ESPECIE_CLASSIFICACAO</target_step>
+      </case>
+      <case>
+        <value>dim_mot_cessacao</value>
+        <target_step>DIM_MOT_CESSACAO</target_step>
+      </case>
+      <case>
+        <value>dim_sexo</value>
+        <target_step>DIM_SEXO</target_step>
+      </case>
+      <case>
+        <value>dim_situacao</value>
+        <target_step>DIM_SITUACAO</target_step>
+      </case>
+      <case>
+        <value>fato_auxilio</value>
+        <target_step>FATO_AUXILIO</target_step>
+      </case>
+      <case>
+        <value>fato_auxilio_sample</value>
+        <target_step>FATO_AUXILIO_SAMPLE</target_step>
+      </case>
+      <case>
+        <value>fato_auxilio_2015</value>
+        <target_step>FATO_AUXILIO_2015</target_step>
+      </case>
+      <case>
+        <value>fato_auxilio_raw</value>
+        <target_step>FATO_AUXILIO_RAW</target_step>
+      </case>
+      <case>
+        <value>fato_pensao</value>
+        <target_step>FATO_PENSAO</target_step>
+      </case>
+      <case>
+        <value>fato_pensao2</value>
+        <target_step>FATO_PENSAO2</target_step>
+      </case>
+      <case>
+        <value>fato_aposentadoria</value>
+        <target_step>FATO_APOSENTADORIA</target_step>
+      </case>
+    </cases>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>384</xloc>
+      <yloc>16</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Table existis</name>
     <type>TableExists</type>
     <description />
     <distribute>Y</distribute>
@@ -531,14 +788,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>160</xloc>
-      <yloc>32</yloc>
+      <xloc>144</xloc>
+      <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Generate Rows</name>
-    <type>RowGenerator</type>
+    <name>Data Grid</name>
+    <type>DataGrid</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -555,17 +812,55 @@
         <currency />
         <decimal />
         <group />
-        <nullif>fato_auxilio</nullif>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
       </field>
     </fields>
-    <limit>1</limit>
-    <never_ending>N</never_ending>
-    <interval_in_ms>5000</interval_in_ms>
-    <row_time_field>now</row_time_field>
-    <last_time_field>FiveSecondsAgo</last_time_field>
+    <data>
+      <line>
+        <item>dim_data</item>
+      </line>
+      <line>
+        <item>dim_clientela</item>
+      </line>
+      <line>
+        <item>dim_especie</item>
+      </line>
+      <line>
+        <item>fato_auxilio</item>
+      </line>
+      <line>
+        <item>dim_especie_classificacao</item>
+      </line>
+      <line>
+        <item>dim_mot_cessacao</item>
+      </line>
+      <line>
+        <item>dim_sexo</item>
+      </line>
+      <line>
+        <item>dim_situacao</item>
+      </line>
+      <line>
+        <item>fato_auxilio_sample</item>
+      </line>
+      <line>
+        <item>fato_auxilio_raw</item>
+      </line>
+      <line>
+        <item>fato_auxilio_2015</item>
+      </line>
+      <line>
+        <item>fato_pensao</item>
+      </line>
+      <line>
+        <item>fato_pensao2</item>
+      </line>
+      <line>
+        <item>fato_aposentadoria</item>
+      </line>
+    </data>
     <cluster_schema />
     <remotesteps>
       <input>
@@ -574,13 +869,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>48</xloc>
-      <yloc>32</yloc>
+      <xloc>32</xloc>
+      <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Switch / Case</name>
+    <name>switch exists</name>
     <type>SwitchCase</type>
     <description />
     <distribute>Y</distribute>
@@ -600,11 +895,11 @@
     <cases>
       <case>
         <value>N</value>
-        <target_step>FATO_AUXILIO</target_step>
+        <target_step>switch table</target_step>
       </case>
       <case>
         <value>Y</value>
-        <target_step>Dummy (do nothing)</target_step>
+        <target_step>Do Nothing if table exists</target_step>
       </case>
     </cases>
     <cluster_schema />
@@ -616,12 +911,12 @@
     </remotesteps>
     <GUI>
       <xloc>256</xloc>
-      <yloc>32</yloc>
+      <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Dummy (do nothing)</name>
+    <name>Do Nothing if table exists</name>
     <type>Dummy</type>
     <description />
     <distribute>Y</distribute>
@@ -639,8 +934,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>400</xloc>
-      <yloc>16</yloc>
+      <xloc>128</xloc>
+      <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -693,8 +988,802 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>400</xloc>
-      <yloc>80</yloc>
+      <xloc>48</xloc>
+      <yloc>192</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>DIM_CLIENTELA</name>
+    <type>ExecSQL</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>prevdb</connection>
+    <execute_each_row>Y</execute_each_row>
+    <single_statement>N</single_statement>
+    <replace_variables>N</replace_variables>
+    <quoteString>N</quoteString>
+    <sql>CREATE TABLE dim_clientela
+(
+  cod INT
+, descricao TEXT
+)
+;</sql>
+    <set_params>N</set_params>
+    <insert_field />
+    <update_field />
+    <delete_field />
+    <read_field />
+    <arguments>
+    </arguments>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>656</xloc>
+      <yloc>144</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>DIM_MOT_CESSACAO</name>
+    <type>ExecSQL</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>prevdb</connection>
+    <execute_each_row>Y</execute_each_row>
+    <single_statement>N</single_statement>
+    <replace_variables>N</replace_variables>
+    <quoteString>N</quoteString>
+    <sql>CREATE TABLE dim_mot_cessacao
+(
+  cod DOUBLE PRECISION
+, descricao TEXT
+)
+;</sql>
+    <set_params>N</set_params>
+    <insert_field />
+    <update_field />
+    <delete_field />
+    <read_field />
+    <arguments>
+    </arguments>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>784</xloc>
+      <yloc>32</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>DIM_ESPECIE_CLASSIFICACAO</name>
+    <type>ExecSQL</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>prevdb</connection>
+    <execute_each_row>Y</execute_each_row>
+    <single_statement>N</single_statement>
+    <replace_variables>N</replace_variables>
+    <quoteString>N</quoteString>
+    <sql>CREATE TABLE dim_especie_classificacao
+(
+  cod_origem TEXT
+, origem TEXT
+, cod_categoria TEXT
+, categoria TEXT
+, cod_classe TEXT
+, classe TEXT
+, cod_especie TEXT
+, especie TEXT
+, cod INT
+, descricao TEXT
+)
+;</sql>
+    <set_params>N</set_params>
+    <insert_field />
+    <update_field />
+    <delete_field />
+    <read_field />
+    <arguments>
+    </arguments>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>784</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>DIM_ESPECIE</name>
+    <type>ExecSQL</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>prevdb</connection>
+    <execute_each_row>Y</execute_each_row>
+    <single_statement>N</single_statement>
+    <replace_variables>N</replace_variables>
+    <quoteString>N</quoteString>
+    <sql>CREATE TABLE dim_especie
+(
+  cod INT
+, descricao TEXT
+)
+;</sql>
+    <set_params>N</set_params>
+    <insert_field />
+    <update_field />
+    <delete_field />
+    <read_field />
+    <arguments>
+    </arguments>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>656</xloc>
+      <yloc>208</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>DIM_SEXO</name>
+    <type>ExecSQL</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>prevdb</connection>
+    <execute_each_row>Y</execute_each_row>
+    <single_statement>N</single_statement>
+    <replace_variables>N</replace_variables>
+    <quoteString>N</quoteString>
+    <sql>CREATE TABLE dim_sexo
+(
+  cod INT
+, descricao TEXT
+)
+;</sql>
+    <set_params>N</set_params>
+    <insert_field />
+    <update_field />
+    <delete_field />
+    <read_field />
+    <arguments>
+    </arguments>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>784</xloc>
+      <yloc>96</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>DIM_SITUACAO</name>
+    <type>ExecSQL</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>prevdb</connection>
+    <execute_each_row>Y</execute_each_row>
+    <single_statement>N</single_statement>
+    <replace_variables>N</replace_variables>
+    <quoteString>N</quoteString>
+    <sql>CREATE TABLE dim_situacao
+(
+  cod INT
+, descricao TEXT
+)
+;</sql>
+    <set_params>N</set_params>
+    <insert_field />
+    <update_field />
+    <delete_field />
+    <read_field />
+    <arguments>
+    </arguments>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>784</xloc>
+      <yloc>160</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>FATO_AUXILIO_2015</name>
+    <type>ExecSQL</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>prevdb</connection>
+    <execute_each_row>Y</execute_each_row>
+    <single_statement>N</single_statement>
+    <replace_variables>N</replace_variables>
+    <quoteString>N</quoteString>
+    <sql>CREATE TABLE fato_auxilio_2015
+(
+  ESPECIE INT
+, DIB INT
+, DDB INT
+, MOT_CESSACAO INT
+, ULT_COMPET_MR INT
+, VL_MR DOUBLE PRECISION
+, DT_NASC INT
+, VL_RMI DOUBLE PRECISION
+, CLIENTELA BIGINT
+, SEXO BIGINT
+, SITUACAO BIGINT
+, DT_OBITO INT
+, IDADE_DIB BIGINT
+, TEMPO_CONTRIB BIGINT
+)
+;</sql>
+    <set_params>N</set_params>
+    <insert_field />
+    <update_field />
+    <delete_field />
+    <read_field />
+    <arguments>
+    </arguments>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>176</xloc>
+      <yloc>192</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>FATO_AUXILIO_RAW</name>
+    <type>ExecSQL</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>prevdb</connection>
+    <execute_each_row>Y</execute_each_row>
+    <single_statement>N</single_statement>
+    <replace_variables>N</replace_variables>
+    <quoteString>N</quoteString>
+    <sql>CREATE TABLE fato_auxilio_raw
+(
+  ESPECIE INT
+, DIB TIMESTAMP
+, DDB TIMESTAMP
+, MOT_CESSACAO INT
+, ULT_COMPET_MR INT
+, VL_MR DOUBLE PRECISION
+, DT_NASC TIMESTAMP
+, VL_RMI DOUBLE PRECISION
+, CLIENTELA INT
+, SEXO INT
+, SITUACAO INT
+, DT_OBITO TIMESTAMP
+, IDADE_DIB INT
+, TEMPO_CONTRIB INT
+)
+;</sql>
+    <set_params>N</set_params>
+    <insert_field />
+    <update_field />
+    <delete_field />
+    <read_field />
+    <arguments>
+    </arguments>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>352</xloc>
+      <yloc>192</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>FATO_AUXILIO_SAMPLE</name>
+    <type>ExecSQL</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>prevdb</connection>
+    <execute_each_row>Y</execute_each_row>
+    <single_statement>N</single_statement>
+    <replace_variables>N</replace_variables>
+    <quoteString>N</quoteString>
+    <sql>CREATE TABLE fato_auxilio_sample
+(
+  ESPECIE INT
+, DIB INT
+, DDB INT
+, MOT_CESSACAO INT
+, ULT_COMPET_MR INT
+, VL_MR DOUBLE PRECISION
+, DT_NASC INT
+, VL_RMI DOUBLE PRECISION
+, CLIENTELA BIGINT
+, SEXO BIGINT
+, SITUACAO BIGINT
+, DT_OBITO INT
+, IDADE_DIB BIGINT
+, TEMPO_CONTRIB BIGINT
+)
+;</sql>
+    <set_params>N</set_params>
+    <insert_field />
+    <update_field />
+    <delete_field />
+    <read_field />
+    <arguments>
+    </arguments>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>512</xloc>
+      <yloc>192</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>FATO_PENSAO</name>
+    <type>ExecSQL</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>prevdb</connection>
+    <execute_each_row>Y</execute_each_row>
+    <single_statement>N</single_statement>
+    <replace_variables>N</replace_variables>
+    <quoteString>N</quoteString>
+    <sql>CREATE TABLE fato_pensao
+(
+  QTE_PENSOES_GERADAS INT
+, IDADE_SEGURADO1 INT
+, IDADE_SEGURADO2 INT
+, IDADE_SEGURADO3 INT
+, IDADE_SEGURADO4 INT
+, IDADE_SEGURADO5 INT
+, IDADE_SEGURADO6 INT
+, IDADE_SEGURADO7 INT
+, IDADE_SEGURADO8 INT
+, IDADE_SEGURADO9 INT
+, IDADE_SEGURADO10 INT
+, IDADE_SEGURADO11 INT
+, IDADE_SEGURADO12 INT
+, IDADE_SEGURADO13 INT
+, DT_DCB_D1 TIMESTAMP
+, DT_DCB_D2 TIMESTAMP
+, DT_DCB_D3 TIMESTAMP
+, DT_DCB_D4 TIMESTAMP
+, DT_DCB_D5 TIMESTAMP
+, DT_DCB_D6 TIMESTAMP
+, DT_DCB_D7 TIMESTAMP
+, DT_DCB_D8 TIMESTAMP
+, DT_DCB_D9 TIMESTAMP
+, DT_DCB_D10 TIMESTAMP
+, DT_DCB_D11 TIMESTAMP
+, DT_DCB_D12 TIMESTAMP
+, DT_DCB_D13 TIMESTAMP
+, MOTIVO1 INT
+, MOTIVO2 INT
+, MOTIVO3 INT
+, MOTIVO4 INT
+, MOTIVO5 INT
+, MOTIVO6 INT
+, MOTIVO7 INT
+, MOTIVO8 INT
+, MOTIVO9 INT
+, MOTIVO10 INT
+, MOTIVO11 INT
+, MOTIVO12 INT
+, MOTIVO13 INT
+, PRECEDIDO1 INT
+, PRECEDIDO2 INT
+, PRECEDIDO3 INT
+, PRECEDIDO4 INT
+, PRECEDIDO5 INT
+, PRECEDIDO6 INT
+, PRECEDIDO7 INT
+, PRECEDIDO8 INT
+, PRECEDIDO9 INT
+, PRECEDIDO10 INT
+, PRECEDIDO11 INT
+, PRECEDIDO12 INT
+, PRECEDIDO13 INT
+, QTE_TEMPO_SERV_ANO_V1 INT
+, QTE_TEMPO_SERV_ANO_V2 INT
+, QTE_TEMPO_SERV_ANO_V3 INT
+, QTE_TEMPO_SERV_ANO_V4 INT
+, QTE_TEMPO_SERV_ANO_V5 INT
+, QTE_TEMPO_SERV_ANO_V6 INT
+, QTE_TEMPO_SERV_ANO_V7 INT
+, QTE_TEMPO_SERV_ANO_V8 INT
+, QTE_TEMPO_SERV_ANO_V9 INT
+, QTE_TEMPO_SERV_ANO_V10 INT
+, QTE_TEMPO_SERV_ANO_V11 INT
+, QTE_TEMPO_SERV_ANO_V12 INT
+, QTE_TEMPO_SERV_ANO_V13 INT
+, QTE_TEMPO_SERV_MES_V1 INT
+, QTE_TEMPO_SERV_MES_V2 INT
+, QTE_TEMPO_SERV_MES_V3 INT
+, QTE_TEMPO_SERV_MES_V4 INT
+, QTE_TEMPO_SERV_MES_V5 INT
+, QTE_TEMPO_SERV_MES_V6 INT
+, QTE_TEMPO_SERV_MES_V7 INT
+, QTE_TEMPO_SERV_MES_V8 INT
+, QTE_TEMPO_SERV_MES_V9 INT
+, QTE_TEMPO_SERV_MES_V10 INT
+, QTE_TEMPO_SERV_MES_V11 INT
+, QTE_TEMPO_SERV_MES_V12 INT
+, QTE_TEMPO_SERV_MES_V13 INT
+, QTE_TEMPO_SERV_DIA_V1 INT
+, QTE_TEMPO_SERV_DIA_V2 INT
+, QTE_TEMPO_SERV_DIA_V3 INT
+, QTE_TEMPO_SERV_DIA_V4 INT
+, QTE_TEMPO_SERV_DIA_V5 INT
+, QTE_TEMPO_SERV_DIA_V6 INT
+, QTE_TEMPO_SERV_DIA_V7 INT
+, QTE_TEMPO_SERV_DIA_V8 INT
+, QTE_TEMPO_SERV_DIA_V9 INT
+, QTE_TEMPO_SERV_DIA_V10 INT
+, QTE_TEMPO_SERV_DIA_V11 INT
+, QTE_TEMPO_SERV_DIA_V12 INT
+, QTE_TEMPO_SERV_DIA_V13 INT
+, SEXO_SEGURADO1 INT
+, SEXO_SEGURADO2 INT
+, SEXO_SEGURADO3 INT
+, SEXO_SEGURADO4 INT
+, SEXO_SEGURADO5 INT
+, SEXO_SEGURADO6 INT
+, SEXO_SEGURADO7 INT
+, SEXO_SEGURADO8 INT
+, SEXO_SEGURADO9 INT
+, SEXO_SEGURADO10 INT
+, SEXO_SEGURADO11 INT
+, SEXO_SEGURADO12 INT
+, SEXO_SEGURADO13 INT
+, IDADE_PENSIONISTA1 INT
+, IDADE_PENSIONISTA2 INT
+, IDADE_PENSIONISTA3 INT
+, IDADE_PENSIONISTA4 INT
+, IDADE_PENSIONISTA5 INT
+, IDADE_PENSIONISTA6 INT
+, IDADE_PENSIONISTA7 INT
+, IDADE_PENSIONISTA8 INT
+, IDADE_PENSIONISTA9 INT
+, IDADE_PENSIONISTA10 INT
+, IDADE_PENSIONISTA11 INT
+, IDADE_PENSIONISTA12 INT
+, IDADE_PENSIONISTA13 INT
+, SEXO_PENSIONISTA1 INT
+, SEXO_PENSIONISTA2 INT
+, SEXO_PENSIONISTA3 INT
+, SEXO_PENSIONISTA4 INT
+, SEXO_PENSIONISTA5 INT
+, SEXO_PENSIONISTA6 INT
+, SEXO_PENSIONISTA7 INT
+, SEXO_PENSIONISTA8 INT
+, SEXO_PENSIONISTA9 INT
+, SEXO_PENSIONISTA10 INT
+, SEXO_PENSIONISTA11 INT
+, SEXO_PENSIONISTA12 INT
+, SEXO_PENSIONISTA13 INT
+, RMI_V1 BIGINT
+, RMI_V2 BIGINT
+, RMI_V3 BIGINT
+, RMI_V4 BIGINT
+, RMI_V5 BIGINT
+, RMI_V6 BIGINT
+, RMI_V7 BIGINT
+, RMI_V8 BIGINT
+, RMI_V9 BIGINT
+, RMI_V10 BIGINT
+, RMI_V11 BIGINT
+, RMI_V12 BIGINT
+, RMI_V13 BIGINT
+, VL_MR_V1 BIGINT
+, VL_MR_V2 BIGINT
+, VL_MR_V3 BIGINT
+, VL_MR_V4 BIGINT
+, VL_MR_V5 BIGINT
+, VL_MR_V6 BIGINT
+, VL_MR_V7 BIGINT
+, VL_MR_V8 BIGINT
+, VL_MR_V9 BIGINT
+, VL_MR_V10 BIGINT
+, VL_MR_V11 BIGINT
+, VL_MR_V12 BIGINT
+, VL_MR_V13 BIGINT
+, DT_DIB_D1 TIMESTAMP
+, DT_DIB_D2 TIMESTAMP
+, DT_DIB_D3 TIMESTAMP
+, DT_DIB_D4 TIMESTAMP
+, DT_DIB_D5 TIMESTAMP
+, DT_DIB_D6 TIMESTAMP
+, DT_DIB_D7 TIMESTAMP
+, DT_DIB_D8 TIMESTAMP
+, DT_DIB_D9 TIMESTAMP
+, DT_DIB_D10 TIMESTAMP
+, DT_DIB_D11 TIMESTAMP
+, DT_DIB_D12 TIMESTAMP
+, DT_DIB_D13 TIMESTAMP
+, COMPET_CALCULO1 INT
+, COMPET_CALCULO2 INT
+, COMPET_CALCULO3 INT
+, COMPET_CALCULO4 INT
+, COMPET_CALCULO5 INT
+, COMPET_CALCULO6 INT
+, COMPET_CALCULO7 INT
+, COMPET_CALCULO8 INT
+, COMPET_CALCULO9 INT
+, COMPET_CALCULO10 INT
+, COMPET_CALCULO11 INT
+, COMPET_CALCULO12 INT
+, COMPET_CALCULO13 INT
+, SITUACAO_BENEF1 INT
+, SITUACAO_BENEF2 INT
+, SITUACAO_BENEF3 INT
+, SITUACAO_BENEF4 INT
+, SITUACAO_BENEF5 INT
+, SITUACAO_BENEF6 INT
+, SITUACAO_BENEF7 INT
+, SITUACAO_BENEF8 INT
+, SITUACAO_BENEF9 INT
+, SITUACAO_BENEF10 INT
+, SITUACAO_BENEF11 INT
+, SITUACAO_BENEF12 INT
+, SITUACAO_BENEF13 INT
+, CLIENTELA1 INT
+, CLIENTELA2 INT
+, CLIENTELA3 INT
+, CLIENTELA4 INT
+, CLIENTELA5 INT
+, CLIENTELA6 INT
+, CLIENTELA7 INT
+, CLIENTELA8 INT
+, CLIENTELA9 INT
+, CLIENTELA10 INT
+, CLIENTELA11 INT
+, CLIENTELA12 INT
+, CLIENTELA13 INT
+)
+;</sql>
+    <set_params>N</set_params>
+    <insert_field />
+    <update_field />
+    <delete_field />
+    <read_field />
+    <arguments>
+    </arguments>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>144</xloc>
+      <yloc>272</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>FATO_PENSAO2</name>
+    <type>ExecSQL</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>prevdb</connection>
+    <execute_each_row>Y</execute_each_row>
+    <single_statement>N</single_statement>
+    <replace_variables>N</replace_variables>
+    <quoteString>N</quoteString>
+    <sql>CREATE TABLE fato_pensao2
+(
+  ESPECIE INT
+, DIB TIMESTAMP
+, DDB TIMESTAMP
+, MOT_CESSACAO INT
+, ULT_COMPET_MR INT
+, VL_MR DOUBLE PRECISION
+, DT_NASC TIMESTAMP
+, VL_RMI DOUBLE PRECISION
+, CLIENTELA INT
+, IDADE_DIB INT
+, SEXO INT
+, SITUACAO INT
+, DT_OBITO TIMESTAMP
+, DT_OBITO_INS TIMESTAMP
+, DEP_VINCULO INT
+, TEMPO_CONTRIB_INS INT
+)
+;</sql>
+    <set_params>N</set_params>
+    <insert_field />
+    <update_field />
+    <delete_field />
+    <read_field />
+    <arguments>
+    </arguments>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>256</xloc>
+      <yloc>272</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>FATO_APOSENTADORIA</name>
+    <type>ExecSQL</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>prevdb</connection>
+    <execute_each_row>Y</execute_each_row>
+    <single_statement>N</single_statement>
+    <replace_variables>N</replace_variables>
+    <quoteString>N</quoteString>
+    <sql>CREATE TABLE fato_aposentadoria
+(
+  ESPECIE INT
+, SITUACAO_BENEFICIO INT
+, MOTIVO_CESSACAO_SUSPENCAO INT
+, SEXO INT
+, COMPETENCIA_CALCULO INT
+, DT_DN_D TIMESTAMP
+, DT_DIB_D TIMESTAMP
+, DT_DCB_D TIMESTAMP
+, DT_DDB_D TIMESTAMP
+, IDADE_DIB INT
+, DURACAO_BEN INT
+, RMI_V DOUBLE PRECISION
+, VL_MR_V DOUBLE PRECISION
+, QTE_TEMPO_SERV_ANO_V INT
+, QTE_TEMPO_SERV_MES_V INT
+, QTE_TEMPO_SERV_DIA_V INT
+, QTE_TEMPO_DPE_ANO_V INT
+, QTE_TEMPO_DPE_MES_V INT
+, QTE_TEMPO_DPE_DIA_V INT
+, QTE_TEMPO_DPL_ANO_V INT
+, QTE_TEMPO_DPL_MES_V INT
+, QTE_TEMPO_DPL_DIA_V INT
+, ANO_DIB INT
+, ANO_DCB INT
+, ANO_DN INT
+, ANO_DDB INT
+, CLIENTELA INT
+)
+;</sql>
+    <set_params>N</set_params>
+    <insert_field />
+    <update_field />
+    <delete_field />
+    <read_field />
+    <arguments>
+    </arguments>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>432</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

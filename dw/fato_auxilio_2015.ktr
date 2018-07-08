@@ -575,9 +575,11 @@ xx registros</note>
       <schema_name />
     </partitioning>
     <connection>prevdb</connection>
-    <sql>SELECT * FROM
-FATO_AUXILIO
-WHERE EXTRACT(YEAR FROM DDB) = 2015</sql>
+    <sql>SELECT * FROM FATO_AUXILIO
+--INNER JOIN DIM_DATA ON FATO_AUXILIO.DDB = DIM_DATA.DATE_SK
+WHERE 
+	DDB > 20150000
+	AND DDB &lt; 20160000</sql>
     <limit>0</limit>
     <lookup />
     <execute_each_row>N</execute_each_row>

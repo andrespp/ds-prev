@@ -4,7 +4,7 @@ prevbr dataset
 ## Introduction
 Import CSV dataset to PostgreSQL server.
 
-Dataset obtained [here](https://legis.senado.leg.br/comissoes/docsRecCPI?codcol=2093).
+Dataset obtained [here](https://legis.senado.leg.br/comissoes/docsRecCPI?codcol=2093) (Doc090/Midia018 e Doc097/Midia019).
 
 ## Overview
 

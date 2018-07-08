@@ -509,7 +509,7 @@
       <method>none</method>
       <schema_name />
     </partitioning>
-    <filename>${Internal.Transformation.Filename.Directory}/../dataset/APOSENTADORIA.csv</filename>
+    <filename>${Internal.Transformation.Filename.Directory}/../dataset/APOSENTADORIA.CSV</filename>
     <filename_field />
     <rownum_field />
     <include_filename>N</include_filename>
