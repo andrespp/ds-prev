@@ -1,9 +1,10 @@
 #!/bin/bash
 #
 #
-PDI_KITCHEN="docker container run --name etlprevds --rm -v $PWD:/jobs -v $PWD/kettle.properties:/data-integration/kettle.properties andrespp/pdi runj"
-PDI_PAN="docker container run --name etlprevds --rm -v $PWD:/jobs -v $PWD/kettle.properties:/data-integration/kettle.properties andrespp/pdi runt"
-
+PDI_KITCHEN="docker container run -v $PWD:/jobs -v $PWD/kettle.properties:/data-integration/kettle.properties \
+			--name etlprevds --network prevnet --rm  andrespp/pdi runj"
+PDI_PAN="docker container run -v $PWD:/jobs -v $PWD/kettle.properties:/data-integration/kettle.properties \
+			--name etlprevds --network prevnet --rm  andrespp/pdi runt"
 A=`date`
 
 ############################################
@@ -34,11 +35,15 @@ PDI_TRF="$PDI_TRF ./fato_auxilio_2015.ktr"
 PDI_TRF="$PDI_TRF ./fato_auxilio_raw.ktr"
 
 # Run transformations
+LOG="\n"
 for i in $PDI_TRF ; do
 	echo $PDI_PAN $i
 	$PDI_PAN $i
+
+	LOG="$LOG$i exited with status $? \n"
 done
 
+echo -e $LOG
 echo "Started at: $A"
 echo "Finised at: `date`"
 

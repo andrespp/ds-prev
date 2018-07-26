@@ -15,8 +15,8 @@ Dados públicos, disponibilidados pela CPI da Previdência, disponíveis
 | ------ | ------- | -------| ---------------|
 | DOC090 | APOSENTADORIA.csv | fato_aposentadoria | 46.545.767 |
 | DOC090 | PENSAO.csv | fato_pensao | 5.647.457 |
-| DOC097 | SEN_MICRODADOS01.APO.AUX.csv | 57.955.872 | |
-| DOC097 | SEN_MICRODADOS02_PENS.csv | 7.964.185 | |
+| DOC097 | SEN_MICRODADOS01.APO.AUX.csv | fato_auxilio | 57.955.872 |
+| DOC097 | SEN_MICRODADOS02_PENS.csv | fato_pensao2 | 7.964.185 |
 
 ## Configuração do Ambiente
 
@@ -97,6 +97,12 @@ $ ./load_dataset.sh
 ```
 
 ## Utilizando o Dataset
+
+Acesse o pgAdmin no seu navegador: `http://localhost`. Login: `prevdb_user`, senha `pr3v`
+
+Adicione o servidor da base: `Servers -> Create Server...`. Name: `localhost`, host `prevdb`, port `5432`, username `prevdb_user`, password `pr3v`
+
+Selecione a base de dados `prevdb` e abra a ferramenta de consultas sql: `Tools -> Query Tool`
 
 ## References
 

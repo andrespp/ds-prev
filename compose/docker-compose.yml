@@ -3,13 +3,15 @@
 # 2018-04-13
 #
 
-version: '3.1'
+version: '3.5'
 
 services:
   prevdb:
     container_name: prevdb
     image: postgres:10
     restart: always
+    networks:
+      - frontend
     ports:
       - "5432:5432"
     volumes:
@@ -22,6 +24,8 @@ services:
   pgadmin:
     container_name: pgadmin
     image: dpage/pgadmin4
+    networks:
+      - frontend
     ports:
       - "80:80"
     volumes:
@@ -29,3 +33,7 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: prevdb_user
       PGADMIN_DEFAULT_PASSWORD: pr3v
+
+networks:
+  frontend:
+    name: prevnet
