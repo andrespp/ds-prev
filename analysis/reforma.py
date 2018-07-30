@@ -8,14 +8,14 @@ port='5432'
 dbname='prevdb'
 user='prevdb_user'
 pwd='pr3v'
-table='fato_auxilio_sample'
+dbtable='fato_auxilio_sample'
 
 def db_connection(host, port, dbname, user, pwd):
     """
     Connect to PostgreSQL database
 
     host:       server name or ip address
-    port:       server port 
+    port:       server port
     dbname:     database name
     user:       database user
     pwd:        database user's password
@@ -23,7 +23,8 @@ def db_connection(host, port, dbname, user, pwd):
     Return connection or -1 on error
     """
     try:
-        conn = psycopg2.connect("host='{}' port={} dbname='{}'user={} password={}"
+        conn = \
+            psycopg2.connect("host='{}' port={} dbname='{}'user={} password={}"
                 .format(host, port, dbname, user, pwd))
         return conn
     except:
@@ -32,10 +33,12 @@ def db_connection(host, port, dbname, user, pwd):
 def get_aposentadorias(db_conn, table='fato_auxilio', \
         tipo = ['idade', 'tempo', 'invalidez', 'especial']):
     """
-    Return Pandas Dataframe containing 'aposentadorias' of type 'tipo' 
+        Query database and return Pandas Dataframe containing 'aposentadorias'
+    of type 'tipo'
 
     db_conn:    db connection
-    tipo:       List of types desired: default = ['idade', 'tempo', 'invalidez', 'especial']
+    tipo:       List of types desired: default = ['idade', 'tempo', 'invalidez',
+                                                    'especial']
     """
 
     # Retrieve desired types
@@ -54,14 +57,19 @@ def get_aposentadorias(db_conn, table='fato_auxilio', \
     # Query the database and obtain data as Python objects
     sql = """
     SELECT
-        ESPECIE, DIB, DDB, MOT_CESSACAO, ULT_COMPET_MR, VL_MR, 
-        DT_NASC, VL_RMI, CLIENTELA, SEXO, SITUACAO, DT_OBITO, 
+        ESPECIE, DIB, DDB, MOT_CESSACAO, ULT_COMPET_MR, VL_MR,
+        DT_NASC, VL_RMI, CLIENTELA, SEXO, SITUACAO, DT_OBITO,
         IDADE_DIB, TEMPO_CONTRIB
     FROM FATO_AUXILIO_SAMPLE
     INNER JOIN DIM_ESPECIE ON FATO_AUXILIO_SAMPLE.ESPECIE = DIM_ESPECIE.COD
-    WHERE COD IN (41) ## TODO
+    WHERE COD IN ({dtype_list})
+    """.format(dtype_list = ", ".join(map(str, dtype)))
+    return sqlio.read_sql_query(sql, conn)
+
+def check_age_eligibility():
     """
-    dat = sqlio.read_sql_query(sql, conn)
+        Check if current registry is eligible for age retirement.
+    """
 
 # main
 # Connect to an existing database
@@ -71,9 +79,10 @@ if conn == -1:
     exit(-1)
 
 # Query the database and obtain data as Python objects
-sql = "SELECT * FROM DIM_SEXO;"
-dat = sqlio.read_sql_query(sql, conn)
-print(dat)
+df = get_aposentadorias(conn, dbtable, tipo = ['idade'])
+print(df.head())
+print(df.index)
+print(df.columns)
 
 # Close communication with the database
 conn.close()
