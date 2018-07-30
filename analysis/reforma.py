@@ -66,10 +66,51 @@ def get_aposentadorias(db_conn, table='fato_auxilio', \
     """.format(dtype_list = ", ".join(map(str, dtype)))
     return sqlio.read_sql_query(sql, conn)
 
-def check_age_eligibility():
+def check_age_eligibility(idade, sexo, clientela, tempo_de_contribuicao):
     """
         Check if current registry is eligible for age retirement.
+
+    idade:
+    sexo:
+    clientela:
+    tempo_de_contribuicao:
+
+    Returs True if elegible, and False otherwise
     """
+    if tempo_de_contribuicao < 15:
+        return False
+
+    elif clientela == 1: # Urbana
+        if sexo == 1:       # Masculino
+            if  idade < 65:
+                return False
+            else:
+                return True
+        elif sexo == 3:     # Feminino
+            if  idade < 60:
+                return False
+            else:
+                return True
+        else:                # Ignorado
+            return False # unable to determine eligibility
+
+    elif clientela == 2: # Rural
+        if sexo == 1:       # Masculino
+            if  idade < 60:
+                return False
+            else:
+                return True
+        elif sexo == 3:     # Feminino
+            if  idade < 55:
+                return False
+            else:
+                return True
+        else:               # Ignorado
+            return False # unable to determine eligibility
+
+    elif clientela == 9: # Ignorada
+        return False # unable to determine eligibility
+
 
 # main
 # Connect to an existing database
@@ -83,6 +124,17 @@ df = get_aposentadorias(conn, dbtable, tipo = ['idade'])
 print(df.head())
 print(df.index)
 print(df.columns)
+
+print("Checking age retirement eligibility")
+for i in range(10):
+    idade = df.loc[i]['idade_dib']
+    sexo = df.loc[i]['sexo']
+    clientela = df.loc[i]['clientela']
+    tempo_de_contribuicao = df.loc[i]['tempo_contrib']
+    print(" Idade: {},\tSexo: {},\tClientela: {},\t" \
+        "Tempo de Contrib: {}.\tResultado: {}" \
+        .format(idade, sexo, clientela, tempo_de_contribuicao, \
+        check_age_eligibility(idade,sexo,clientela, tempo_de_contribuicao)))
 
 # Close communication with the database
 conn.close()
