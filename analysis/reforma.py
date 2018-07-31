@@ -1,3 +1,4 @@
+import numpy as np
 import pandas as pd
 import pandas.io.sql as sqlio
 import psycopg2
@@ -29,6 +30,14 @@ def db_connection(host, port, dbname, user, pwd):
         return conn
     except:
             return -1
+
+def get_year_from_date_sk(date_sk):
+    """
+        Return year from integer date in form YYYYMMDD.
+
+    date_sk: Integer date in form YYYYMMDD
+    """
+    return int(date_sk / 10000)
 
 def get_aposentadorias(db_conn, table='fato_auxilio', \
         tipo = ['idade', 'tempo', 'invalidez', 'especial']):
@@ -66,18 +75,74 @@ def get_aposentadorias(db_conn, table='fato_auxilio', \
     """.format(dtype_list = ", ".join(map(str, dtype)))
     return sqlio.read_sql_query(sql, conn)
 
-def check_age_eligibility(idade, sexo, clientela, tempo_de_contribuicao):
+def get_min_contribution_time(dib, tipo='aposentadoria'):
+    """
+        Return minimal contribution time, considering special cases, given the
+    benefit initial date.
+
+    dib:    benefit initial date
+
+    ---------------------------------------------------------------------------
+    Base Legal legal - Casos Epeciais:
+    * Aposentadorias
+        A carência das Aposentadorias (exceto por invalidez) poderá ser menor
+    do que 180 contribuições, conforme está previsto no artigo 142 da Lei
+    nº 8.213/91, mas apenas para o cidadão que se filiou à Previdência Social
+    até 24/07/1991 (trabalhador urbano ou rural, exceto segurado especial) e
+    começou a contagem de tempo para efeito de carência.
+    """
+
+    if tipo != 'aposentadoria': # TODO
+        print('Not implemented')
+        return -1
+
+    contrib_arr = np.array ( \
+        [[2011, 180],
+         [2010, 174],
+         [2009, 168],
+         [2008, 162],
+         [2007, 156],
+         [2006, 150],
+         [2005, 144],
+         [2004, 138],
+         [2003, 132],
+         [2002, 126],
+         [2001, 120],
+         [2000, 114],
+         [1999, 108],
+         [1998, 102],
+         [1997, 96],
+         [1996, 90],
+         [1995, 78],
+         [1994, 72],
+         [1993, 66],
+         [1992, 60],
+         [1991, 60]])
+
+    contribution_df = pd.DataFrame(contrib_arr[:,1], index = contrib_arr[:,0], \
+                                    columns = ['meses'])
+    contribution_df['anos'] = contribution_df['meses'] / 12
+
+    dib_year = get_year_from_date_sk(int(dib))
+
+    if 1991 < dib_year < 2013:
+        return contribution_df.loc[dib_year,'anos']
+    else:
+        return 15
+
+def check_age_eligibility(idade, sexo, clientela, dib, tempo_de_contribuicao):
     """
         Check if current registry is eligible for age retirement.
 
     idade:
     sexo:
     clientela:
+    dib:
     tempo_de_contribuicao:
 
     Returs True if elegible, and False otherwise
     """
-    if tempo_de_contribuicao < 15:
+    if tempo_de_contribuicao < get_min_contribution_time(dib):
         return False
 
     elif clientela == 1: # Urbana
@@ -126,15 +191,21 @@ print(df.index)
 print(df.columns)
 
 print("Checking age retirement eligibility")
-for i in range(10):
+for i in range(1000):
     idade = df.loc[i]['idade_dib']
     sexo = df.loc[i]['sexo']
     clientela = df.loc[i]['clientela']
     tempo_de_contribuicao = df.loc[i]['tempo_contrib']
+    dib = df.loc[i]['dib']
+    ddb = df.loc[i]['ddb']
+    min_contrib =  get_min_contribution_time(dib)
+
     print(" Idade: {},\tSexo: {},\tClientela: {},\t" \
-        "Tempo de Contrib: {}.\tResultado: {}" \
-        .format(idade, sexo, clientela, tempo_de_contribuicao, \
-        check_age_eligibility(idade,sexo,clientela, tempo_de_contribuicao)))
+        "Tempo de Contrib: {}/{},\tdib: {},\tddb: {}.\tResultado: {}" \
+        .format(idade, sexo, clientela, tempo_de_contribuicao, min_contrib, \
+        dib, ddb, \
+        check_age_eligibility(idade, sexo, clientela, ddb, \
+                                 tempo_de_contribuicao)))
 
 # Close communication with the database
 conn.close()
