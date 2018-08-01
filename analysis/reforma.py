@@ -130,9 +130,60 @@ def get_min_contribution_time(dib, tipo='aposentadoria'):
     else:
         return 15
 
-def check_age_eligibility(idade, sexo, clientela, dib, tempo_de_contribuicao):
+def check_apllicable_retirement_rules(idade, sexo, clientela, dib, \
+                                    tempo_de_contribuicao):
     """
-        Check if current registry is eligible for age retirement.
+        Check retirement rules aplicable for a given registry.
+    """
+    #TODO
+
+def check_contrib_time_eligibility(idade, sexo, clientela, dib, \
+                                    tempo_de_contribuicao):
+    """
+        Check if current registry is eligible for contribution time
+    retirement (retirements of types 42 / 46 / 57).
+
+    idade:
+    sexo:
+    clientela:
+    dib:
+    tempo_de_contribuicao:
+
+    Returs True if elegible by any contribution time rule, and False
+    otherwise
+    """
+
+    # Regra 30/35 anos de contribuição
+    if sexo == 3 and tempo_de_contribuicao >= 30: # Feminino
+        return True
+    if sexo == 1 and tempo_de_contribuicao >= 35: # Masculino
+        return True
+
+    # Regra 80/95 progressiva
+    if sexo == 3 \
+      and (idade + tempo_de_contribuicao) >= 85: # Feminino
+        return True
+    if sexo == 1 \
+      and (idade + tempo_de_contribuicao) >= 95: # Masculino
+        return True
+
+    # Regra Proporcional
+    if sexo == 3 \
+      and idade >= 48 \
+      and tempo_de_contribuicao >= 25: # Feminino
+        return True
+    if sexo == 1 \
+      and idade >= 53 \
+      and tempo_de_contribuicao >= 30: # Feminino
+        return True
+
+    return False
+
+def check_age_eligibility(idade, sexo, clientela, dib, \
+                            tempo_de_contribuicao):
+    """
+        Check if current registry is eligible for age retirement (retirement
+    of type 41).
 
     idade:
     sexo:
@@ -190,8 +241,8 @@ print(df.head())
 print(df.index)
 print(df.columns)
 
-print("Checking age retirement eligibility")
-for i in range(1000):
+print("\nChecking age retirement eligibility")
+for i in range(10):
     idade = df.loc[i]['idade_dib']
     sexo = df.loc[i]['sexo']
     clientela = df.loc[i]['clientela']
@@ -205,6 +256,26 @@ for i in range(1000):
         .format(idade, sexo, clientela, tempo_de_contribuicao, min_contrib, \
         dib, ddb, \
         check_age_eligibility(idade, sexo, clientela, ddb, \
+                                 tempo_de_contribuicao)))
+
+# Query the database and obtain data as Python objects
+df = get_aposentadorias(conn, dbtable, tipo = ['tempo'])
+
+print("\nChecking contribution time retirement eligibility")
+for i in range(15):
+    idade = df.loc[i]['idade_dib']
+    sexo = df.loc[i]['sexo']
+    clientela = df.loc[i]['clientela']
+    tempo_de_contribuicao = df.loc[i]['tempo_contrib']
+    dib = df.loc[i]['dib']
+    ddb = df.loc[i]['ddb']
+    min_contrib =  get_min_contribution_time(dib)
+
+    print(" Idade: {},\tSexo: {},\tClientela: {},\t" \
+        "Tempo de Contrib: {}/{},\tdib: {},\tddb: {}.\tResultado: {}" \
+        .format(idade, sexo, clientela, tempo_de_contribuicao, min_contrib, \
+        dib, ddb, \
+        check_contrib_time_eligibility(idade, sexo, clientela, ddb, \
                                  tempo_de_contribuicao)))
 
 # Close communication with the database
