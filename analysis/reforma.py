@@ -154,16 +154,20 @@ def check_contrib_time_eligibility(idade, sexo, clientela, dib, \
     """
 
     # Regra 30/35 anos de contribuição
-    if sexo == 3 and tempo_de_contribuicao >= 30: # Feminino
+    if tempo_de_contribuicao == 999:
+        pass
+    elif sexo == 3 and tempo_de_contribuicao >= 30: # Feminino
         return True
-    if sexo == 1 and tempo_de_contribuicao >= 35: # Masculino
+    elif sexo == 1 and tempo_de_contribuicao >= 35: # Masculino
         return True
 
     # Regra 80/95 progressiva
-    if sexo == 3 \
+    if tempo_de_contribuicao == 999:
+        pass
+    elif sexo == 3 \
       and (idade + tempo_de_contribuicao) >= 85: # Feminino
         return True
-    if sexo == 1 \
+    elif sexo == 1 \
       and (idade + tempo_de_contribuicao) >= 95: # Masculino
         return True
 
@@ -193,6 +197,9 @@ def check_age_eligibility(idade, sexo, clientela, dib, \
 
     Returs True if elegible, and False otherwise
     """
+    if idade == 999:
+        return False
+
     if tempo_de_contribuicao < get_min_contribution_time(dib):
         return False
 
