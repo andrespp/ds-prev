@@ -66,16 +66,19 @@ def get_aposentadorias(db_conn, table='fato_auxilio', \
         dtype.append(92)
 
     # Query the database and obtain data as Python objects
+    fields = 'ESPECIE DIB DDB MOT_CESSACAO ULT_COMPET_MR VL_MR ' \
+        'DT_NASC VL_RMI CLIENTELA SEXO SITUACAO DT_OBITO ' \
+        'IDADE_DIB TEMPO_CONTRIB'.split()
     sql = """
-    SELECT
-        ESPECIE, DIB, DDB, MOT_CESSACAO, ULT_COMPET_MR, VL_MR,
-        DT_NASC, VL_RMI, CLIENTELA, SEXO, SITUACAO, DT_OBITO,
-        IDADE_DIB, TEMPO_CONTRIB
+    SELECT {desired_fields}
     FROM {table_name}
     INNER JOIN DIM_ESPECIE ON {table_name} .ESPECIE = DIM_ESPECIE.COD
     WHERE COD IN ({dtype_list})
-    """.format(table_name = table, dtype_list = ", ".join(map(str, dtype)))
+    """.format(desired_fields = ", ".join(fields), \
+         table_name = table, dtype_list = ", ".join(map(str, dtype)))
+
     return sqlio.read_sql_query(sql, conn)
+#    return pd.DataFrame(list(cur.fetchmany(chunk_size)), columns = fields)
 
 def get_min_contribution_time(dib, tipo='aposentadoria'):
     """
@@ -342,8 +345,9 @@ for i, row in df.iterrows():
                             df.loc[i]['tempo_contrib']):
             retired_287 += 1
 
-print("\n{0:0} people out of {1:0} would have retired by PEC 287/2016 rules" \
-        "({2:0.2f}%)".format(retired_287, i, retired_287/i * 100))
+print("\n{0:0} people out of {1:0} would have retired by PEC " \
+        "287/2016 rules ({2:0.2f}%)" \
+        .format(retired_287, i+1, retired_287/i * 100))
 
 # Close communication with the database
 conn.close()
