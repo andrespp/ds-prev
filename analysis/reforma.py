@@ -9,9 +9,9 @@ port='5432'
 dbname='prevdb'
 user='prevdb_user'
 pwd='pr3v'
-dbtable_sample='fato_auxilio_sample'
 dbtable='fato_auxilio_sample'
 #dbtable='fato_auxilio'
+chunk_size=1000
 
 def db_connection(host, port, dbname, user, pwd):
     """
@@ -40,45 +40,6 @@ def get_year_from_date_sk(date_sk):
     date_sk: Integer date in form YYYYMMDD
     """
     return int(date_sk / 10000)
-
-def get_aposentadorias(db_conn, table='fato_auxilio', \
-        tipo = ['idade', 'tempo', 'invalidez', 'especial']):
-    """
-        Query database and return Pandas Dataframe containing 'aposentadorias'
-    of type 'tipo'
-
-    db_conn:    db connection
-    tipo:       List of types desired: default = ['idade', 'tempo', 'invalidez',
-                                                    'especial']
-    """
-
-    # Retrieve desired types
-    dtype = []
-    if 'idade' in tipo:
-        dtype.append(41)
-    if 'tempo' in tipo:
-        dtype.append(42)
-    if 'invalidez' in tipo:
-        dtype.append(32)
-    if 'especial' in tipo:
-        dtype.append(46)
-        dtype.append(57)
-        dtype.append(92)
-
-    # Query the database and obtain data as Python objects
-    fields = 'ESPECIE DIB DDB MOT_CESSACAO ULT_COMPET_MR VL_MR ' \
-        'DT_NASC VL_RMI CLIENTELA SEXO SITUACAO DT_OBITO ' \
-        'IDADE_DIB TEMPO_CONTRIB'.split()
-    sql = """
-    SELECT {desired_fields}
-    FROM {table_name}
-    INNER JOIN DIM_ESPECIE ON {table_name} .ESPECIE = DIM_ESPECIE.COD
-    WHERE COD IN ({dtype_list})
-    """.format(desired_fields = ", ".join(fields), \
-         table_name = table, dtype_list = ", ".join(map(str, dtype)))
-
-    return sqlio.read_sql_query(sql, conn)
-#    return pd.DataFrame(list(cur.fetchmany(chunk_size)), columns = fields)
 
 def get_min_contribution_time(dib, tipo='aposentadoria'):
     """
@@ -242,8 +203,7 @@ def check_age_eligibility(idade, sexo, clientela, dib, \
 def check_pec_287(idade, sexo, dib, tempo_de_contribuicao):
     """
         Check if current registry is elegible for retirement accordingly to
-    the PEC 287/2016's criterias
-
+    the PEC 287/2016's criterias 
     idade:
     sexo:
     dib:
@@ -265,89 +225,109 @@ def check_pec_287(idade, sexo, dib, tempo_de_contribuicao):
     else:
         return False
 
-# main
+def check_pec_287_df(df):
+    """
+        Check if current registry is elegible for retirement accordingly
+    to the PEC 287/2016's criterias.
 
-## Age Retirements
+    df: Pandas dataframe containing columns IDADE_DIB, TEMPO_CONTRIB,
+        SEXO and DIB
+
+        Returs a Pandas Series of boolean values where true means the
+    registry is elegile for PEC 287 retirement.
+    """
+
+    min_contrib_time = \
+        df['DIB'].apply(lambda x: get_min_contribution_time(x))
+
+    female =  (df['SEXO'] == 3) \
+            & (df['IDADE_DIB'] >= 62) \
+            & (df['IDADE_DIB'] != 999) \
+            & (df['TEMPO_CONTRIB'] >= min_contrib_time) \
+            & (df['TEMPO_CONTRIB'] != 999)
+
+    male =    (df['SEXO'] == 1) \
+            & (df['IDADE_DIB'] >= 65) \
+            & (df['IDADE_DIB'] != 999) \
+            & (df['TEMPO_CONTRIB'] >= min_contrib_time) \
+            & (df['TEMPO_CONTRIB'] != 999)
+
+    return female | male
+
+def perform_analisys(db_conn, table='fato_auxilio', \
+        tipo = ['idade', 'tempo', 'invalidez', 'especial'], \
+        chunk_size=10000):
+    """
+       Perfrom PEC 237/2016 Analisys
+
+    db_conn:    db connection
+    tipo:       List of types desired: default =
+                ['idade', 'tempo', 'invalidez','especial']
+    chunk_size: number of rows to fetch on each iteration
+    """
+
+    # Retrieve desired types
+    dtype = []
+    if 'idade' in tipo:
+        dtype.append(41)
+    if 'tempo' in tipo:
+        dtype.append(42)
+    if 'invalidez' in tipo:
+        dtype.append(32)
+    if 'especial' in tipo:
+        dtype.append(46)
+        dtype.append(57)
+        dtype.append(92)
+
+    # Query the database and obtain data as Python objects
+    fields = 'IDADE_DIB TEMPO_CONTRIB DIB SEXO'.split()
+    sql = """
+    SELECT {desired_fields}
+    FROM {table_name}
+    INNER JOIN DIM_ESPECIE ON {table_name}.ESPECIE = DIM_ESPECIE.COD
+    WHERE COD IN ({dtype_list})
+    """.format(desired_fields = ", ".join(fields), \
+         table_name = table, dtype_list = ", ".join(map(str, dtype)))
+
+    # Perform query and retrieve server side cursor
+    cur = db_conn.cursor('server_side_cursor')
+    cur.itersize = chunk_size
+    cur.execute(sql)
+
+    # Fetch results and compute results
+    counter = 0
+    pec287_elegible = 0
+
+    while True:
+        chunk = cur.fetchmany(chunk_size)
+        counter += len(chunk)
+        print('\r{} registries read.'.format(counter), end="")
+
+        df = pd.DataFrame(chunk, columns = fields)
+
+        pec287_elegible += df[check_pec_287_df(df)].count()['DIB']
+
+        if not chunk:
+            break
+
+    # Print results
+    print("\n{0:0} people out of {1:0} would have retired by PEC " \
+            "287/2016 rules ({2:0.2f}%)" \
+            .format(pec287_elegible, counter, \
+                    pec287_elegible / counter  * 100))
+
+########
+# main()
+
 # Connect to an existing database
 conn = db_connection(host, port, dbname, user, pwd)
 if conn == -1:
     print("Unable to connect to the database")
     exit(-1)
-# Query the database and obtain data as Python objects
-df = get_aposentadorias(conn, dbtable_sample, tipo = ['idade'])
-#print(df.head())
-print(df.columns)
 
-print("\nChecking age retirement eligibility")
-print(df.index)
-for i in range(10):
-    idade = df.loc[i]['idade_dib']
-    sexo = df.loc[i]['sexo']
-    clientela = df.loc[i]['clientela']
-    tempo_de_contribuicao = df.loc[i]['tempo_contrib']
-    dib = df.loc[i]['dib']
-    ddb = df.loc[i]['ddb']
-    min_contrib =  get_min_contribution_time(dib)
-
-    print(" Idade: {},\tSexo: {},\tClientela: {},\t" \
-        "Tempo de Contrib: {}/{},\tdib: {},\tddb: {}.\tResultado: {}" \
-        .format(idade, sexo, clientela, tempo_de_contribuicao, min_contrib, \
-        dib, ddb, \
-        check_age_eligibility(idade, sexo, clientela, ddb, \
-                                 tempo_de_contribuicao)))
-
-## Contribution time Retirements
-# Query the database and obtain data as Python objects
-df = get_aposentadorias(conn, dbtable_sample, tipo = ['tempo'])
-
-print("\nChecking contribution time retirement eligibility")
-print(df.index)
-for i in range(10):
-    idade = df.loc[i]['idade_dib']
-    sexo = df.loc[i]['sexo']
-    clientela = df.loc[i]['clientela']
-    tempo_de_contribuicao = df.loc[i]['tempo_contrib']
-    dib = df.loc[i]['dib']
-    ddb = df.loc[i]['ddb']
-    min_contrib =  get_min_contribution_time(dib)
-
-    print(" Idade: {},\tSexo: {},\tClientela: {},\t" \
-        "Tempo de Contrib: {}/{},\tdib: {},\tddb: {}.\tResultado: {}" \
-        .format(idade, sexo, clientela, tempo_de_contribuicao, min_contrib, \
-        dib, ddb, \
-        check_contrib_time_eligibility(idade, sexo, clientela, ddb, \
-                                 tempo_de_contribuicao)))
-## PEC 287/2016 Retirements
-# Query the database and obtain data as Python objects
-df = get_aposentadorias(conn, dbtable, tipo = ['tempo', 'idade'])
-print("\nChecking PEC 287/2016 retirement eligibility")
-print(df.index)
-for i in range(10):
-    idade = df.loc[i]['idade_dib']
-    sexo = df.loc[i]['sexo']
-    clientela = df.loc[i]['clientela']
-    tempo_de_contribuicao = df.loc[i]['tempo_contrib']
-    dib = df.loc[i]['dib']
-    ddb = df.loc[i]['ddb']
-    min_contrib =  get_min_contribution_time(dib)
-
-    print(" Idade: {},\tSexo: {},\tClientela: {},\t" \
-        "Tempo de Contrib: {}/{},\tdib: {},\tddb: {}.\tResultado: {}" \
-        .format(idade, sexo, clientela, tempo_de_contribuicao, min_contrib, \
-        dib, ddb, \
-        check_pec_287(idade, sexo, dib, tempo_de_contribuicao)))
-
-retired_287 = 0
-for i, row in df.iterrows():
-        if check_pec_287(df.loc[i]['idade_dib'], \
-                            df.loc[i]['sexo'], \
-                            df.loc[i]['dib'], \
-                            df.loc[i]['tempo_contrib']):
-            retired_287 += 1
-
-print("\n{0:0} people out of {1:0} would have retired by PEC " \
-        "287/2016 rules ({2:0.2f}%)" \
-        .format(retired_287, i+1, retired_287/i * 100))
+# Perform Analisys
+perform_analisys(conn, dbtable, tipo = ['tempo', 'idade'], \
+    chunk_size=chunk_size)
 
 # Close communication with the database
 conn.close()
