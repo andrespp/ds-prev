@@ -11,7 +11,7 @@ user='prevdb_user'
 pwd='pr3v'
 dbtable='fato_auxilio_sample'
 #dbtable='fato_auxilio'
-chunk_size=1000
+chunk_size=5000
 
 def db_connection(host, port, dbname, user, pwd):
     """
@@ -203,7 +203,7 @@ def check_age_eligibility(idade, sexo, clientela, dib, \
 def check_pec_287(idade, sexo, dib, tempo_de_contribuicao):
     """
         Check if current registry is elegible for retirement accordingly to
-    the PEC 287/2016's criterias 
+    the PEC 287/2016's criterias
     idade:
     sexo:
     dib:
@@ -280,7 +280,7 @@ def perform_analisys(db_conn, table='fato_auxilio', \
         dtype.append(92)
 
     # Query the database and obtain data as Python objects
-    fields = 'IDADE_DIB TEMPO_CONTRIB DIB SEXO'.split()
+    fields = 'IDADE_DIB TEMPO_CONTRIB DIB SEXO ESPECIE'.split()
     sql = """
     SELECT {desired_fields}
     FROM {table_name}
@@ -296,25 +296,35 @@ def perform_analisys(db_conn, table='fato_auxilio', \
 
     # Fetch results and compute results
     counter = 0
+    age_cnt = 0
+    time_cnt = 0
     pec287_elegible = 0
 
     while True:
         chunk = cur.fetchmany(chunk_size)
+
+        if not chunk:
+            break
+
         counter += len(chunk)
         print('\r{} registries read.'.format(counter), end="")
 
         df = pd.DataFrame(chunk, columns = fields)
+        df_subset = df[check_pec_287_df(df)]
 
-        pec287_elegible += df[check_pec_287_df(df)].count()['DIB']
-
-        if not chunk:
-            break
+        pec287_elegible += df_subset.count()['DIB']
+        age_cnt += df_subset.groupby('ESPECIE').count().loc[41]['DIB']
+        time_cnt += df_subset.groupby('ESPECIE').count().loc[42]['DIB']
 
     # Print results
     print("\n{0:0} people out of {1:0} would have retired by PEC " \
             "287/2016 rules ({2:0.2f}%)" \
             .format(pec287_elegible, counter, \
                     pec287_elegible / counter  * 100))
+    print("{0:0} ({1:0.2f}%) which actually retired by age, and {2:0}" \
+          "by contribution time".format(age_cnt, \
+                                        age_cnt / pec287_elegible * 100, \
+                                        time_cnt))
 
 ########
 # main()
