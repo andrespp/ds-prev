@@ -2,6 +2,10 @@ import numpy as np
 import pandas as pd
 import pandas.io.sql as sqlio
 import psycopg2
+import time
+
+# Track execution time
+start_time = time.time()
 
 # Conection parameters
 host='localhost'
@@ -10,8 +14,9 @@ dbname='prevdb'
 user='prevdb_user'
 pwd='pr3v'
 dbtable='fato_auxilio_sample'
-#dbtable='fato_auxilio'
 chunk_size=5000
+#dbtable='fato_auxilio'
+#chunk_size=100000
 
 def db_connection(host, port, dbname, user, pwd):
     """
@@ -307,7 +312,7 @@ def perform_analisys(db_conn, table='fato_auxilio', \
             break
 
         counter += len(chunk)
-        print('\r{} registries read.'.format(counter), end="")
+        print('\r{} registries read. '.format(counter), end="")
 
         df = pd.DataFrame(chunk, columns = fields)
         df_subset = df[check_pec_287_df(df)]
@@ -316,12 +321,13 @@ def perform_analisys(db_conn, table='fato_auxilio', \
         age_cnt += df_subset.groupby('ESPECIE').count().loc[41]['DIB']
         time_cnt += df_subset.groupby('ESPECIE').count().loc[42]['DIB']
 
-    # Print results
-    print("\n{0:0} people out of {1:0} would have retired by PEC " \
-            "287/2016 rules ({2:0.2f}%)" \
-            .format(pec287_elegible, counter, \
-                    pec287_elegible / counter  * 100))
-    print("{0:0} ({1:0.2f}%) which actually retired by age, and {2:0}" \
+        print("\r{1:0} registries read. {0:0} people out of {1:0} would have" \
+            " retired by PEC\'s rules ({2:0.2f}%)"\
+                .format(pec287_elegible, \
+                        counter, \
+                        pec287_elegible / counter  * 100), end="")
+
+    print("\n{0:0} ({1:0.2f}%) which actually retired by age, and {2:0} " \
           "by contribution time".format(age_cnt, \
                                         age_cnt / pec287_elegible * 100, \
                                         time_cnt))
@@ -341,3 +347,8 @@ perform_analisys(conn, dbtable, tipo = ['tempo', 'idade'], \
 
 # Close communication with the database
 conn.close()
+
+# Print out elapsed time
+elapsed_time = (time.time() - start_time) / 60
+print("\nExecution time: {0:0.4f} minutes.".format(elapsed_time))
+
