@@ -2,7 +2,9 @@ import numpy as np
 import pandas as pd
 import pandas.io.sql as sqlio
 import psycopg2
+import threading
 import time
+from queue import Queue
 
 # Track execution time
 start_time = time.time()
@@ -14,9 +16,19 @@ dbname='prevdb'
 user='prevdb_user'
 pwd='pr3v'
 dbtable='fato_auxilio_sample'
-chunk_size=5000
+chunk_size=1000
 #dbtable='fato_auxilio'
 #chunk_size=100000
+
+# Global variables
+n_threads = 12
+cnt_lock = threading.Lock()
+chunk_queue = Queue()
+counter = 0
+age_cnt = 0
+time_cnt = 0
+pec287_elegible = 0
+
 
 def db_connection(host, port, dbname, user, pwd):
     """
@@ -259,6 +271,38 @@ def check_pec_287_df(df):
 
     return female | male
 
+def threader(fields):
+
+    global pec287_elegible
+    global age_cnt
+    global time_cnt
+
+    while True:
+        # Retrieve chunk
+        df = pd.DataFrame(chunk_queue.get(), columns = fields)
+        df_subset = df[check_pec_287_df(df)]
+
+        # Perform analisys
+        pec287_elegible_incr = df_subset.count()['DIB']
+        tmp_df = df_subset.groupby('ESPECIE').count()
+        age_cnt_incr = 0
+        time_cnt_incr= 0
+
+        if 41 in tmp_df.index:
+            age_cnt_incr = tmp_df.loc[41]['DIB']
+        if 42 in tmp_df.index:
+            time_cnt_incr= tmp_df.loc[42]['DIB']
+
+        with cnt_lock:
+            pec287_elegible += pec287_elegible_incr
+            age_cnt += age_cnt_incr
+            time_cnt += time_cnt_incr
+
+        print("{} calling task_done()"\
+            .format(threading.current_thread().name)) ###
+        chunk_queue.task_done()
+
+
 def perform_analisys(db_conn, table='fato_auxilio', \
         tipo = ['idade', 'tempo', 'invalidez', 'especial'], \
         chunk_size=10000):
@@ -299,38 +343,43 @@ def perform_analisys(db_conn, table='fato_auxilio', \
     cur.itersize = chunk_size
     cur.execute(sql)
 
-    # Fetch results and compute results
-    counter = 0
-    age_cnt = 0
-    time_cnt = 0
-    pec287_elegible = 0
+    global counter
+
+    # Create threads
+    for x in range(n_threads):
+        t = threading.Thread(target=threader, args=(fields,))
+        t.daemon = True
+        t.start()
 
     while True:
+        # Retrieve chunks of data and store on queue
         chunk = cur.fetchmany(chunk_size)
+        chunk_len = len(chunk)
+        if chunk_len > 0:
+            chunk_queue.put(chunk)
+
+        with cnt_lock:
+            counter += chunk_len
 
         if not chunk:
             break
 
-        counter += len(chunk)
-        print('\r{} registries read. '.format(counter), end="")
+    # Wait for the threads
+    print("{} registries read. Waiting thread processing."
+            .format(counter))
+    chunk_queue.join()
 
-        df = pd.DataFrame(chunk, columns = fields)
-        df_subset = df[check_pec_287_df(df)]
-
-        pec287_elegible += df_subset.count()['DIB']
-        age_cnt += df_subset.groupby('ESPECIE').count().loc[41]['DIB']
-        time_cnt += df_subset.groupby('ESPECIE').count().loc[42]['DIB']
-
-        print("\r{1:0} registries read. {0:0} people out of {1:0} would have" \
-            " retired by PEC\'s rules ({2:0.2f}%)"\
-                .format(pec287_elegible, \
-                        counter, \
-                        pec287_elegible / counter  * 100), end="")
+    # Print Results
+    print("\r{1:0} registries read. {0:0} people out of {1:0} would have" \
+        " retired by PEC\'s rules ({2:0.2f}%)"\
+            .format(pec287_elegible, \
+                    counter, \
+                    pec287_elegible / counter  * 100), end="")
 
     print("\n{0:0} ({1:0.2f}%) which actually retired by age, and {2:0} " \
-          "by contribution time".format(age_cnt, \
-                                        age_cnt / pec287_elegible * 100, \
-                                        time_cnt))
+      "by contribution time".format(age_cnt, \
+                                    age_cnt / pec287_elegible * 100, \
+                                    time_cnt))
 
 ########
 # main()
