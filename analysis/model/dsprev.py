@@ -4,6 +4,7 @@ import pandas.io.sql as sqlio
 
 ### TODO
 ### - Obter dados completos
+### - Implementar argumentos da função
 def P(i=0, t=0, s=0, c=0):
     """
        População brasileira anual estimada, por: idade, sexo, clientela
@@ -109,7 +110,6 @@ def Eb(i, s, c, k, conn, dbtable="FATO_AUXILIO_SAMPLE"):
                 lista_sexo=", ".join(map(str, s)), \
                 lista_clientela=", ".join(map(str, c)), \
                 lista_beneficios=", ".join(map(str, k)))
-    #print(sql)
 
     # Query the database and obtain data as Python objects
     dt = sqlio.read_sql_query(sql, conn)
@@ -119,3 +119,57 @@ def Eb(i, s, c, k, conn, dbtable="FATO_AUXILIO_SAMPLE"):
     conn.close()
 
     return estoque
+
+def concessoes(i, t, s, c, k, conn, dbtable="FATO_AUXILIO_SAMPLE"):
+    """
+        Calcula concessões de benefícios previdenciários
+
+    Parâmetros
+    ----------
+        i : list
+            Idade do beneficiário
+        t : list
+            Ano desejado
+        s : list
+            Sexo do beneficiário. Maculino (1), Feminino (3) ou ignorado (9)
+        c : list
+            Clientela. Urbana (1), Rural (2) ou ignorada (9)
+        k : list
+            Tipo do benefício
+        conn : psycopg2.extensions.connection
+            Conexão aberta com o banco de dados (será fechada autimaticamente)
+        dbtable : string
+            Tabela onde deve ser feita a query
+
+    Retorno
+    -------
+        Inteiro com o número de benefícios ativos
+    """
+
+    sql = """
+    SELECT
+        COUNT({table_name}.ESPECIE) AS QTD
+    FROM {table_name}
+    INNER JOIN DIM_DATA ON {table_name}.DDB = DIM_DATA.DATE_SK
+    WHERE
+        DIM_DATA.YEAR_NUMBER IN ({lista_ano})
+        AND {table_name}.IDADE_DIB IN ({lista_idade})
+        AND {table_name}.SEXO IN ({lista_sexo})
+        AND {table_name}.CLIENTELA IN ({lista_clientela})
+        AND {table_name}.ESPECIE IN ({lista_beneficios})
+
+    """.format(table_name=dbtable, \
+                lista_idade=", ".join(map(str, i)), \
+                lista_ano=", ".join(map(str, t)), \
+                lista_sexo=", ".join(map(str, s)), \
+                lista_clientela=", ".join(map(str, c)), \
+                lista_beneficios=", ".join(map(str, k)))
+
+    # Query the database and obtain data as Python objects
+    dt = sqlio.read_sql_query(sql, conn)
+    concessoes = dt['qtd'][0]
+
+    # Close communication with the database
+    conn.close()
+
+    return concessoes
