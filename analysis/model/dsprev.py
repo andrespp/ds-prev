@@ -68,7 +68,7 @@ def P(i=0, t=0, s=0, c=0):
 
 def Eb(i, s, c, k, conn, dbtable="FATO_AUXILIO_SAMPLE"):
     """
-        Calcula estoque de benefícios previdenciários
+        Calcula estoque de benefícios previdenciários no ano de 2016
 
     Parâmetros
     ----------
@@ -122,7 +122,7 @@ def Eb(i, s, c, k, conn, dbtable="FATO_AUXILIO_SAMPLE"):
 
 def concessoes(i, t, s, c, k, conn, dbtable="FATO_AUXILIO_SAMPLE"):
     """
-        Calcula concessões de benefícios previdenciários
+        Concessões de benefícios previdenciários
 
     Parâmetros
     ----------
@@ -143,12 +143,13 @@ def concessoes(i, t, s, c, k, conn, dbtable="FATO_AUXILIO_SAMPLE"):
 
     Retorno
     -------
-        Inteiro com o número de benefícios ativos
+        Dataframe com o total de concessões por ano da lista t
     """
 
     sql = """
     SELECT
-        COUNT({table_name}.ESPECIE) AS QTD
+        DIM_DATA.YEAR_NUMBER AS ANO
+        ,COUNT({table_name}.ESPECIE) AS QTD
     FROM {table_name}
     INNER JOIN DIM_DATA ON {table_name}.DDB = DIM_DATA.DATE_SK
     WHERE
@@ -157,6 +158,8 @@ def concessoes(i, t, s, c, k, conn, dbtable="FATO_AUXILIO_SAMPLE"):
         AND {table_name}.SEXO IN ({lista_sexo})
         AND {table_name}.CLIENTELA IN ({lista_clientela})
         AND {table_name}.ESPECIE IN ({lista_beneficios})
+    GROUP BY ANO
+    ORDER BY ANO ASC
 
     """.format(table_name=dbtable, \
                 lista_idade=", ".join(map(str, i)), \
@@ -167,9 +170,9 @@ def concessoes(i, t, s, c, k, conn, dbtable="FATO_AUXILIO_SAMPLE"):
 
     # Query the database and obtain data as Python objects
     dt = sqlio.read_sql_query(sql, conn)
-    concessoes = dt['qtd'][0]
+    #concessoes = dt['qtd'][0]
 
     # Close communication with the database
     conn.close()
 
-    return concessoes
+    return dt
