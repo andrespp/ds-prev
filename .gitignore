@@ -2,4 +2,5 @@ dataset
 datasrc
 compose/data
 .ipynb_checkpoints/
+analysis/model/__pycache__/
 *#
