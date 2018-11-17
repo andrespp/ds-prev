@@ -104,7 +104,7 @@ def P(i=np.arange(1,16), t=[2013, 2014, 2015], s=[1,3], c=[1,2]):
 
     return pop
 
-def Eb(i, s, c, k, conn, dbtable="FATO_AUXILIO_SAMPLE"):
+def Eb(conn, dbtable, i=np.arange(1,16), s=[1,3], c=[1,2], k=[41, 42]):
     """
         Calcula estoque de benefícios previdenciários no ano de 2016
 
