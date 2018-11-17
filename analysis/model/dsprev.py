@@ -2,6 +2,75 @@ import numpy as np
 import pandas as pd
 import pandas.io.sql as sqlio
 
+# Auxiliary functions
+def get_age_list(group_number):
+    """
+        Retorna lista de idades correspondentes ao grupo.
+
+    Parâmetros
+    ----------
+        group_numer : int
+            Número do grupo que deseja-se a lista de idades
+
+    Retorno
+    -------
+        Lista de inteiros com as idades pertencentes ao grupo
+    """
+    switcher = {
+        0:  [0],
+        1:  [1, 2, 3, 4],
+        2:  [5, 6, 7, 8, 9],
+        3:  [10, 11, 12, 13, 14],
+        4:  [15, 16, 17, 18, 19],
+        5:  [20, 21, 22, 23, 24],
+        6:  [25, 26, 27, 28, 29],
+        7:  [30, 31, 32, 33, 34],
+        8:  [35, 36, 37, 38, 39],
+        9:  [40, 41, 42, 43, 44],
+        10: [45, 46, 47, 48, 49],
+        11: [50, 51, 52, 53, 54],
+        12: [55, 56, 57, 58, 59],
+        13: [60, 61, 62, 63, 64],
+        14: [65, 66, 67, 68, 69],
+        15: list(np.arange(70, 151))
+    }
+    return switcher.get(group_number, [999])
+
+def get_age_description(group_number):
+    """
+        Retorna descrição textual das idades correspondentes ao grupo.
+
+    Parâmetros
+    ----------
+        group_numer : int
+            Número do grupo que deseja-se a lista de idades
+
+    Retorno
+    -------
+        Descrição textual das idades pertencentes ao grupo
+    """
+    switcher = {
+        0:  "Menos de 1 ano",
+        1:  "1 a 4 anos",
+        2:  "5 a 9 anos",
+        3:  "10 a 14 anos",
+        4:  "15 a 19 anos",
+        5:  "20 a 24 anos",
+        6:  "25 a 29 anos",
+        7:  "30 a 34 anos",
+        8:  "35 a 39 anos",
+        9:  "40 a 44 anos",
+        10: "45 a 49 anos",
+        11: "50 a 54 anos",
+        12: "55 a 59 anos",
+        13: "60 a 64 anos",
+        14: "65 a 69 anos",
+        15: "70 anos ou mais"
+    }
+    return switcher.get(group_number, [999])
+
+# Core Functions
+
 ### TODO
 ### - Obter dados completos
 ### - Implementar argumentos da função
@@ -89,6 +158,10 @@ def Eb(i, s, c, k, conn, dbtable="FATO_AUXILIO_SAMPLE"):
     -------
         Inteiro com o número de benefícios ativos
     """
+    age_list = []
+    for group in i:
+        age_list += get_age_list(group)
+
     sql = """
     SELECT
         DIM_SITUACAO.COD
@@ -106,17 +179,18 @@ def Eb(i, s, c, k, conn, dbtable="FATO_AUXILIO_SAMPLE"):
             ,DIM_SITUACAO.COD
     ORDER BY QTD DESC
     """.format(table_name=dbtable, \
-                lista_idade=", ".join(map(str, i)), \
+                lista_idade=", ".join(map(str, age_list)), \
                 lista_sexo=", ".join(map(str, s)), \
                 lista_clientela=", ".join(map(str, c)), \
                 lista_beneficios=", ".join(map(str, k)))
 
     # Query the database and obtain data as Python objects
     dt = sqlio.read_sql_query(sql, conn)
-    estoque = dt['qtd'][0]
 
-    # Close communication with the database
-    conn.close()
+    if len(dt) > 0:
+        estoque = dt['qtd'][0]
+    else:
+        estoque = 0
 
     return estoque
 
