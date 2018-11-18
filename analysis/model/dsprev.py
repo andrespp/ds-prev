@@ -88,7 +88,7 @@ def P(i=np.arange(1,16), t=[2013, 2014, 2015], s=[1,3], c=[1,2]):
 
     Retorno
     -------
-        Pandas Data Frame com os dados solicitados
+        Pandas Dataframe com os dados solicitados
     """
 
     pop = pd.read_csv("model/populacao.csv")
@@ -133,9 +133,7 @@ def Eb(conn, dbtable, i=np.arange(1,16), s=[1,3], c=[1,2], k=[41, 42]):
 
     sql = """
     SELECT
-        DIM_SITUACAO.COD
-        ,DIM_SITUACAO.DESCRICAO
-        ,COUNT(SITUACAO) AS QTD
+        COUNT(SITUACAO) AS QTD
     FROM {table_name}
     INNER JOIN DIM_SITUACAO ON {table_name}.SITUACAO = DIM_SITUACAO.COD
     WHERE   {table_name}.SITUACAO = 0 --Ativo
@@ -143,10 +141,6 @@ def Eb(conn, dbtable, i=np.arange(1,16), s=[1,3], c=[1,2], k=[41, 42]):
             AND {table_name}.SEXO IN ({lista_sexo})
             AND {table_name}.CLIENTELA IN ({lista_clientela})
             AND {table_name}.ESPECIE IN ({lista_beneficios})
-    GROUP BY SITUACAO
-            ,DIM_SITUACAO.DESCRICAO
-            ,DIM_SITUACAO.COD
-    ORDER BY QTD DESC
     """.format(table_name=dbtable, \
                 lista_idade=", ".join(map(str, age_list)), \
                 lista_sexo=", ".join(map(str, s)), \
@@ -163,36 +157,39 @@ def Eb(conn, dbtable, i=np.arange(1,16), s=[1,3], c=[1,2], k=[41, 42]):
 
     return estoque
 
-def concessoes(i, t, s, c, k, conn, dbtable="FATO_AUXILIO_SAMPLE"):
+def concessoes(conn, dbtable, i=np.arange(1,16), t=[2013, 2014, 2015], \
+        s=[1,3], c=[1,2], k=[41, 42]):
     """
         Concessões de benefícios previdenciários
 
     Parâmetros
     ----------
+        conn : psycopg2.extensions.connection
+            Conexão aberta com o banco de dados
+        dbtable : string
+            Tabela onde deve ser feita a query
         i : list
-            Idade do beneficiário
+            Grupo de idade do beneficiário. Inteiro no intervalo [0, 15]
         t : list
-            Ano desejado
+            Ano desejado. Inteiro no intervalo [1995, 2016]
         s : list
             Sexo do beneficiário. Maculino (1), Feminino (3) ou ignorado (9)
         c : list
             Clientela. Urbana (1), Rural (2) ou ignorada (9)
         k : list
             Tipo do benefício
-        conn : psycopg2.extensions.connection
-            Conexão aberta com o banco de dados (será fechada autimaticamente)
-        dbtable : string
-            Tabela onde deve ser feita a query
 
     Retorno
     -------
-        Dataframe com o total de concessões por ano da lista t
+        Inteiro com o número de benefícios concedidos
     """
+    age_list = []
+    for group in i:
+        age_list += get_age_list(group)
 
     sql = """
     SELECT
-        DIM_DATA.YEAR_NUMBER AS ANO
-        ,COUNT({table_name}.ESPECIE) AS QTD
+        COUNT({table_name}.ESPECIE) AS QTD
     FROM {table_name}
     INNER JOIN DIM_DATA ON {table_name}.DDB = DIM_DATA.DATE_SK
     WHERE
@@ -201,11 +198,8 @@ def concessoes(i, t, s, c, k, conn, dbtable="FATO_AUXILIO_SAMPLE"):
         AND {table_name}.SEXO IN ({lista_sexo})
         AND {table_name}.CLIENTELA IN ({lista_clientela})
         AND {table_name}.ESPECIE IN ({lista_beneficios})
-    GROUP BY ANO
-    ORDER BY ANO ASC
-
     """.format(table_name=dbtable, \
-                lista_idade=", ".join(map(str, i)), \
+                lista_idade=", ".join(map(str, age_list)), \
                 lista_ano=", ".join(map(str, t)), \
                 lista_sexo=", ".join(map(str, s)), \
                 lista_clientela=", ".join(map(str, c)), \
@@ -213,9 +207,10 @@ def concessoes(i, t, s, c, k, conn, dbtable="FATO_AUXILIO_SAMPLE"):
 
     # Query the database and obtain data as Python objects
     dt = sqlio.read_sql_query(sql, conn)
-    #concessoes = dt['qtd'][0]
 
-    # Close communication with the database
-    conn.close()
+    if len(dt) > 0:
+        concessoes = dt['qtd'][0]
+    else:
+        concessoes = 0
 
-    return dt
+    return concessoes
