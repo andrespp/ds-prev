@@ -71,7 +71,7 @@ def get_age_description(group_number):
 
 # Core Functions
 
-def P(i=np.arange(1,16), t=[2013, 2014, 2015], s=[1,3], c=[1,2]):
+def P(i=np.arange(0,16), t=[2013, 2014, 2015], s=[1,3], c=[1,2]):
     """
        População brasileira anual estimada, por: idade, sexo, clientela
 
@@ -88,7 +88,7 @@ def P(i=np.arange(1,16), t=[2013, 2014, 2015], s=[1,3], c=[1,2]):
 
     Retorno
     -------
-        Pandas Dataframe com os dados solicitados
+        Inteiro com o número de habitantes que atendem os critérios solicitados
     """
 
     pop = pd.read_csv("model/populacao.csv")
@@ -102,9 +102,10 @@ def P(i=np.arange(1,16), t=[2013, 2014, 2015], s=[1,3], c=[1,2]):
     # clientela
     pop = pop[pop['clientela'].isin(c)]
 
-    return pop
+    qtd = pop[pop['idade'].isin(i)]['populacao'].sum()
+    return qtd
 
-def Eb(conn, dbtable, i=np.arange(1,16), s=[1,3], c=[1,2], k=[41, 42]):
+def Eb(conn, dbtable, i=np.arange(0,16), s=[1,3], c=[1,2], k=[41, 42]):
     """
         Calcula estoque de benefícios previdenciários no ano de 2016
 
