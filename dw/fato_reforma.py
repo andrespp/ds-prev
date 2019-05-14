@@ -8,12 +8,16 @@ import pandas.io.sql as sqlio
 import datetime as dt
 
 # Track execution time
+print("Started at: {}\n".format(dt.datetime.now()))
 start_time = time.time()
 
 ### Parâmetros
-TABLE_NAME = 'fato_reforma'
-#DBTABLE = 'FATO_AUXILIO_SAMPLE'
+LOAD_TABLE_NAME = 'fato_reforma'
 DBTABLE = 'FATO_AUXILIO'
+CHUNK_SIZE = 100000
+#LOAD_TABLE_NAME = 'fato_reforma_sample'
+#DBTABLE = 'FATO_AUXILIO_SAMPLE'
+#CHUNK_SIZE = 1000
 ANO_INICIO = 1995
 ANO_FIM = 2016
 DADOS_FAZENDA = '../dataset/dados_fazenda.xlsx'
@@ -47,32 +51,7 @@ CREATE TABLE fato_reforma
 ###############################################################################
 ### LIBRARY
 
-def ds_query(sql_query):
-    """
-        Query Dataset
-
-    Parâmetros
-    ----------
-        sql : string
-            SQL query to be performed against the dataset
-
-    Retorno
-    -------
-        Pandas Dataframe
-    """
-    # Connect to an existing database
-    try:
-        conn = psycopg2.connect("host='{}' port={} dbname='{}'user={} password={}"
-                .format(HOST, PORT, DBNAME, USER, PASS))
-        df = sqlio.read_sql_query(sql, conn)
-        # Close communication with the database
-        conn.close()
-        return df
-    except:
-        print("Unable to connect to the database")
-        return
-
-def ds_write(table_name, df):
+def ds_write(table_name, df, if_exists='fail'):
         """Write dataframe to table. Dataframe's Index will be used as a
         column named 'table_name'
 
@@ -81,35 +60,40 @@ def ds_write(table_name, df):
         table_name : str
             Table to be written
 
-        df | Pandas DataFrame
+        df : Pandas DataFrame
             Data to be loaded
+
+        if_exists : {'fail', 'replace', 'append'}, default 'fail'
+            How to behave if the table already exists.
+
+            * fail: Raise a ValueError.
+            * replace: Drop the table before inserting new values.
+            * append: Insert new values to the existing table.
 
         Returns
         -------
-            status : boolean
-                True on success, False otherwise
+            status : int
+                Number of registries written
         """
         ## psycopg2
         eng_str = 'postgresql+psycopg2://{}:{}@{}:{}/{}'.format(
             USER, PASS, HOST, PORT, DBNAME)
         engine = create_engine(eng_str)
-        conn = psycopg2.connect("host='{}' port={} dbname='{}'user={} password={}"
+        conn = psycopg2.connect(
+            "host='{}' port={} dbname='{}'user={} password={}"
                 .format(HOST, PORT, DBNAME, USER, PASS))
 
         if conn == -1:
             print("query(): Unable to connect to the database.")
-            return False
+            return 0
         else:
-            #sk = table_name.split('_')[1]+'_sk' # remove 'dim_' prefix
             df.to_sql(name=table_name,
                       con=engine,
                       index=True,
                       #index_label=sk,
-                      if_exists='replace')
+                      if_exists=if_exists)
             conn.close()
-            print('{} registries written to {} table.'.format(
-                             len(df), table_name))
-            return True
+            return len(df)
 
 def get_ano_dib(ano_nasc, ano_inicio_contrib, sexo, clientela):
     """
@@ -204,6 +188,54 @@ def prob_sobrevivencia(ano, idade, sexo, sobrevida):
     else:
         return -1
 
+def transform(df):
+    """
+        FATO_REFORMA
+
+    Parâmetros
+    ----------
+        df: Pandas DataFrame
+            Resultado da query em fato_auxilio
+
+    Retorno
+    -------
+        fato_reforma (DataFrame)
+    """
+    # Cleanup nulls and fix data types
+    df['dt_obito'] = df['dt_obito'].fillna(value=0)
+    df.dropna(subset=['dt_nasc'], inplace=True)
+
+    # Compute new attributes
+    df['ano_dib'] = df['dib'].apply(lambda x: int(x/10000))
+    df['ano_nasc'] = df['dt_nasc'].apply(lambda x: int(x/10000))
+    df['ano_inicio_contrib'] = df.apply(lambda x:
+                int(x['ano_dib'] - x['tempo_contrib']), axis=1)
+
+    # Compute PEC 6/2019 attributes
+    df['pec6_ano_dib'] = df.apply(lambda x:
+                get_ano_dib(x['ano_nasc'],
+                            x['ano_inicio_contrib'],
+                            x['sexo'],
+                            x['clientela']), axis=1)
+    df['pec6_idade_dib'] = df.apply(lambda x:
+                int(x['pec6_ano_dib'] - x['ano_nasc']), axis=1)
+    df['pec6_gap'] = df.apply(lambda x:
+                int(x['pec6_idade_dib'] - x['idade_dib']), axis=1)
+    df['pec6_prob'] = df.apply(lambda x:
+                prob_sobrevivencia(x['ano_dib'],
+                                   x['idade_dib'],
+                                   x['sexo'],
+                                   x['pec6_gap']), axis=1)
+
+    fato_pessoa = df[['ano_nasc','dt_nasc','dt_obito','sexo',
+                      'clientela', 'ano_inicio_contrib', 'ano_dib',
+                      'idade_dib','tempo_contrib', 'especie',
+                      'pec6_ano_dib', 'pec6_idade_dib', 'pec6_gap',
+                      'pec6_prob'
+                     ]]
+
+    return fato_pessoa
+
 ###############################################################################
 ### MAIN
 print('Reading Population dataset...')
@@ -220,8 +252,10 @@ POPM = pd.read_excel(DADOS_FAZENDA,
                      nrows=91,
                      dtype=int)
 
-
 print('Reading RGPS dataset...')
+fields = "especie dib ddb mot_cessacao ult_compet_mr vl_mr dt_nasc \
+          vl_rmi clientela sexo situacao dt_obito idade_dib \
+          tempo_contrib".split()
 sql = """
 SELECT *
 FROM {table_name}
@@ -231,46 +265,52 @@ WHERE DIB > {ano}*10000
     AND SEXO IN (3, 1)       -- MULHERES / HOMENS
 """.format(table_name=DBTABLE,
            ano=ANO_INICIO)
-df = ds_query(sql)
 
-print('Generating "fato_refoma" dataset...')
+# Connect to database
+try:
+    conn = psycopg2.connect(
+        "host='{}' port={} dbname='{}'user={} password={}"
+            .format(HOST, PORT, DBNAME, USER, PASS))
+except:
+    print("Unable to connect to the database")
+    exit(-1)
 
-# Cleanup nulls and fix data types
-df['dt_obito'] = df['dt_obito'].fillna(value=0)
-df.dropna(subset=['dt_nasc'], inplace=True)
+# Perform query and retrieve server side cursor
+cur = conn.cursor('server_side_cursor')
+cur.itersize = CHUNK_SIZE
+cur.execute(sql)
 
-# Compute new attributes
-df['ano_dib'] = df['dib'].apply(lambda x: int(x/10000))
-df['ano_nasc'] = df['dt_nasc'].apply(lambda x: int(x/10000))
-df['ano_inicio_contrib'] = df.apply(lambda x: int(x['ano_dib'] - x['tempo_contrib']), axis=1)
+# Fetch and compute results
+counter = 0
+tf_cnt = 0
+wr_cnt = 0
 
-# Compute PEC 6/2019 attributes
-df['pec6_ano_dib'] = df.apply(lambda x: get_ano_dib(x['ano_nasc'],
-                                                    x['ano_inicio_contrib'],
-                                                    x['sexo'],
-                                                    x['clientela']),
-                              axis=1)
-df['pec6_idade_dib'] = df.apply(lambda x: int(x['pec6_ano_dib'] - x['ano_nasc']), axis=1)
-df['pec6_gap'] = df.apply(lambda x: int(x['pec6_idade_dib'] - x['idade_dib']), axis=1)
-df['pec6_prob'] = df.apply(lambda x: prob_sobrevivencia(x['ano_dib'],
-                                                        x['idade_dib'],
-                                                        x['sexo'],
-                                                        x['pec6_gap']),
-                           axis=1)
+while True:
+    # Extract
+    chunk = cur.fetchmany(CHUNK_SIZE)
 
-#FATO_PESSOA
+    if not chunk:
+        break
 
-fato_pessoa = df[['ano_nasc','dt_nasc','dt_obito','sexo', 'clientela',
-                  'ano_inicio_contrib', 'ano_dib','idade_dib','tempo_contrib',
-                  'especie', 'pec6_ano_dib', 'pec6_idade_dib', 'pec6_gap',
-                  'pec6_prob'
-                 ]]
-#print(fato_pessoa.head())
-#print(fato_pessoa.columns)
+    counter += len(chunk)
+    print('\rExtract: {}. '.format(counter), end="")
 
-print('Writing "fato_refoma" to database...')
-ds_write('fato_reforma', fato_pessoa)
+    df = pd.DataFrame(chunk, columns = fields)
+
+    # Transform
+    fato_pessoa = transform(df)
+    tf_cnt += len(fato_pessoa)
+    print('\r\t\t\tTransform: {}. '.format(tf_cnt), end="")
+
+    # Load
+    wr_cnt += ds_write(LOAD_TABLE_NAME, fato_pessoa, 'append')
+    print('\r\t\t\t\t\t\tLoad: {} ({}).'.format(
+                     wr_cnt, LOAD_TABLE_NAME), end="")
+
+# Close communication with the database
+conn.close()
 
 # Print out elapsed time
 elapsed_time = (time.time() - start_time) / 60
-print("\nExecution time: {0:0.4f} minutes.".format(elapsed_time))
+print("\n\nFinished at: {}. ".format(dt.datetime.now()), end="")
+print("Execution time: {0:0.4f} minutes.".format(elapsed_time))
