@@ -128,9 +128,10 @@ def get_ano_dib(ano_nasc, ano_inicio_contrib, sexo, clientela):
 
     Retorno
     -------
-        Inteiro indicando o ano mínimo em que a pessoa poderá se aposentar (-1 em caso de erro)
+            Inteiro indicando o ano mínimo em que a pessoa poderá se aposentar
+        (-1 em caso de erro)
     """
-    if clientela == 1:
+    if clientela == 2:
         if sexo == 1:
             ano_dib = (ano_nasc+60, ano_inicio_contrib+20)
             return int(max(ano_dib))
@@ -138,12 +139,12 @@ def get_ano_dib(ano_nasc, ano_inicio_contrib, sexo, clientela):
             ano_dib = (ano_nasc+60, ano_inicio_contrib+20)
             return int(max(ano_dib))
 
-    if clientela == 2:
+    if clientela == 1:
         if sexo == 1:
             ano_dib = (ano_nasc+65, ano_inicio_contrib+20)
             return int(max(ano_dib))
         elif sexo == 3:
-            ano_dib = (ano_nasc+60, ano_inicio_contrib+20)
+            ano_dib = (ano_nasc+62, ano_inicio_contrib+20)
             return int(max(ano_dib))
 
     else:
@@ -226,8 +227,8 @@ SELECT *
 FROM {table_name}
 WHERE DIB > {ano}*10000
     AND ESPECIE IN (41, 42)  -- APOSENTADORIA POR IDADE / TEMPO DE SERVIÇO
-    AND CLIENTELA = 1 -- URBANA
-    AND SEXO IN (3, 1)      -- MULHERES / HOMENS
+    AND CLIENTELA IN (1, 2)  -- URBANA / RURAL
+    AND SEXO IN (3, 1)       -- MULHERES / HOMENS
 """.format(table_name=DBTABLE,
            ano=ANO_INICIO)
 df = ds_query(sql)
@@ -235,7 +236,6 @@ df = ds_query(sql)
 print('Generating "fato_refoma" dataset...')
 
 # Cleanup nulls and fix data types
-#df['dt_obito'] = df['dt_obito'].apply(lambda x: int(x) if x==None else 0)
 df['dt_obito'] = df['dt_obito'].fillna(value=0)
 df.dropna(subset=['dt_nasc'], inplace=True)
 
