@@ -12,12 +12,12 @@ print("Started at: {}\n".format(dt.datetime.now()))
 start_time = time.time()
 
 ### Parâmetros
-LOAD_TABLE_NAME = 'fato_reforma'
-DBTABLE = 'FATO_AUXILIO'
-CHUNK_SIZE = 100000
-#LOAD_TABLE_NAME = 'fato_reforma_sample'
-#DBTABLE = 'FATO_AUXILIO_SAMPLE'
-#CHUNK_SIZE = 1000
+#LOAD_TABLE_NAME = 'fato_reforma'
+#DBTABLE = 'FATO_AUXILIO'
+#CHUNK_SIZE = 100000
+LOAD_TABLE_NAME = 'fato_reforma_sample'
+DBTABLE = 'FATO_AUXILIO_SAMPLE'
+CHUNK_SIZE = 1000
 ANO_INICIO = 1995
 ANO_FIM = 2016
 DADOS_FAZENDA = '../dataset/dados_fazenda.xlsx'
@@ -202,7 +202,7 @@ def transform(df):
         fato_reforma (DataFrame)
     """
     # Cleanup nulls and fix data types
-    df['dt_obito'] = df['dt_obito'].fillna(value=0)
+    df['dt_obito'].fillna(value=0, inplace=True, downcast='infer')
     df.dropna(subset=['dt_nasc'], inplace=True)
 
     # Compute new attributes
