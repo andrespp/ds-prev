@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """fato_reforma.py
 """
 import time
@@ -12,18 +13,18 @@ print("Started at: {}\n".format(dt.datetime.now()))
 start_time = time.time()
 
 ### Parâmetros
-#LOAD_TABLE_NAME = 'fato_reforma'
-#DBTABLE = 'FATO_AUXILIO'
-#CHUNK_SIZE = 100000
-LOAD_TABLE_NAME = 'fato_reforma_sample'
-DBTABLE = 'FATO_AUXILIO_SAMPLE'
-CHUNK_SIZE = 1000
+LOAD_TABLE_NAME = 'fato_reforma'
+DBTABLE = 'FATO_AUXILIO'
+CHUNK_SIZE = 100000
+#LOAD_TABLE_NAME = 'fato_reforma_sample'
+#DBTABLE = 'FATO_AUXILIO_SAMPLE'
+#CHUNK_SIZE = 1000
 ANO_INICIO = 1995
 ANO_FIM = 2016
-DADOS_FAZENDA = '../dataset/dados_fazenda.xlsx'
+DADOS_FAZENDA = './dataset/dados_fazenda.xlsx'
 
 # Conection parameters
-HOST='tama'
+HOST='ludwig'
 PORT='5432'
 DBNAME='prevdb'
 USER='prevdb_user'
@@ -95,7 +96,10 @@ def ds_write(table_name, df, if_exists='fail'):
             conn.close()
             return len(df)
 
-def get_ano_dib(ano_nasc, ano_inicio_contrib, sexo, clientela):
+def get_ano_dib(ano_nasc,
+                ano_inicio_contrib,
+                ano_beneficio,
+                sexo, clientela):
     """
         Retorna ano mínimo para aposentadoria segundo PEC 6/2019
 
@@ -105,6 +109,8 @@ def get_ano_dib(ano_nasc, ano_inicio_contrib, sexo, clientela):
             Ano de nascimento do contribuinte
         ano_inicio_contrib : int
             Ano em que o contribuinte iniciou suas contribuições
+        ano_beneficio : int
+            Ano em que o contribuinte efetivamente se aposentou
         sexo : int
             Sexo do contribuinte (1: masculino, 3: feminino)
         clientela : int
@@ -118,21 +124,29 @@ def get_ano_dib(ano_nasc, ano_inicio_contrib, sexo, clientela):
     if clientela == 2:
         if sexo == 1:
             ano_dib = (ano_nasc+60, ano_inicio_contrib+20)
-            return int(max(ano_dib))
+            ano_dib = int(max(ano_dib))
         elif sexo == 3:
             ano_dib = (ano_nasc+60, ano_inicio_contrib+20)
-            return int(max(ano_dib))
+            ano_dib = int(max(ano_dib))
 
-    if clientela == 1:
+    elif clientela == 1:
         if sexo == 1:
             ano_dib = (ano_nasc+65, ano_inicio_contrib+20)
-            return int(max(ano_dib))
+            ano_dib = int(max(ano_dib))
         elif sexo == 3:
             ano_dib = (ano_nasc+62, ano_inicio_contrib+20)
-            return int(max(ano_dib))
+            ano_dib =  int(max(ano_dib))
 
     else:
-        return -1
+        ano_dib = -1
+
+    pec6_gap = ano_dib - ano_beneficio
+
+    if pec6_gap < 0:
+        return ano_beneficio
+    else:
+        return ano_dib
+
 
 def prob_sobrevivencia(ano, idade, sexo, sobrevida):
     """
@@ -204,6 +218,11 @@ def transform(df):
     # Cleanup nulls and fix data types
     df['dt_obito'].fillna(value=0, inplace=True, downcast='infer')
     df.dropna(subset=['dt_nasc'], inplace=True)
+    #df['idade_dib'] = df.apply(lambda x:
+    #                       int(fix_idade_dib(x['idade_dib'],
+    #                                         x['dt_nasc'],
+    #                                         x['dib']))
+    #                      , axis=1)
 
     # Compute new attributes
     df['ano_dib'] = df['dib'].apply(lambda x: int(x/10000))
@@ -215,6 +234,7 @@ def transform(df):
     df['pec6_ano_dib'] = df.apply(lambda x:
                 get_ano_dib(x['ano_nasc'],
                             x['ano_inicio_contrib'],
+                            x['ano_dib'],
                             x['sexo'],
                             x['clientela']), axis=1)
     df['pec6_idade_dib'] = df.apply(lambda x:
@@ -235,6 +255,33 @@ def transform(df):
                      ]]
 
     return fato_pessoa
+
+def fix_idade_dib(idade_dib, nascimento, dib):
+    """
+        Calcula idade na data de inicio do benefício (dib) para os casos em que
+    a mesma for igual a 999 no dataset
+
+    Parâmetros
+    ----------
+        idade_dib: int
+            Campo idade_dib do dataset
+        nascimento : int
+            Data de Nascimento
+        dib : int
+            Data de inicio de benefício
+
+    Retorno
+    -------
+        Idade na data de inicio do benefício
+    """
+    #TODO Tem casos onde idade é igual a -3
+    #SELECT DISTINCT
+    #    (DIB - DT_NASC)/10000 AS IDADE
+    #    FROM FATO_AUXILIO
+    #    ORDER BY IDADE ASC
+    if idade_dib == 999:
+        return int(dib/10000) - int(nascimento/10000)
+    return idade_dib
 
 ###############################################################################
 ### MAIN
@@ -263,6 +310,7 @@ WHERE DIB > {ano}*10000
     AND ESPECIE IN (41, 42)  -- APOSENTADORIA POR IDADE / TEMPO DE SERVIÇO
     AND CLIENTELA IN (1, 2)  -- URBANA / RURAL
     AND SEXO IN (3, 1)       -- MULHERES / HOMENS
+    AND IDADE_DIB <> 999
 """.format(table_name=DBTABLE,
            ano=ANO_INICIO)
 
@@ -303,7 +351,10 @@ while True:
     print('\r\t\t\tTransform: {}. '.format(tf_cnt), end="")
 
     # Load
-    wr_cnt += ds_write(LOAD_TABLE_NAME, fato_pessoa, 'append')
+    if wr_cnt == 0:
+        wr_cnt += ds_write(LOAD_TABLE_NAME, fato_pessoa, 'replace')
+    else:
+        wr_cnt += ds_write(LOAD_TABLE_NAME, fato_pessoa, 'append')
     print('\r\t\t\t\t\t\tLoad: {} ({}).'.format(
                      wr_cnt, LOAD_TABLE_NAME), end="")
 
