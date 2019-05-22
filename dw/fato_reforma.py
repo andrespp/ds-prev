@@ -96,7 +96,8 @@ def ds_write(table_name, df, if_exists='fail'):
             conn.close()
             return len(df)
 
-def get_ano_dib(ano_nasc,
+def get_ano_dib(especie,
+                ano_nasc,
                 ano_inicio_contrib,
                 ano_beneficio,
                 sexo, clientela):
@@ -105,6 +106,8 @@ def get_ano_dib(ano_nasc,
 
     Parâmetros
     ----------
+        especie : int
+            Especie do benefício
         ano_nasc : int
             Ano de nascimento do contribuinte
         ano_inicio_contrib : int
@@ -121,32 +124,41 @@ def get_ano_dib(ano_nasc,
             Inteiro indicando o ano mínimo em que a pessoa poderá se aposentar
         (-1 em caso de erro)
     """
-    if clientela == 2:
-        if sexo == 1:
-            ano_dib = (ano_nasc+60, ano_inicio_contrib+20)
-            ano_dib = int(max(ano_dib))
-        elif sexo == 3:
-            ano_dib = (ano_nasc+60, ano_inicio_contrib+20)
-            ano_dib = int(max(ano_dib))
+    if especie in (41, 42):
+        if clientela == 2:
+            if sexo == 1:
+                ano_dib = (ano_nasc+60, ano_inicio_contrib+20)
+                ano_dib = int(max(ano_dib))
+            elif sexo == 3:
+                ano_dib = (ano_nasc+60, ano_inicio_contrib+20)
+                ano_dib = int(max(ano_dib))
 
-    elif clientela == 1:
-        if sexo == 1:
-            ano_dib = (ano_nasc+65, ano_inicio_contrib+20)
-            ano_dib = int(max(ano_dib))
-        elif sexo == 3:
-            ano_dib = (ano_nasc+62, ano_inicio_contrib+20)
-            ano_dib =  int(max(ano_dib))
+        elif clientela == 1:
+            if sexo == 1:
+                ano_dib = (ano_nasc+65, ano_inicio_contrib+20)
+                ano_dib = int(max(ano_dib))
+            elif sexo == 3:
+                ano_dib = (ano_nasc+62, ano_inicio_contrib+20)
+                ano_dib =  int(max(ano_dib))
 
-    else:
-        ano_dib = -1
+        else:
+            ano_dib = -1
 
-    pec6_gap = ano_dib - ano_beneficio
+        pec6_gap = ano_dib - ano_beneficio
 
-    if pec6_gap < 0:
-        return ano_beneficio
-    else:
-        return ano_dib
+        if pec6_gap < 0:
+            return ano_beneficio
+        else:
+            return ano_dib
 
+    elif especie == 57:
+        ano_dib = (ano_nasc+60, ano_inicio_contrib+30)
+        ano_dib = int(max(ano_dib))
+        pec6_gap = ano_dib - ano_beneficio
+        if pec6_gap < 0:
+            return ano_beneficio
+        else:
+            return ano_dib
 
 def prob_sobrevivencia(ano, idade, sexo, sobrevida):
     """
@@ -232,7 +244,8 @@ def transform(df):
 
     # Compute PEC 6/2019 attributes
     df['pec6_ano_dib'] = df.apply(lambda x:
-                get_ano_dib(x['ano_nasc'],
+                get_ano_dib(x['especie'],
+                            x['ano_nasc'],
                             x['ano_inicio_contrib'],
                             x['ano_dib'],
                             x['sexo'],
@@ -307,7 +320,7 @@ sql = """
 SELECT *
 FROM {table_name}
 WHERE DIB > {ano}*10000
-    AND ESPECIE IN (41, 42)  -- APOSENTADORIA POR IDADE / TEMPO DE SERVIÇO
+    AND ESPECIE IN (41, 42, 57)
     AND CLIENTELA IN (1, 2)  -- URBANA / RURAL
     AND SEXO IN (3, 1)       -- MULHERES / HOMENS
     AND IDADE_DIB <> 999
