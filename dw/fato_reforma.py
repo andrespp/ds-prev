@@ -24,7 +24,7 @@ ANO_FIM = 2016
 DADOS_FAZENDA = './dataset/dados_fazenda.xlsx'
 
 # Conection parameters
-HOST='ludwig'
+HOST='localhost'
 PORT='5432'
 DBNAME='prevdb'
 USER='prevdb_user'
@@ -167,6 +167,9 @@ def get_ano_dib(especie,
         else:
             return ano_dib
 
+    elif especie in (32, 92): # Invalidez (previdenciária, acidentária)
+        return ano_beneficio
+
     else:
         return -1
 
@@ -201,7 +204,6 @@ def prob_sobrevivencia(ano, idade, sexo, sobrevida):
     idade = int(idade)
     sexo = int(sexo)
     sobrevida = int(sobrevida)
-    #print('{}, {}, {}, {}'.format(ano, idade, sexo, sobrevida))
 
     # Aproxima probabilidade caso parametros estejam fora dos limites dos dados
     if ano<2000:
@@ -247,11 +249,6 @@ def transform(df):
     # Cleanup nulls and fix data types
     df['dt_obito'].fillna(value=0, inplace=True, downcast='infer')
     df.dropna(subset=['dt_nasc'], inplace=True)
-    #df['idade_dib'] = df.apply(lambda x:
-    #                       int(fix_idade_dib(x['idade_dib'],
-    #                                         x['dt_nasc'],
-    #                                         x['dib']))
-    #                      , axis=1)
 
     # Compute new attributes
     df['ano_dib'] = df['dib'].apply(lambda x: int(x/10000))
@@ -270,6 +267,10 @@ def transform(df):
                             x['clientela']), axis=1)
     df['pec6_idade_dib'] = df.apply(lambda x:
                 int(x['pec6_ano_dib'] - x['ano_nasc']), axis=1)
+    # Workaround for issue #5 when especie in (32, 92)
+    df['pec6_idade_dib'] = df.apply(lambda x:
+                x['idade_dib'] if x['especie'] in (32, 92)
+                               else x['pec6_idade_dib'], axis=1)
     df['pec6_gap'] = df.apply(lambda x:
                 int(x['pec6_idade_dib'] - x['idade_dib']), axis=1)
     df['pec6_prob'] = df.apply(lambda x:
@@ -286,33 +287,6 @@ def transform(df):
                      ]]
 
     return fato_pessoa
-
-def fix_idade_dib(idade_dib, nascimento, dib):
-    """
-        Calcula idade na data de inicio do benefício (dib) para os casos em que
-    a mesma for igual a 999 no dataset
-
-    Parâmetros
-    ----------
-        idade_dib: int
-            Campo idade_dib do dataset
-        nascimento : int
-            Data de Nascimento
-        dib : int
-            Data de inicio de benefício
-
-    Retorno
-    -------
-        Idade na data de inicio do benefício
-    """
-    #TODO Tem casos onde idade é igual a -3
-    #SELECT DISTINCT
-    #    (DIB - DT_NASC)/10000 AS IDADE
-    #    FROM FATO_AUXILIO
-    #    ORDER BY IDADE ASC
-    if idade_dib == 999:
-        return int(dib/10000) - int(nascimento/10000)
-    return idade_dib
 
 ###############################################################################
 ### MAIN
@@ -338,7 +312,7 @@ sql = """
 SELECT *
 FROM {table_name}
 WHERE DIB > {ano}*10000
-    AND ESPECIE IN (41, 42, 46, 57)
+    AND ESPECIE IN (41, 42, 46, 57, 32, 92)
     AND CLIENTELA IN (1, 2)  -- URBANA / RURAL
     AND SEXO IN (3, 1)       -- MULHERES / HOMENS
     AND IDADE_DIB <> 999
