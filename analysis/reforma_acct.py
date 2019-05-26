@@ -16,6 +16,7 @@ RGPS_TAB = '{}_RGPS_QTD'.format(ANO_FIM)
 QTD_TAB = '{}_PEC_QTD'.format(ANO_FIM)
 GAP_TAB = '{}_PEC_AVG_GAP'.format(ANO_FIM)
 PRB_TAB = '{}_PEC_AVG_PROB'.format(ANO_FIM)
+PPC_TAB = '{}_PEC_AVG_PERCENT'.format(ANO_FIM)
 
 # Conection parameters
 HOST='localhost'
@@ -67,6 +68,7 @@ SELECT
 	,PEC6_GAP
 	,PEC6_ANO_DIB
 	,PEC6_PROB
+    ,PEC6_PERCENT
 FROM {table_name}
 WHERE PEC6_ANO_DIB = {ano}
 """.format(table_name=TB_REFORMA,
@@ -76,14 +78,7 @@ print('Performing query')
 fato_pessoa = ds_query(sql)
 print('fato_pessoa.shape = {}'.format(fato_pessoa.shape))
 df = fato_pessoa[['especie', 'clientela', 'sexo', 'idade_dib',
-                  'pec6_idade_dib', 'pec6_prob', 'pec6_gap']]
-
-###############################################################################
-# QTD RGPS
-df_rgps = df.pivot_table(index='idade_dib',
-                        columns=['especie','clientela','sexo'],
-                        values='pec6_prob', aggfunc='count').round()
-df_rgps.fillna(value=0, inplace=True, downcast='infer')
+                  'pec6_idade_dib', 'pec6_prob', 'pec6_gap', 'pec6_percent']]
 
 ###############################################################################
 # QTD PEC 6/2019
@@ -94,19 +89,57 @@ df_qtd.fillna(value=0, inplace=True, downcast='infer')
 
 ###############################################################################
 # AVG GAP
-df_gap = df.pivot_table(index='pec6_idade_dib',
+df_gap = df.pivot_table(index='idade_dib',
                         columns=['especie','clientela','sexo'],
                     values='pec6_gap', aggfunc='mean')
 df_gap.fillna(value=0, inplace=True, downcast='infer')
 df_gap
 
 ###############################################################################
-# AVG GAP
-df_prb = df.pivot_table(index='pec6_idade_dib',
+# AVG PROB
+df_prb = df.pivot_table(index='idade_dib',
                         columns=['especie','clientela','sexo'],
                     values='pec6_prob', aggfunc='mean')
 df_prb.fillna(value=0, inplace=True, downcast='infer')
 df_prb
+
+###############################################################################
+# AVG PERCENT
+df_ppc = df.pivot_table(index='pec6_idade_dib',
+                        columns=['especie','clientela','sexo'],
+                        values='pec6_percent', aggfunc='mean')
+df_ppc.fillna(value=0, inplace=True, downcast='infer')
+df_ppc
+
+###############################################################################
+# QTD RGPS
+sql = """
+SELECT
+	ESPECIE
+    ,CLIENTELA
+	,SEXO
+	,IDADE_DIB
+	,PEC6_IDADE_DIB
+	--,PEC6_TEMPO_CONTRIB
+	,PEC6_GAP
+	,PEC6_ANO_DIB
+	,PEC6_PROB
+    ,PEC6_PERCENT
+FROM {table_name}
+WHERE ANO_DIB = {ano}
+""".format(table_name=TB_REFORMA,
+           ano=ANO_FIM)
+print('ANO FIM = {}'.format(ANO_FIM))
+print('Performing query')
+fato_pessoa = ds_query(sql)
+print('fato_pessoa.shape = {}'.format(fato_pessoa.shape))
+df = fato_pessoa[['especie', 'clientela', 'sexo', 'idade_dib',
+                  'pec6_idade_dib', 'pec6_prob', 'pec6_gap', 'pec6_percent']]
+
+df_rgps = df.pivot_table(index='idade_dib',
+                        columns=['especie','clientela','sexo'],
+                        values='pec6_prob', aggfunc='count').round()
+df_rgps.fillna(value=0, inplace=True, downcast='infer')
 
 ###############################################################################
 # Write output files
@@ -115,6 +148,7 @@ df_rgps.to_excel(writer, RGPS_TAB)
 df_qtd.to_excel(writer, QTD_TAB)
 df_gap.to_excel(writer, GAP_TAB)
 df_prb.to_excel(writer, PRB_TAB)
+df_ppc.to_excel(writer, PPC_TAB)
 writer.save()
 print('{} written!'.format(OUTPUT_FILE))
 fato_pessoa.to_csv(FATO_PESSOA_FILE)
