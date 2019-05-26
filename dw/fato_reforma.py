@@ -180,6 +180,26 @@ def get_ano_dib(especie,
     else:
         return ano_dib
 
+def get_percentual(tp_contrib):
+    """
+        Retorna o percentual a ser aplicado sobre a média das
+    contibuições dos últimos 20 anos, para fins de cálculo do valor
+    do benefício.
+
+    Parâmetros
+    ----------
+        tp_contrib: int
+            Tempo de contribuição em anos
+
+    Retorno
+    -------
+        Inteiro entre 0 e 1
+    """
+    if tp_contrib <= 20:
+        return 0.6
+    else:
+        return 0.6 + (tp_contrib-20)*0.02
+
 def prob_sobrevivencia(ano, idade, sexo, sobrevida):
     """
         Retorna propabilidade de uma pessoa com idade 'idade' no ano 'ano'
@@ -278,12 +298,14 @@ def transform(df):
                                    x['idade_dib'],
                                    x['sexo'],
                                    x['pec6_gap']), axis=1)
+    df['pec6_percent'] = df.apply(lambda x:
+                get_percentual(x['tempo_contrib'] + x['pec6_gap']), axis=1)
 
     fato_pessoa = df[['ano_nasc','dt_nasc','dt_obito','sexo',
                       'clientela', 'ano_inicio_contrib', 'ano_dib',
                       'idade_dib','tempo_contrib', 'especie',
                       'pec6_ano_dib', 'pec6_idade_dib', 'pec6_gap',
-                      'pec6_prob'
+                      'pec6_prob', 'pec6_percent'
                      ]]
 
     return fato_pessoa
@@ -316,6 +338,8 @@ WHERE DIB > {ano}*10000
     AND CLIENTELA IN (1, 2)  -- URBANA / RURAL
     AND SEXO IN (3, 1)       -- MULHERES / HOMENS
     AND IDADE_DIB <> 999
+    AND TEMPO_CONTRIB <> 999
+    AND IDADE_DIB > TEMPO_CONTRIB
 """.format(table_name=DBTABLE,
            ano=ANO_INICIO)
 
