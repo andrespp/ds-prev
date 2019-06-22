@@ -96,6 +96,181 @@ def ds_write(table_name, df, if_exists='fail'):
             conn.close()
             return len(df)
 
+def get_gap_idade(especie,
+                  ano_nasc,
+                  ano_inicio_contrib,
+                  ano_beneficio,
+                  tempo_contrib,
+                  sexo, clientela):
+    """
+        Retorna gap para aposentadoria pelo critério de idade.
+
+    Parâmetros
+    ----------
+        especie : int
+            Especie do benefício
+        ano_nasc : int
+            Ano de nascimento do contribuinte
+        ano_inicio_contrib : int
+            Ano em que o contribuinte iniciou suas contribuições
+        ano_beneficio : int
+            Ano em que o contribuinte efetivamente se aposentou
+        tempo_contrib : int
+            Tempo de contibuição no momento da aposentadoria
+        sexo : int
+            Sexo do contribuinte (1: masculino, 3: feminino)
+        clientela : int
+            Clientela do contribuinte (1: rural, 2: urbana)
+
+    Retorno
+    -------
+            Inteiro indicando o ano mínimo em que a pessoa poderá se aposentar
+        (-1 em caso de erro)
+    """
+    if especie in (41, 42): # Idade / Tempo de Contribuição
+        if clientela == 2:
+            if sexo == 1:
+                ano_dib = ano_nasc+60
+            elif sexo == 3:
+                ano_dib = ano_nasc+60
+
+        elif clientela == 1:
+            if sexo == 1:
+                ano_dib = ano_nasc+65
+            elif sexo == 3:
+                ano_dib = ano_nasc+62
+
+        else:
+            ano_dib = -1
+
+    elif especie == 46: # Tempo de Contribuição especial
+        if tempo_contrib < 20: # Grupo 55/15
+                ano_dib = ano_nasc+55
+        if tempo_contrib >= 20 and tempo_contrib < 25: # Grupo 58/20
+                ano_dib = ano_nasc+58
+        if tempo_contrib >= 25: # Grupo 60/25
+                ano_dib = ano_nasc+60
+        else: # TODO Não deveria acontecer. considerando pior caso
+            ano_dib = ano_nasc+60
+
+    elif especie == 57: # Professor
+        ano_dib = ano_nasc+60
+
+    elif especie in (32, 92): # Invalidez (previdenciária, acidentária)
+        return 0
+
+    else:
+        ano_dib = -1
+
+    if ano_dib == -1:
+        return -1
+    else:
+        idade_gap = ano_dib - ano_beneficio
+
+        if idade_gap < 0:
+            return 0
+        else:
+            return idade_gap
+
+def get_gap_contrib(especie,
+                    ano_nasc,
+                    ano_inicio_contrib,
+                    ano_beneficio,
+                    tempo_contrib,
+                    sexo, clientela):
+    """
+        Retorna gap para aposentadoria pelo critério de tempo de contribuição.
+
+    Parâmetros
+    ----------
+        especie : int
+            Especie do benefício
+        ano_nasc : int
+            Ano de nascimento do contribuinte
+        ano_inicio_contrib : int
+            Ano em que o contribuinte iniciou suas contribuições
+        ano_beneficio : int
+            Ano em que o contribuinte efetivamente se aposentou
+        tempo_contrib : int
+            Tempo de contibuição no momento da aposentadoria
+        sexo : int
+            Sexo do contribuinte (1: masculino, 3: feminino)
+        clientela : int
+            Clientela do contribuinte (1: rural, 2: urbana)
+
+    Retorno
+    -------
+            Inteiro indicando o ano mínimo em que a pessoa poderá se aposentar
+        (-1 em caso de erro)
+    """
+    if especie in (41, 42): # Idade / Tempo de Contribuição
+        ano_dib = ano_inicio_contrib+20
+
+    elif especie == 46: # Tempo de Contribuição especial
+        ano_dib = ano_inicio_contrib+20 #TODO ver grupos
+
+    elif especie == 57: # Professor
+        ano_dib = ano_inicio_contrib+30
+
+    elif especie in (32, 92): # Invalidez (previdenciária, acidentária)
+        return 0
+
+    else:
+        return -1
+
+    pec6_gap = ano_dib - ano_beneficio
+
+    if pec6_gap < 0:
+        return 0
+    else:
+        return pec6_gap
+
+def get_gap(especie, tp_contrib, idade_dib, gap_idade, gap_contrib):
+    """
+        Calcula tempo de contribuição a mais para aposentadoria nos
+    considerando estimativa de períodos de desemprego e/ou trabalho informal.
+        Ex.: Se uma pessoa se aposentou com 65 e contribuiu 18, teria GAP de 2,
+    contudo, nesse GAP não é considerado os casos em que a pessoa não consegue
+    trabalhar sem parar. A consideração de períodos de desemprego/informalidade
+    é feita como segue:
+         -> Fator = Tc/(Idade_Aposentadoria - 18).
+             -> Ex.: Comecou a trabalhar com 18 anos, e se aposentou com 68:
+                Fator = 15/(68-18) = 0.3
+         -> GAP'= GAP / Fator.
+                GAP' = 2/0.3 Ex.: 2/0.3
+
+        Obs.: esse fator deve ser utilizado somente no GAP de tempo de
+    contribuição, nos casos de GAP de idade não deve ser considerado (pessoa
+    contribuiu mais que o mínimo necessário quanto atingiu a idade para se
+    aposentar).
+
+    Parâmetros
+    ----------
+        tp_contrib: int
+            Tempo de contribuição em anos
+
+        idade_dib: int
+            Idade de aposentadoria do beneficiário em anos
+
+        gap: int
+            GAP simples pela PEC, em anos
+
+    Retorno
+    -------
+        Inteiro positivo
+    """
+    # gap igual a zero
+    if especie in (32, 92):
+        return 0
+
+    # não tem tempo de contribuição
+    if gap_contrib > 0:
+        fator = tp_contrib / (idade_dib - 18)
+        gap_contrib = int(gap_contrib/fator)
+        return max(gap_idade, gap_contrib)
+    else:
+        return gap_idade  ###########
+
 def get_ano_dib(especie,
                 ano_nasc,
                 ano_inicio_contrib,
@@ -229,9 +404,11 @@ def prob_sobrevivencia(ano, idade, sexo, sobrevida):
     if ano<2000:
         ano=2000
     if idade>89:
-        idade = 89
+        idade = 89 ## TODO fix
     if sobrevida < 0:
         return 1
+    if idade+sobrevida>110:
+        return 0
 
     anoProjetado = ano + sobrevida
     idadeProjetada = idade + sobrevida
@@ -277,22 +454,36 @@ def transform(df):
                 int(x['ano_dib'] - x['tempo_contrib']), axis=1)
 
     # Compute PEC 6/2019 attributes
-    df['pec6_ano_dib'] = df.apply(lambda x:
-                get_ano_dib(x['especie'],
+    df['pec6_gap_idade'] = df.apply(lambda x:
+                get_gap_idade(x['especie'],
                             x['ano_nasc'],
                             x['ano_inicio_contrib'],
                             x['ano_dib'],
                             x['tempo_contrib'],
                             x['sexo'],
                             x['clientela']), axis=1)
+    df['pec6_gap_contrib'] = df.apply(lambda x:
+                get_gap_contrib(x['especie'],
+                                x['ano_nasc'],
+                                x['ano_inicio_contrib'],
+                                x['ano_dib'],
+                                x['tempo_contrib'],
+                                x['sexo'],
+                                x['clientela']), axis=1)
+    df['pec6_gap'] = df.apply(lambda x:
+                                 get_gap(x['especie'],
+                                         x['tempo_contrib'],
+                                         x['idade_dib'],
+                                         x['pec6_gap_idade'],
+                                         x['pec6_gap_contrib']), axis=1)
+    df['pec6_ano_dib'] = df.apply(lambda x:
+                                  x['ano_dib'] + x['pec6_gap'], axis=1)
     df['pec6_idade_dib'] = df.apply(lambda x:
                 int(x['pec6_ano_dib'] - x['ano_nasc']), axis=1)
     # Workaround for issue #5 when especie in (32, 92)
     df['pec6_idade_dib'] = df.apply(lambda x:
                 x['idade_dib'] if x['especie'] in (32, 92)
                                else x['pec6_idade_dib'], axis=1)
-    df['pec6_gap'] = df.apply(lambda x:
-                int(x['pec6_idade_dib'] - x['idade_dib']), axis=1)
     df['pec6_prob'] = df.apply(lambda x:
                 prob_sobrevivencia(x['ano_dib'],
                                    x['idade_dib'],
@@ -304,8 +495,9 @@ def transform(df):
     fato_pessoa = df[['ano_nasc','dt_nasc','dt_obito','sexo',
                       'clientela', 'ano_inicio_contrib', 'ano_dib',
                       'idade_dib','tempo_contrib', 'especie',
-                      'pec6_ano_dib', 'pec6_idade_dib', 'pec6_gap',
-                      'pec6_prob', 'pec6_percent'
+                      'pec6_ano_dib', 'pec6_idade_dib', 'pec6_prob',
+                      'pec6_percent', 'pec6_gap_idade', 'pec6_gap_contrib',
+                      'pec6_gap',
                      ]]
 
     return fato_pessoa
@@ -339,6 +531,7 @@ WHERE DIB > {ano}*10000
     AND SEXO IN (3, 1)       -- MULHERES / HOMENS
     AND IDADE_DIB <> 999
     AND TEMPO_CONTRIB <> 999
+    AND TEMPO_CONTRIB > 0
     AND IDADE_DIB > TEMPO_CONTRIB
 """.format(table_name=DBTABLE,
            ano=ANO_INICIO)
