@@ -128,16 +128,16 @@ def get_gap_idade(especie,
         (-1 em caso de erro)
     """
     if especie in (41, 42): # Idade / Tempo de Contribuição
-        if clientela == 2:
-            if sexo == 1:
+        if clientela == 2: # Urbana
+            if sexo == 1: # Homens
                 ano_dib = ano_nasc+60
-            elif sexo == 3:
+            elif sexo == 3: # Mulheres
                 ano_dib = ano_nasc+60
 
-        elif clientela == 1:
-            if sexo == 1:
+        elif clientela == 1: # Rural
+            if sexo == 1: # Homens
                 ano_dib = ano_nasc+65
-            elif sexo == 3:
+            elif sexo == 3: # Mulheres
                 ano_dib = ano_nasc+62
 
         else:
@@ -154,7 +154,10 @@ def get_gap_idade(especie,
             ano_dib = ano_nasc+60
 
     elif especie == 57: # Professor
-        ano_dib = ano_nasc+60
+        if sexo == 1: # Homens
+            ano_dib = ano_nasc+60
+        elif sexo == 3: # Mulheres
+            ano_dib = ano_nasc+57
 
     elif especie in (32, 92): # Invalidez (previdenciária, acidentária)
         return 0
@@ -204,13 +207,19 @@ def get_gap_contrib(especie,
         (-1 em caso de erro)
     """
     if especie in (41, 42): # Idade / Tempo de Contribuição
-        ano_dib = ano_inicio_contrib+20
+        if sexo == 1: # Homens
+            ano_dib = ano_inicio_contrib+20
+        elif sexo == 3: # Mulheres
+            ano_dib = ano_inicio_contrib+15
 
     elif especie == 46: # Tempo de Contribuição especial
         ano_dib = ano_inicio_contrib+20 #TODO ver grupos
 
     elif especie == 57: # Professor
-        ano_dib = ano_inicio_contrib+30
+        if sexo == 1: # Homens
+            ano_dib = ano_inicio_contrib+30
+        elif sexo == 3: # Mulheres
+            ano_dib = ano_inicio_contrib+25
 
     elif especie in (32, 92): # Invalidez (previdenciária, acidentária)
         return 0
@@ -355,7 +364,7 @@ def get_ano_dib(especie,
     else:
         return ano_dib
 
-def get_percentual(tp_contrib):
+def get_percentual(tp_contrib, sexo):
     """
         Retorna o percentual a ser aplicado sobre a média das
     contibuições dos últimos 20 anos, para fins de cálculo do valor
@@ -366,14 +375,22 @@ def get_percentual(tp_contrib):
         tp_contrib: int
             Tempo de contribuição em anos
 
+        sexo : int
+            Sexo do contribuinte (1: masculino, 3: feminino)
+
     Retorno
     -------
         Inteiro entre 0 e 1
     """
-    if tp_contrib <= 20:
+    if sexo == 3: # Mulheres
+        tp_min = 15
+    else:
+        tp_min = 20
+
+    if tp_contrib <= tp_min:
         return 0.6
     else:
-        return 0.6 + (tp_contrib-20)*0.02
+        return 0.6 + (tp_contrib-tp_min)*0.02
 
 def prob_sobrevivencia(ano, idade, sexo, sobrevida):
     """
@@ -490,7 +507,9 @@ def transform(df):
                                    x['sexo'],
                                    x['pec6_gap']), axis=1)
     df['pec6_percent'] = df.apply(lambda x:
-                get_percentual(x['tempo_contrib'] + x['pec6_gap']), axis=1)
+                get_percentual(
+                    x['tempo_contrib'] + x['pec6_gap_contrib'],
+                    x['sexo']), axis=1)
 
     fato_pessoa = df[['ano_nasc','dt_nasc','dt_obito','sexo',
                       'clientela', 'ano_inicio_contrib', 'ano_dib',
