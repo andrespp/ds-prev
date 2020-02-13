@@ -1,5 +1,8 @@
 outputs/
-dataset
+dataset/POSENTADORIA.CSV
+dataset/ENSAO.CSV
+dataset/EN_MICRODADOS01.APO.AUX.csv
+dataset/EN_MICRODADOS02_PENS.csv
 datasrc
 sandbox
 compose/data
